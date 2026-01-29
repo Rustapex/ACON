@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        section{
+            border: dashed 10px hotpink;
+            overflow: hidden;
+            width: 1000px;
+        }
+        ul{
+            display: flex;
+            width: 4000px;
+            height: 350px;
+            animation: slideAni 8s infinite ease-in-out;
+        }
+        li{
+            width: 1000px;
+            height: 350px;
+            overflow: hidden;
+        }
+        li:nth-child(1){
+            background: url("/images/img_4.jpg");
+            background-size: cover;
+        }
+        li:nth-child(2){
+            background: url("/images/img_3.jpg");
+            background-size: cover;
+        }
+        li:nth-child(3){
+            background: url("/images/img_2.jpg");
+            background-size: cover;
+        }
+        li:nth-child(4){
+            background: url("/images/img_1.jpg");
+            background-size: cover;
+        }
+        @keyframes slideAni {
+            0% { transform: translate(0); }
+            25% { transform: translateX(-1000px);}
+            50% { transform: translate(-2000px);}
+            75% { transform: translate(-3000px);}
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+</body>
+</html>

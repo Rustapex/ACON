@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <style>
+        section{
+            background-image: url(./ice.jpg);
+            background-repeat: repeat-x;
+            background-position: 100% 50%;
+            background-size: cover;
+            
+            background-repeat: no-repeat;
+
+            border: 1px solid black;
+            width: 400px;
+            height: 400px;
+        }
+        /*
+            아랫줄 코드 우선순위 높음
+
+            background-repeat: no-repeat; 반복안함 
+                repeat-x; : 가로로 이미지 반복
+                repeat-y; : 세로로 이미지 반복
+
+            background-size: contain; 비율 유지 요소크기에 맞춤 
+            background-size: cover; 비율 유지 x 요소크기에 꽉참
+
+            background-position: center; 가운데정렬
+                top , bottom , left , right : 위치조정
+                (20px 60px) -> x가20 y->60 숫자로도 위치조정 가능
+                %단위도 가능 (100% 오른쪽 끝, 50% 세로가운데)
+         */
+
+    </style>
+</head>
+
+<!-- section semantic tag : meaning O / div tag : meaning X 
+  head body foot 에서 모자를때 div사용-->
+<body>
+    <section></section>    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록 요소로 바꾸기</title>
+    <style>
+        /* span 인라인 요소를 블록 요소로 변경 */
+        span{display: block;}
+        p{ display: inline;}
+        /* p블록 요소를 인라인 요소로 변경 */
+
+        .inline-block{ 
+            display: inline-block;
+            border: 3px dashed green;
+            /* solid(2차원 도형) dashed(점선) dotted(점) */
+            padding: 10px;
+        }
+        .inline-block2{
+            display: inline-block;
+            border: 5px dotted blue;
+            padding : 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>인라인 요소의 출력 형태</h1>
+    <span>1 반응형 웹디자인 HTML5, CSS3</span>
+    <span>2 JavaScript & JQuery</span>    
+    <span>3 반응형 웹포트폴리오</span>    
+    <span>4 반응형 웹 & 앱</span>    
+    <span>5 node.js</span>    
+    <span>6 react.js</span>    
+    <span>7 vue.js</span>    
+    <span>8 Github</span>    
+
+    <!-- Ctrl + Shift + L 문자열 일괄 변경 -->
+
+    <h1>블록 요소의 출력 형태</h1>
+    <p>1 반응형 웹디자인 HTML5, CSS3</p> 
+    <p>2 JavaScript & JQuery</p>    
+    <p>3 반응형 웹포트폴리오</p>    
+    <p>4 반응형 웹 & 앱</p>    
+    <p>5 node.js</p>    
+    <p>6 react.js</p>    
+    <p>7 vue.js</p>    
+    <p>8 Github</p>    
+
+    <h1>인라인 요소의 출력 형태</h1>
+    <p class="inline-block">1 반응형 웹디자인 HTML5, CSS3</p>
+    <p>2 JavaScript & JQuery</p>    
+    <p class="inline-block">3 반응형 웹포트폴리오</p>    
+    <p>4 반응형 웹 & 앱</p>    
+    <p class="inline-block">5 node.js</p>    
+    <p>6 react.js</p>    
+    <p class="inline-block2">7 vue.js</p>    
+    <p>8 Github</p>    
+
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexBox</title>
+    <style>
+        section{
+            display: flex;                  /* ✨부모 요소에서 입력한다.*/
+            /* ✨주축 블록 요소를 이라인 요소로 변경 */
+
+            /* ✨justify-content: 
+            flex-start(기본) , flex-end 전체가 오른쪽 창 끝으로 - flex-start랑 flex-end랑 좌우 대칭
+            center; 적당한 공백이 있으면서 정렬 - 중앙 정렬 생각, 각 요소들 중앙에 모여
+            space-around; 적당한 공백 있으면서 정렬, 여백 생각 x
+            space-between; 적당한 공백이 있으면서 정렬, 여백 포함 정렬
+            space-evenly 적당한 간격으로, between보다 요소끼리 더 가까움 */
+
+            /* ✨교차축 : 세로로 방향 전환 */
+            flex-direction: column;     /*주축이 됨 방향을 coulmn을 바꿈*/
+
+            /* ✨align-items: 교차축(수직)에서 모든 사용 가능한 공간을 사용하지 않을 때 플렉스 항목을 정렬하는 데 사용 
+            // 조건 : display flex; height:200px;
+            normal(default)
+            center      - 부모 요소의 상하(중앙) 좌우(좌)정렬
+            flex-start  - 부모 요소의 상하(상) 좌우(좌)
+            flex-end    - 부모 요소의 상하(하) 좌우(좌)
+            strethch    - 부모 요소의 상하(부모와 height 같게) 좌우(좌정렬)            
+            baseline    - 기준선 따라서  텍스트 정렬 */
+
+            height: 100vh;  /* 전체화면(스크롤 포함) 비율 높이 (가로wh)*/
+            border: 3px solid forestgreen;
+
+            /* ✨flex-direction: 
+             // 조건 : display : flex
+            row (default)   - 좌우 방향으로(좌상단 정렬)
+            column          - 상하 방향으로(좌상단 정렬)
+            row-reverse;    - 좌우 방향으로 거꾸로 정렬(우상단 정렬)
+            column-reverse  - 상하 방향으로 거꾸로 정렬(좌상단 정렬*/
+
+            /* ✨추가부분 display: flex, flex-directioin: column 조건
+            flex-direction: row-reverse; /위 아래로 바뀜
+            flex-direction: column-reverse; 
+
+            flex-wrap: wrap-reverse; 가로폭에 맞추어 내용 거꾸로 보여줌, 내용 배분 균등
+            */
+
+            /* ✨flex-wrap: 플렉스 항목이 하나의 플렉스 라인에 충분한 공간이 없을 경우 랩을 해야 하는지 여부를 지정
+             //조건 display : flex;
+            nowrap(default) - 공간 없으면 안보임(좌->우 상->하정렬)
+            wrap            - 공간 없으면 끝 요소가 밑으로 내려감(좌->우 상->하정렬)
+            wrap-reverse    - 공간 없으면 끝 요소가 위로 올라감(좌->우 하->상정렬)
+            자주 쓰임 wrap, wrap-reverse
+            */
+            /* 🔸flex-flow: flex-direction + flex-wrap을 한 번에 설정하는 축약(shorthand) 속성
+            //조건 display :flex;
+            row wrap    - 가로방향 배치 / 줄바꿈 허용
+             */
+             /* 🧡flex-flow : row wrap;/ flex-wrap: wrap; 기능적 차이 X , 작성방식 차이 */
+        }
+        div{ 
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+        }
+        .box1{background-color: blue;}
+        .box2{background-color: skyblue;}
+        .box3{background-color: coral;}
+        .box4{background-color: palegreen;}
+        .box5{background-color: purple;}
+
+    </style>
+</head>
+<body>
+    <!-- flex_box, grid는 부모가 있어야함
+     현재는 section이 부모 -->
+    <section>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+        <div class="box4">box4</div>
+        <div class="box5">box5</div>
+    </section>
+
+    
+</body>
+</html>

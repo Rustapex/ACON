@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>툴팁 효과</title>
+    <style>
+        .tooltip{
+            width: 200px;
+            text-align: center;
+        }
+        .tooltip-content{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin: 0;
+            background-color:rgba(79, 194, 232, 0.801);
+            opacity: 0; /*단순히 눈에만 안 보이고 존재한다.*/
+            visibility: hidden; /*보이지 않을 때 클릭x, 접근성 지킨다.*/
+            transition : opacity 0.5s ease, visibility 0.5s;
+        }
+        .tooltip:hover .tooltip-content{
+            opacity: 1;
+            visibility: visible;
+        }
+        .tooltip-content {
+            text-decoration: none;
+            background-color: yellowgreen;
+            color: #ffffffbd;
+            display: block;
+            padding: 10px;
+        }
+
+    </style>
+  </head>
+  
+  <body>
+    <h1>visibility: hidden; 툴팁 효과</h1>
+    <p>
+      visibility 속성은 화면에서 감추기만 할 뿐<br />
+      원래 요소가 있는 공간은 그대로 차지하지만,<br />
+      diaplay: none; 은 아예 공간조차 차지하지 않스니다.
+      (display:block;)
+    </p>
+
+    <div class="tooltip">
+        <span>여기에 마우스를 올려보세요.</span>
+        <span class="tooltip-content">
+            <p>마우스를 올려야 나타나느 툴팁 부분</p>
+        </span>
+
+        </ul>
+    </div> 
+    </div>
+  </body>
+</html>

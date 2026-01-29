@@ -1,0 +1,42 @@
+body {
+  color: black;
+  padding: 30px;
+  line-height: 1.6;
+  /* border: 1px solid lightgray; */
+}
+form {
+  border: 1px solid lightgray;
+  width: 450px;
+  padding: 25px;
+}
+h3 {
+  font-size: 20px;
+}
+legend {
+  color: rgb(103, 111, 144);
+  font-weight: bold;
+}
+label {
+  display: inline-block;
+}
+/* border: 1px solid red; */
+input,
+select,
+textarea {
+  border: 1px solid red;
+  font-size: 14px;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 4px;
+}
+input[type="submit"] {
+  background: rgb(103, 111, 144);
+  color: #fff;
+  padding: 8px 18px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spotifyPlaylist</title>
+    <link rel="stylesheet" href="spotyfy_style.css" />
+    <!--폰트어썸 CDN : -->
+    <script
+      src="https://kit.fontawesome.com/4ec79785b5.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <!-- 왼쪽 헤더(로고) -->
+      <div class="header-left">
+        <i class="fa-brands fa-spotify"></i>
+      </div>
+
+      <!-- 가운데(검색& 홈)  -->
+
+      <div class="header-center">
+        <div class="background-color"></div>
+        <a href="https://open.spotify.com/" target="_blank">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <div class="search-box">
+          <label for="song">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+          <input
+            type="text"
+            id="song"
+            placeholder="어떤 콘텐츠를 감상하고 싶으세요?"
+          />
+        </div>
+      </div>
+
+      <div class="header-right">
+        <a href="#">
+          <i class="fa-regular fa-bell"></i>
+        </a>
+        <a href="#">
+          <i class="fa-light fa-user-group"></i>
+        </a>
+        <a href="#">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </div>
+    </header>
+  </body>
+</html>

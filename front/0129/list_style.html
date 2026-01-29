@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list_style</title>
+    <style>
+        ul{
+            list-style: circle;
+        }
+        ul li{
+            line-height: 30px;
+            margin-bottom: 2px;
+        }
+        ul li:nth-child(even){color: coral;}        /*짝수*/
+        ul li:nth-child(odd){color: goldenrod;}     /*홀수*/
+        ul li:nth-child(1){color: rebeccapurple;}   /*내용 덮어쓴다 cascading 폭포같은*/
+        ul li:nth-child(3n+2){background-color: palegreen;}    /*3n+2 요소 선택*/
+        ul li:nth-child(n+3){color: maroon; font-weight: bold;}        /*n+3 요소 선택*/
+        ul li:nth-child(3n){color: rgb(142, 200, 180);}         /*3n 요소 선택*/
+
+    </style>
+</head>
+<body>
+    <h3>파스타 면의 종류</h3>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+    
+</body>
+</html>

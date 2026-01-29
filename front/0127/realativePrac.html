@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>relative_prac</title>
+  </head>
+  <style>
+    section {
+      display: flex;
+      justify-content: space-evenly;
+      width: auto;
+      height: auto;
+      padding: 10px;
+    }
+    .box1 {
+      background-color: cornflowerblue;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      font-size: 30px;
+    }
+    .box2 {
+      background-color: skyblue;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      font-size: 30px;
+    }
+    .relative_1:hover {
+      background-color: green;
+      color: white;
+      width: 100px;
+      height: 100px;
+      position: relative;
+      top: 30px;
+      left: 40px;
+    }
+    .box3 {
+      background-color: coral;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      font-size: 30px;
+    }
+    .relative_2:hover {
+      background-color: green;
+      color: white;
+      width: 100px;
+      height: 100px;
+      position: relative;
+      top: -10px;
+      right: 40px;
+    }
+  </style>
+  <body>
+    <div>
+      <h2>상대배치, relative</h2>
+    </div>
+    <div>
+      <h3>h와 k 글자에 마우스를 올려보세요.</h3>
+    </div>
+    <hr />
+    <div>
+      <section>
+        <div class="box1">A</div>
+        <div class="box2 relative_1">B</div>
+        <div class="box1">C</div>
+        <div class="box3 relative_2">D</div>
+        <div class="box1">E</div>
+      </section>
+    </div>
+  </body>
+</html>

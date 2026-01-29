@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translate</title>
+    <style>
+        .origin{
+            width: 350px;
+            border: 1px solid;
+        }
+        .movex:hover{
+            transform: translateX(50px); /*마우스 오버 시 오른쪽으로 50px 이동*/
+        }
+        .movey:hover{
+            transform: translateY(50px);  /*마우스 오버 시 아래로 50px 이동*/
+        }
+        .movez:hover{
+            transform: translate(50px);  /*마우스 오버 시 사선으로 50px 이동*/
+        }
+
+    </style>
+</head>
+<body>
+    <h2> transform: translate 트랜스폼</h2>
+    <p>
+        특정 요소의 크기나 형태가 변하는 것을 변형(변환) 또는 트랜스폼이라고 한다. 
+        사용자의 동작에 반응해 텍스트나 이미지 등을 움직이게 할 수 있다. 
+        2차원(x, y) / 3차원(x,y,z) : 원근감이 표현
+        z축 앞뒤로 이동하는데 가까워지고 멀어진다 <br> 
+
+        <pre>
+        ✨✨
+        위치 이동       translate
+        확대/축소       scale
+        회전            rotate
+        기울임(비틀기)  skew
+            
+        ✨✨
+        transition  전환 : 속성의 변화 
+        trasform    변환 : translate, skew, rotate, scale
+            트랜스포터(변신) 애니메이션 효과 1회만 적용
+
+        </pre>
+        <div class="origin">
+            <div class="movex"><img src="/images/island.jfif" width="300"></div>
+        </div>
+        <div class="origin">
+            <div class="movey"><img src="/images/island.jfif" width="300"></div>
+        </div>
+        <div class="origin">
+            <div class="movez"><img src="/images/island.jfif" width="300"></div>
+        </div>
+    </p>
+    
+</body>
+</html>

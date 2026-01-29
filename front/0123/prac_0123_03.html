@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력 form 만들기</title>
+    <style>
+      body{
+        background: gray;
+        padding:40px 0;
+         }
+      
+      /* label{
+
+      } */
+
+      .birth .gender {
+        display: flex;
+        gap: 16px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .container {
+        width:420px;
+        margin:0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>회원가입</h1>
+      <div class="form-group">
+        <label>생년월일</label>
+        <div class="birth">
+          <input type="text" placeholder="년(4자)" />
+          <select id="month">
+            <option>월</option><option>1</option>            
+            <option>2</option><option>3</option>            
+            <option>4</option><option>5</option>            
+            <option>6</option><option>7</option>            
+            <option>8</option><option>9</option>            
+            <option>10</option><option>11</option>            
+            <option>12</option>
+          </select>
+          <input type="text" size="1" maxlength="2" placeholder="일" />
+        </div>
+      </div>      
+      <div class="form-group">
+        <label>성별</label>
+        <div class="gender">
+          <label for="male">
+            <input type="radio" id="male" name="gender" value="g_1" checked/>남자
+          </label>
+          <label for="female"><input type="radio" id="female" name="gender" value="g_2" />여자           
+          </label>
+          <label for="nobody">
+            <input type="radio" id="nobody" name="gender" value="g_3"/>선택안함          
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">이메일(선택)</label>
+        <input id="email" type="email" placeholder="example@email.com" />
+      </div>
+
+      <div class="form-group">
+        <label>휴대전화</label>
+        <select name="" id="countires">
+          <option value="+82">대한민국 +82</option>
+          <option value="+1">일본 +1</option>
+          <option value="+3">미국 +3</option>
+        </select>      
+
+        <input type="text" size="11" maxlength="11" autocomplete="off"
+          placeholder="전화번호 입력"/>          
+        <button type="button">인증번호 받기</button>
+      </div>     
+
+        <input type="text" size="6" maxlength="6"         
+          autocomplete="off" placeholder="인증번호를 입력하세요"/>     
+
+    <div class="form-group">
+      <button type="submit">가입하기</button>
+    </div>
+  </body>
+</html>

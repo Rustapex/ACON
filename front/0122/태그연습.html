@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다양한 태그 연습</title>
+  </head>
+  <body>
+    <h3>텍스트 꾸미기</h3>
+    <hr />
+    <p>
+      <b>진하게</b><br />
+      <strong>중요한 내용인데 진하게</strong><br />
+      <em>강조</em><br />
+      <i>이태리체로 강조</i><br />
+      보통문자<small> 한 단계 작은 문자</small> <br />
+      <del>삭제</del> <br />
+      <ins>추가</ins>
+      보통문자 윗첨자 <sup>윗첨자</sup><br />
+      보통문자 아래첨자 <sub>아래첨자</sub><br />
+      <mark>하이라이트 마크</mark>
+    </p>
+
+    <h1>웹 사이트의 모습을 기술하기 위한 마크업 언어</h1>
+    프로그래밍 언어가 아니라 마크업 정보를 표현하는 <mark>마크업 언어</mark>로
+    문서의 내용 이외의 <strong>문서 언어</strong>라는 뜻이다.
+
+    <p>
+      웹의 창시자인 팀 버너스 리
+      <q>웹의 힘은 보편성에 있다.</q>
+      <!--q태그는 인용문구 큰 따옴표로 표시하기  -->
+      장애에 구애없이 모든 사람이 접근할 수 있는 것이 필수 요소이다. 라는 말로
+      <em>웹 접근성</em>을 설명한다.
+    </p>
+
+    <p>
+      루비는 1995년 일본 프로그래머인 마츠모토 유키히로<ruby
+        >松本行弘<rt>まつもとゆきひろ</rt></ruby
+      >가 만든 프로그래밍 언어이다.
+    </p>
+    <ruby>윗주 <rt>ruby</rt></ruby>
+    <ruby>아래글자<rt>윗글자</rt></ruby>
+
+    <p>
+      <b><abbr title="Internet of Things">IoT</abbr></b
+      >란 IoT(사물 인터넷)는 센서와 통신 기능을 갖춘 다양한 물리적
+      사물(가전제품, 차량 등)을 인터넷에 연결하여 데이터를 주고받고 상호
+      작용하게 만드는 기술 및 네트워크로,<br />
+      <pre>
+      스마트 홈, 스마트 시티, 산업 자동화 등 생활 전반의 편리함과 효율성을
+      높이지만 보안 문제도 함께 존재합니다.</pre>
+    </p>
+
+    <h3>ul 태그 : unordered list 목차가 없는 리스트</h3>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+    <h3>ol 태그 : ordered list 목차가 있는 리스트</h3>
+    <ol>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ol>
+
+    <mark>리코타치즈 만들기</mark>
+    <p><b>재료 :</b> 우유, 생크림, 소금, 레몬즙</p>
+
+    <ol type="a">
+      <li>만드는 순서</li>
+      <li>만드는 순서</li>
+    </ol>
+
+    <br />
+    <hr />
+    <h2>리코타치즈 만들기</h2>
+
+    <h3><b>재료:</b> 우유, 생크림, 소금, 레몬즙 <br /></h3>
+    <h3><b>재료준비</b></h3>
+    <ol>
+      <li>분량의 재료를 넣고</li>
+      <li>골고루 섞은 후</li>
+      <li>불의 세기를</li>
+      <li>끓기 시작하면</li>
+    </ol>
+
+    <h1>리코타치즈 샐러드 만들기</h1>
+    <ol type="a">
+      <li>위에서 만든</li>
+      <li>샐러드를 만들어</li>
+    </ol>
+
+    <h2>재료 준비</h2>
+    <ol type="a" start="3">
+      <li>야채를 씻어서 물기를 빼줍니다.</li>
+    </ol>
+
+    <h3>샐러드 소스 종류</h3>
+
+    <h4>시판용 소스</h4>
+
+    <!-- 설명목록 만들기 -->
+    <!-- description list , dt 이름(단어명) dd 값(설명) -->
+    <dl>
+      <dd>다양한 시판용 소스가 있다.</dd>
+    </dl>
+
+    <h4>소스</h4>
+    <dl>
+      <dd>소스가 있다.</dd>
+    </dl>
+    <h4>왜 안나와</h4>
+    <dl>
+      <dt>HTML</dt>
+    </dl>
+
+    <details>
+      <summary>열기</summary>
+      내용
+    </details>
+
+    <base href="https://www.naver.com/">
+    <br>
+    <h2>네이버</h2>
+
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mediaQueryMenuBar</title>
+    <!--폰트어썸 CDN : -->
+    <script
+      src="https://kit.fontawesome.com/4ec79785b5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {margin: 0; padding: 0;}
+      nav {
+        background-color: lightseagreen;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 70px;
+        padding: 30px;}
+      ul {
+        list-style: none;
+        display: flex;}
+      li { padding: 15px; }
+      a {
+        text-decoration: none;
+        color: grey;
+        font-weight: 800;}
+      a:hover{ color: blue;}
+      .appo{ padding: 0 5px;}
+      .appo:hover {
+        background-color: rgb(73, 223, 216);
+        cursor: pointer;
+        color: aliceblue;
+        border-radius: 7px;
+      }
+      /* 브라우저 가로가 768 이하일 때  */
+      @media screen and (max-width: 768px) {
+        nav {
+          height: 170px;
+          align-items: flex-start;
+        }
+        .navbar ul {
+          flex-direction: column;
+        }
+        .navbar ul li {
+          line-height: 2;
+        }
+        .fa-helicopter,
+        .fa-water,
+        .fa-wind,
+        .appo {
+          /* visibility: hidden; */ /*눈에만 안보이고 자리 차지*/
+          display: none; /*자리 자체 차지X*/
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h1>&nbsp; <i class="fa-solid fa-helicopter"></i> LOGO &nbsp;</h1>
+        <!-- NTT CODE -->
+        <!--    < (Less than): &lt;
+                > (Greater than): &gt;
+                & (Ampersand): &amp;
+                " (Double quote): &quot;
+                ' (Single quote): &apos;
+                공백 (Space): &nbsp;  -->
+      </div>
+      <div class="navbar">
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">PAGE</a></li>
+          <li><a href="#">BLOG</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">CONTENT</a></li>
+        </ul>
+      </div>
+      <div class="icons">
+        <ul>
+          <li>
+            <a href="#"><i class="fa-solid fa-water"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-wind"></i></a>
+          </li>
+          <li class="appo">Appoiontment</li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+</html>

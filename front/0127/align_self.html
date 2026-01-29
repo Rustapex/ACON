@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>align_self</title>
+    <style>
+      section {
+        width: 400px;
+        height: 150px;
+        background-color: lightblue;
+        display: flex;
+      }
+      div {
+        width: 100px;
+        height: 120px;
+        background-color: cadetblue;
+      }
+      .box2 {
+        border: solid 4px red;
+        align-self: flex-end;
+      }
+      /* align-self : 개별적인 콘텐츠 아이템의 정렬 */
+      .box3 {
+        border: solid 2px blue;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      div1
+      <div class="box2">div2</div>
+      <div class="box3">div3</div>
+      <!-- div 만들면서 클래스명 넣는 작성법 div.box3 enter -->
+    </section>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 400px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form>
+        <h3>회원 정보 입력</h3>
+        <fieldset>
+            <legend>로그인 정보</legend>
+            <label for="user-id">아이디</label>
+            <input type="text" id="user-id" name="user-id" placeholder="아이디를 입력하세요."><br>
+
+            <label for="user-pw">비밀번호</label>
+            <input type="password" id="user-pw" name="user-pw" placeholder="비밀번호를 입력하세요.">
+            <input type="submit" value="로그인"><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>추가 정보</legend>
+            메일 주소:
+            <input type="email" placeholder="asdf@naver.com"><br><br>
+            메일 수신 
+            <label for="a"><input type="radio" id="a" name="check" value="s_1">메일 수신 동의</label>
+            <label for="b"><input type="radio" id="b" name="check" value="s_2">메일 수신 거부</label><br><br>
+            연락처:
+            <input type="phone" placeholder="-을 빼고 입력해주세요." size="20" maxlength="13" autocomplete="off"><br>
+            생년월일:
+            <input type="brith" placeholder="YYYY-MM-DD" size="20" maxlength="10" autocomplete="off"><br>
+            취미:
+            <label for="vehicle1"><input type="checkbox" id="vehicle1" value="v_1"> 독서</label>
+            <label for="vehicle2"><input type="checkbox" id="vehicle2" value="v_2"> 음악감상</label>
+            <label for="vehicle3"><input type="checkbox" id="vehicle3" value="v_3"> 운동</label><br><br>
+
+            가입경로:
+            <select id="path">
+                <option value="">블로그</option>
+                <option value="">검색</option>
+                <option value="">SNS</option>
+                <option value="">지인추천</option>
+                <option value="">기타</option>
+            </select><br><br>
+
+            메모
+            <textarea name="" id="" cols="30" rows="10" placeholder="자유롭게 의견을 남겨주세요."></textarea>
+        </fieldset><br>
+
+        <input type="submit" value="제출"><br>
+    </form>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    만들어보기
+    <form action="">
+        <fieldset>
+            <legend>로그인 정보</legend>
+            아이디 비밀번호
+        </fieldset>
+
+        
+    </form>
+</body>
+</html> -->

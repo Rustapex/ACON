@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flexbox_refactor</title>
+
+    <style>
+      /* =====================
+       Layout
+    ====================== */
+      section {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 100px;
+      }
+      .space-between {
+        justify-content: space-between;
+      }
+      .center {
+        justify-content: center;
+      }
+      .column {
+        flex-direction: column;
+      }      
+      /* =====================
+       Base Box
+    ====================== */
+      .box {
+        width: 100px;
+        height: 100px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .blue {
+        background-color: cornflowerblue;
+      }
+      .black {
+        background-color: black;
+        color: white;
+      }
+      /* =====================
+       Size Modifiers
+    ====================== */
+      .large {
+        width: 300px;
+        height: 300px;
+        font-size: 50px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 10px;
+      }
+      .wide {
+        width: 700px;
+        height: 200px;
+        font-size: 50px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 10px;
+      }
+      /* =====================
+       Position Practice
+    ====================== */
+      .move-1 {
+        position: relative;
+        bottom: 50px;
+        left: 50px;
+      }
+      .move-2 {
+        position: relative;
+        top: 100px;
+        left: 200px;
+      }
+      .move-3 {
+        position: relative;
+        left: 330px;
+      }
+      .move-4 {
+        position: relative;
+        left: 600px;
+        top: 100px;
+      }
+      .move-5 {
+        position: relative;
+        bottom: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="space-between">
+      <div class="box blue">box1</div>
+      <div class="box blue">box2</div>
+      <div class="box blue">box3</div>
+    </section>
+
+    <section class="column">
+      <div class="box blue">box4</div>
+      <div class="box black move-1">box5</div>
+    </section>
+
+    <section class="center">
+      <div class="box blue move-2">box6</div>
+      <div class="box black large">box7</div>
+    </section>
+
+    <section class="space-between">
+      <div class="box blue">box8</div>
+      <div class="box blue move-3">box9</div>
+      <div class="box blue">box10</div>
+    </section>
+
+    <section class="column">
+      <div class="box blue move-4">box11</div>
+      <div class="box black wide">box12</div>
+      <div class="box blue move-5">box13</div>
+    </section>
+  </body>
+</html>

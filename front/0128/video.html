@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>video</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .videoBack > video {
+        width: 100%; height: 100%;
+        position: fixed;
+        opacity: 0.6;
+        object-fit: cover;
+      }
+      .content { position: fixed; bottom: 0;
+        background: #302f2f5f;
+        color: #e4dddd;
+        width: 100%;        height: 20%;
+        font-size: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="videoBack">
+      <video src="/images/snowing.mp4" loop autoplay muted></video>
+      <div class="content">
+        <h1>
+          행정안전부에 따르면 제설 작업을 할 때는 뜨거운 물이 아닌 삽을 이용해
+          눈을 밀어내듯이 치워야 한다. 무거운 눈을 삽으로 퍼서 들어 올리는
+          방식은 심장에 과도한 무리를 줄 수 있어, <br />
+          바닥을 밀듯이 치우는 것이 훨씬 안전하다. 눈을 치운 자리에는 염화칼슘을
+          뿌려 남은 눈을 녹이거나, 모래나 연탄재 등을 뿌려 미끄럼을 방지해야
+          한다. 각 지자체는 주민 편의를 위해 <br />
+          행정복지센터나 도로변 제설함에 염화칼슘과 모래주머니를 비치하고 있다.
+          전문가들은 겨울철 잘못된 상식이 이웃의 안전을 위협할 수 있다고
+          조언한다. 번거롭더라도 올바른 제설 도구를 <br />
+          사용하고 미끄럼 방지 조치를 철저히 하는 등 안전 수칙을 준수하는 자세가
+          필요하다.
+        </h1>
+      </div>
+    </div>
+  </body>
+</html>

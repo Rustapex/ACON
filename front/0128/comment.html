@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HF Card Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+        /* .ex {
+      width: 1200px;
+      height: 800px;
+      background-color: #ccc7c7a1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box1 {
+      width: 300px;
+      height: 300px;
+      background-color: white;
+      border: 1px solid;
+
+      transform-origin: bottom;
+      transition:
+        transform 0.2s,
+        ease,
+        box-shadow 0.2s ease;
+
+      text-align: center;
+      align-content: center;
+      font-size: 20px;
+      margin: 10px;
+    }
+    .box1:hover {
+      transform: scaleY(1.15);
+      box-shadow:
+        3px 3px 5px rgb(133, 132, 132),
+        -3px 3px 5px rgb(133, 132, 132);
+    }
+    .text {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: scaleY(1.15);
+    }
+
+    .image-box {
+      height: 100px;
+      width: 100px;
+      /* align-self: flex-end; */
+     /* background-image: url(/images/detached.png);
+      background-size: cover;
+
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+    } 
+  */
+
+
+  
+    /* reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f3f6fb;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* 전체 영역 */
+    .card-section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 카드 묶음 */
+    .card-wrap {
+      display: flex;
+      gap: 30px;
+    }
+
+    /* 카드 */
+    .card {
+      width: 300px;
+      height: 380px;
+      background: white;
+      border-radius: 8px;
+
+      position: relative;
+      overflow: hidden;
+
+      /* ⭐ 핵심 transition */
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    /* hover 효과 (HF 핵심 UX) */
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 텍스트 영역 */
+    .card-text {
+      padding: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-text {
+      transform: translateY(-4px);
+    }
+
+    .card-text h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card-text .sub {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .card-text .highlight {
+      font-size: 18px;
+      color: #0066ff;
+    }
+
+    /* 이미지 영역 (고정) */
+    .card-image {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 140px;
+      height: 120px;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      /* hover 영향 없음 */
+    }
+
+    /* 예시용 이미지 (대체 가능) */
+    .house1 {
+      background-image: url("/images/detached.png");
+    }
+
+    .house2 {
+      background-image: url("/images/detached.png");
+    }
+
+    .house3 {
+      background-image: url("/images/detached.png");
+    }
+  </style>
+
+  <body>
+    <section class="card-section">
+      <div class="card-wrap">
+        <article class="card">
+          <div class="card-text">
+            <h3>아낌e-보금자리론</h3>
+            <p class="sub">0.1%p 더 저렴한 금리</p>
+            <p class="highlight">주택가격 <strong>6억원</strong></p>
+          </div>
+          <div class="card-image house1"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-text">
+            <h3>u-보금자리론</h3>
+            <p class="sub">우리 가족의 보금자리 마련</p>
+            <p class="highlight">대출한도 <strong>3.6억원</strong></p>
+          </div>
+          <div class="card-image house2"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-text">
+            <h3>내집마련 디딤돌</h3>
+            <p class="sub">내 집 마련 꿈의 실현</p>
+            <p class="highlight">저금리 주택자금</p>
+          </div>
+          <div class="card-image house3"></div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>

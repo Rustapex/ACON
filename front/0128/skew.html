@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skew</title>
+    <style>
+      .origin {
+        perspective: 200px; /* ✨원근감*/
+        border: 1px solid;
+        width: 300px;
+        height: 200px;
+        margin: 50px;
+      }
+      .skewX:hover {
+        transform: skewX(30deg); /* x축으로 30도 비틀기*/
+      }
+      .skewY:hover {
+        transform: skewY(30deg); /* Y축으로 30도 비틀기*/
+      }
+
+      /* 이거 xy 안됨 점심시간에 다시 ㄱㄱ */
+      .skewXY:hover {
+        transform: skewXY(-25deg, -15deg); /* Z축으로 30도 비틀기*/
+      }
+    </style>
+  </head>
+  <body>
+    <h2>skew 비틀기</h2>
+    <div class="origin">
+      <div class="skewX"><img src="../images/apples.jfif" width="300" /></div>
+    </div>
+    <div class="origin">
+      <div class="skewY"><img src="../images/apples.jfif" width="300" /></div>
+    </div>
+    <div class="origin">
+      <div class="skewXY"><img src="../images/apples.jfif" width="300" /></div>
+    </div>
+  </body>
+</html>

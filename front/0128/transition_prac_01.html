@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transition_prac</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background :#f5f0f0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .card-section{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-wrap{
+      display: flex;
+      gap: 30px;
+    }
+    .card{
+      width: 300px;
+      height: 380px;
+      background-color: white;
+      border-radius: 8px;
+
+      position: relative;
+      overflow: hidden;
+      
+      transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+    .card:hover{
+      transform: translateY(-16px);
+      box-shadow: 0 20px 30px #605d5dd5;
+    }
+    
+    
+    .card-text{
+      transform: translateY(1.15);
+      padding: 30px;
+    }
+    .card-text {
+      transform: translateY(-4px);
+    }
+
+    .card-text .highlight {
+      color: blue;
+    }
+    
+    .card-image{
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+
+      width: 140px;
+      height: 120px;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .house1{ background-image: url(/images/detached.png);}
+    .sofa{background-image: url(/images/sofa.png);}
+    .house2{background-image: url(/images/house2.png);}
+    </style>
+
+
+  <body>
+    <div class="card-section">
+      <div class="card-wrap">
+        <article class="card">
+          <div class="card-text">
+            <h2>아낌e-보금자리론</h2>
+            <p class="sub">0.1%p 더 저렴한 금리</p>
+            <p class="highlight">주택 가격 <strong>6억원</strong></p>
+          </div>  
+        <div class="card-image house1"></div>
+      </article>
+
+      <article class="card">
+          <div class="card-text">
+            <h3>u-보금자리론</h3>
+            <p class="sub">우리 가족의 보금자리 마련</p>
+            <p class="highlight">대출한도 <strong>3.6억원</strong></p>
+          </div>
+          <div class="card-image sofa"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-text">
+            <h3>내집마련 디딤돌</h3>
+            <p class="sub">내 집 마련 꿈의 실현</p>
+            <p class="highlight">저금리 주택자금</p>
+          </div>
+          <div class="card-image house2"></div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

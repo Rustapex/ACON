@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation02</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        background-image: url("https://img.79plus.co.kr/megahp/manager/upload/main/20260114143930_1768369170777_XsZvJfc76G.jpg?ver=202207071306");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .logo {
+        width: 300px;
+        height: auto;
+        overflow: visible;
+      }
+      .logo img {
+        width: 300px;
+        display: block;
+        opacity: 0;
+        transform: translateX(-150px);
+        animation: logoSlideIn 1.2s ease-out forwards;
+      }
+
+      @keyframes logoSlideIn {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .menuImg img {
+        width: 300px;
+        display: block;
+        opacity: 0;
+        transform: translateX(150px);
+        animation: logoSlideIn 1.2s ease-out forwards;
+      }
+      .menuImg {
+        display: flex;
+        width: 300px;
+        height: 300px;
+        overflow: visible;
+      }
+      .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+
+        width: 300px;
+        padding: 24px;
+        background-color: rgba(255, 255, 255, 0.75);
+        border-radius: 12px;
+        }
+        .content div{
+            display
+        }      
+
+        .content p{
+        width: 100%;
+        background-color: transparent;
+        color: #333;
+
+        font-size: 15px;
+        line-height: 1.7;
+        font-size: 400;
+        }
+
+        button{
+        width: fit-content;
+        padding: 10px 22px;
+        border: 1px solid #C42335;
+
+        background-color: #F7DCE6;
+        border-radius: 30px;
+
+        animation-delay: 0.3s;        
+        }
+        
+        button a{
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        button:hover{
+            cursor: pointer;
+         }
+        
+        a {
+        text-decoration: none;
+        color: #C42335;
+        }
+
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul>
+        <li>
+          <div class="logo">
+            <img src="/images/megacofLogo.png" alt="메가MGC커피_로고" />
+          </div>
+        </li>
+        <li>
+          <div class="menuImg">
+            <img
+              src="https://img.79plus.co.kr/megahp/manager/upload/menu/20251226202021_1766748021154_Q8w6zFlJH3.png"
+              alt="스무디"
+            />
+          </div>
+        </li>
+        <li>
+          <div class="content">
+            <div class="content-move">            
+              <p>
+                진~한 딸기청에 키위씨가 콕콕 박힌!<br />
+                그린키위 스무디를 가득<br />
+                올려 한잔 가득 새콤달콤 즐기는 스무디
+              </p>            
+            <button class="content_etc"><a href="#">자세히 보기</a></button>
+            </div>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

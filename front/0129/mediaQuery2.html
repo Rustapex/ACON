@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mediaQuery2</title>
+    <style>
+      .contatiner {
+        display: flex;
+        flex-direction: column;
+      }
+      .item {
+        background-color: blue;
+        color: white;
+        border: 1px solid;
+        padding: 30px;
+        margin: 5px;
+        text-align: center;
+      }
+      /* tablet */
+      @media (min-width: 768px) {
+        .container {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+      }
+      /* PC */
+      @media (min-width: 1024x) {
+        .item{ width: 30%}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+    </div>
+  </body>
+</html>

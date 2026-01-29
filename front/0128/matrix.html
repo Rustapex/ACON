@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>matrix</title>
+  </head>
+  <style>
+    /* id css #이름 */
+    #wrap {
+      text-align: center; /*글자 가운데 정렬*/
+    }
+    .box {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: cyan;
+      font-size: 30px;
+      line-height: 300px;
+      margin: 100px auto; /*box 위치 중앙으로*/
+      color: whitesmoke;
+      transition: 1s;
+    }
+    label {
+      cursor: pointer;
+      display: inline-block;
+    }
+    label:hover {
+      color: yellowgreen;
+      transform: scale(1.05);
+    }
+    /* ✨Matrix(sclaeX), skewY(), skewx(), scaleY(), TranslateX(), translateY() 순서 */
+    #marixDefault:checked ~ .box {
+      transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+    #matrixScale:checked ~ .box {
+      transform: matrix(1.5, 0, 0, 1.5, 0, 0);
+    }
+    #matrixSkew:checked ~ .box {
+      transform: matrix(0, 1.5, 1.5, 0, 0, 0);
+    }
+    #matrixTranslate:checked ~ .box {
+      transform: matrix(1,0,0,1, 300, 400);
+    }
+  </style>
+  <body>
+    <div id="wrap">
+      <input type="radio" name="matrix" id="marixDefault" value="matrixSkew" />
+      <label for="marixDefault">marixDefault(초기화)</label>
+
+      <input type="radio" name="matrix" id="matrixScale" value="matrixSkew" />
+      <label for="matrixScale">marixScale(줌효과)</label>
+
+      <input type="radio" name="matrix" id="matrixSkew" value="matrixSkew" />
+      <label for="matrixSkew">matrixSkew(기울기효과)</label>
+
+      <input type="radio" name="matrix" id="matrixTranslate" value="matrixSkew"/>
+      <label for="matrixTranslate">matrixTranslate(이동효과)</label>
+
+      <div class="box">matrix</div>
+    </div>
+  </body>
+</html>

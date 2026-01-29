@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position_flexbox_prac</title>
+    <style>
+      section {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 100px;
+      }
+      .space-between {
+        justify-content: space-between;
+      }
+      .section2 {
+        flex-direction: column;
+      }
+      .center {
+        justify-content: center;
+      }
+      .section4 {
+        flex-direction: column;
+      }
+
+      /* base box */
+      .box {
+        width: 100px;
+        height: 100px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* 31 ~ 33 ✨정중앙(상하좌우 중앙) 배치 */
+      }
+      .blue {
+        background-color: cornflowerblue;
+      }
+      .black {
+        background-color: black;
+        color: white;
+      }
+
+      /* size modifiers */
+      .large{
+        width: 300px;
+        height: 300px;
+        font-size: 50px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 10px;
+            }
+
+      .wide{
+        width: 700px;
+        height: 200px;
+        font-size: 50px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 10px;
+      }
+
+      /* postion practice  */
+      .move-1{
+        position: relative;
+        bottom: 50px;
+        left: 50px;
+      }
+      .move-2{
+        position: relative;
+        top: 100px;
+        left: 200px;
+      }
+      .move-3{
+        position: relative;
+        left: 330px;
+      }
+      .move-4{
+        position: relative;
+      }
+      /* .box1 {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        justify-content: center;
+        font-size: 30px;
+        border: 1px;
+      }
+      .box2 {
+        background-color: black;
+        color: white;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        bottom: 50px;
+        left: 50px;
+        border: 1px;
+      }
+      .box3 {
+        background-color: cornflowerblue;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        left: 200px;
+        top: 100px;
+        border: 1px;
+      }
+      .box4 {
+        background-color: black;
+        color: white;
+        width: 300px;
+        height: 300px;
+        text-align: top left;
+        font-size: 50px;
+        border: 1px;
+      }
+      .box9 {
+        background-color: cornflowerblue;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+        left: 330px;
+        border: 1px;
+      }
+      .box6 {
+        background-color: cornflowerblue;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font-size: 30px;
+        border: 1px;
+        position: relative;
+        left: 600px;
+        top: 100px;
+      }
+
+      .box7 {
+        background-color: black;
+        color: white;
+        width: 700px;
+        height: 200px;
+        text-align: top left;
+        font-size: 50px;
+        border: 1px;
+      }
+      .box8 {
+        background-color: cornflowerblue;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font-size: 30px;
+        border: 1px;
+        position: relative;
+        bottom: 100px;
+      } */
+    </style>
+  </head>
+  <body>
+    <section class="space-between">
+      <div class="">box blue</div>
+      <div class="box blue">box2</div>
+      <div class="box1">box3</div>
+    </section>
+
+    <section class="column">
+      <div class="box1">box4</div>
+      <div class="box2">box5</div>
+    </section>
+
+    <section class="center">
+      <div class="box3">box6</div>
+      <div class="box4">box7</div>
+    </section>
+    <!-- small absolute, big relative 로 만들수도 있음 -->
+
+    <section class="space-between">
+      <div class="box1">box8</div>
+      <div class="box9">box9</div>
+      <div class="box1">box10</div>
+    </section>
+
+    <section class="column">
+      <div class="box6">box11</div>
+      <div class="box7">box12</div>
+      <div class="box8">box13</div>
+    </section>
+  </body>
+</html>

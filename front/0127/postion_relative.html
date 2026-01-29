@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position_relative</title>
+    <!-- relative 상대적인 -->
+    <style>
+      .static {
+        background-color: violet;
+        width: 300px;
+        height: 200px;
+        position: static; /*기본값 : 요소를 문서의 흐름에 맞게 배치*/
+      }
+      .relative_1 {
+        background-color: beige;
+        width: 300px;
+        height: 200px;
+        position: relative;
+      }
+      .relative_2 {
+        background-color: blue;
+        width: 300px;
+        height: 200px;
+        position: relative;
+        top: -50px;
+        left: 100px;
+      }
+      .fixed {
+        background-color: black;
+        color:white;
+        width: 500px;
+        height: 50px;
+
+        /* postion, top, right, left 등 같이 써줄것*/
+        position: fixed;
+        top: 0px;
+        right: 50px;
+
+        border: solid 3px;
+      }
+      .sticky {
+        background-color: brown;
+        width: 80px;
+        height: 80px;
+        position: sticky;
+        top: 5px;   /* top이 5px일 때 고정 */
+        /* sticky는 top 필수 */
+      }
+      pre{
+        font-size: 25px;
+      }
+      .box{
+        border: 1px dotted  red;
+        position: relative;
+        right: 0px;
+        bottom: 0px;
+        font-size: 20px;
+        width: 70px;
+        height: auto;
+        margin-top: 0px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="static">박스1</div>
+    <div class="relative_1">박스2</div>
+    <div class="relative_2">박스3</div>
+    <div class="fixed">박스4 공지사항, 상단 메뉴바 스크롤 생겼을 때 확인</div><br> 
+    <div class="sticky">박스5 <br>top이 5px일 때 고정 </div>
+    <pre>
+        흥국증권은 27일 2차전지가 미래 산업의 핵심 플레이어로 부각되고 있다고 평가했다. 
+        특히 △삼원계 △원통형 △리싸이클링을 주목해야 한다는 분석이다.
+        이 증권사 정진수 연구원은 "2차전지가 수요 측면에서는 전기차(EV) 시장보다 
+        규모가 작을지언정 자율주행과 로보틱스, 우주항공 등 미래 산업을 완성할 필수재로 주목받을 만한 명분과 가치는 충분하다"고 설명했다.
+        그는 현대차 아틀라스의 CES 시연이 2차전지 산업에 주는 시사점에 주목했다. 
+        우선 현존하는 2차전지 배터리 스펙만으로도 산업 현장에서 충분히 사용이 가능할 거라고 추정했다.         
+
+    </pre>
+
+    <h3>학기말공지</h3> <hr>
+    <div>
+        <p class="float"> 30일에 개인 포트폴리오 발표가 있습니다.</p>
+        <p> 영하 10도의 날씨에도 이렇게 학원을 찾아주신 여러분 고생하셨습니다.</p>
+        <pre class="box"> 에코프로비엠 42.6%, 이수스페셜티케미컬 67.4%, </pre>
+    </div>
+  </body>
+</html>
