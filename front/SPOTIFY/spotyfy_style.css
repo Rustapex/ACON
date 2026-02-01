@@ -1,0 +1,222 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* header */
+.header{
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #000;
+}
+
+/* left-header */
+.header-left
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+.logo {
+    font-size: 32px;
+    color: #1db954;
+}
+
+/* center-header */
+.header-center{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* festival icon*/
+.fa-solid{
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 50%
+}
+
+
+
+/* search box */
+.search-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 420px;
+    background-color: #2a2a2a;
+    border-radius: 999px;
+    padding: 8px 14px;
+}
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.search-icon {
+  color: #b3b3b3;
+}
+
+/* 오른쪽 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+
+/* icon */
+i{
+    color: #b3b3b3;
+    font-size: 18px;
+    cursor: pointer;
+}
+i:hover{
+    color: #ffffff;
+}
+/* 📦 container 레이아웃 */
+.container {
+  display: flex;
+  height: calc(100vh - 64px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ▶️ aside-left */
+.aside-left {
+  width: 60px;
+  background: #121212;
+  transition: width 0.3s;
+  overflow: hidden;
+  position: sticky;
+  top: 64px;
+  height: 100%;
+  z-index: 10;
+}
+.aside-left:hover {
+  width: 200px;
+}
+.aside-left ul {
+  list-style: none;
+  padding: 10px;
+}
+.aside-left li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+/* ▶️ main */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+.main table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.main th, .main td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* ▶️ aside-right */
+.aside-right {
+  width: 360px;
+  background: #1e1e1e;
+  position: absolute;
+  top: 0;
+  right: -360px;
+  height: 100%;
+  transition: right 0.3s ease;
+  z-index: 10;
+}
+.aside-right.show {
+  right: 0;
+}
+
+/* ▶️ 토글 버튼 */
+.toggle-button {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  z-index: 20;
+  background: #1db954;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* ▶️ aside-bottom (재생 바) */
+.aside-bottom {
+  height: 64px;
+  background: #282828;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+}
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.now-playing img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+.controls button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+.progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress input[type="range"] {
+  width: 100px;
+}
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

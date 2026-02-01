@@ -1,0 +1,125 @@
+body {
+      margin: 0;
+      display: grid;
+      grid-template-areas:
+        "left header right"
+        "left main right";
+      grid-template-columns: 200px 1fr 250px;
+      grid-template-rows: 64px 1fr;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+    header {
+      grid-area: header;
+      background: #121212;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 20px;
+    }
+
+    header h3 {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    header input {
+      flex: 1;
+      max-width: 420px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #2a2a2a;
+      color: white;
+      outline: none;
+    }
+
+    /* =========================
+       ASIDE LEFT (비워둠)
+    ========================== */
+    aside.left {
+      grid-area: left;
+      background: #121212;
+    }
+
+    /* =========================
+       MAIN (iframe 영역)
+    ========================== */
+    main {
+      grid-area: main;
+      padding: 20px;
+      overflow-y: auto;
+      background: #000;
+    }
+
+    section.artist {
+      margin-bottom: 40px;
+    }
+
+    section.artist h2 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 352px;
+      border-radius: 12px;
+      border: none;
+    }
+
+    /* =========================
+       ASIDE RIGHT (드롭다운)
+    ========================== */
+    aside.right {
+      grid-area: right;
+      background: #1e1e1e;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    ul.dropbtn {
+      list-style: none;
+      background: #b7dbe8;
+      color: #000;
+      padding: 10px;
+      margin-bottom: 16px;
+      font-weight: bold;
+      text-align: center;
+      cursor: default;
+    }
+
+    .dropdown-content {
+      display: none;
+      margin-top: 8px;
+    }
+
+    .dropbtn:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content li {
+      background: #222;
+      color: #fff;
+      padding: 6px;
+      margin-top: 4px;
+    }
+
+    .dropdown-content li:hover {
+      background: #277ec5;
+      cursor: pointer;
+    }
+
+    .dropdown-content li::after {
+      content: "가수를 검색할 수 있습니다.";
+      display: block;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 4px;
+    }
