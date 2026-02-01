@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>가수별 Spotify 인터페이스</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- 좌측 aside (빈 영역 유지) -->
+  <aside class="left"></aside>
+
+  <!-- =========================
+       HEADER (datalist 검색)
+  ========================== -->
+  <header>
+    <h3>가수 검색</h3>
+    <input type="text" list="artists" placeholder="가수명을 입력하세요" />
+    <datalist id="artists">
+      <option value="gongwon">
+      <option value="규리">
+      <option value="김윤희">
+      <option value="이영훈">
+      <option value="slowly">
+      <option value="Choi Jung Chul">
+      <option value="Lee Oh Wook">
+      <option value="deulrejang">
+      <option value="루시드폴">
+      <option value="Kim Kwangjin">
+      <option value="Lee Yerin">
+      <option value="음성녹음">
+      <option value="이상순">
+      <option value="Hareem">
+      <option value="유재하">
+    </datalist>
+  </header>
+
+  <!-- =========================
+       MAIN : iframe 영역
+  ========================== -->
+  <main>
+
+    <section class="artist" id="gongwon">
+      <h2>gongwon</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4wWQOkCruFsh?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="규리">
+      <h2>규리</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4vbbhNWGQ7Fj?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="김윤희">
+      <h2>김윤희</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4pHqwKdWOIeX?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="이영훈">
+      <h2>이영훈</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4viIaxva8D3H?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="slowly">
+      <h2>slowly</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ygeziG58tSU?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="Choi Jung Chul">
+      <h2>Choi Jung Chul</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4va1ZPn3J7JZ?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="Lee Oh Wook">
+      <h2>Lee Oh Wook</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4v7GeECp8a7W?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="deulrejang">
+      <h2>deulrejang</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4A5QGdiyGfS3?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="루시드폴">
+      <h2>루시드폴</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4AfMqSwetGvN?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="Kim Kwangjin">
+      <h2>Kim Kwangjin</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4zP2s5eYIIoF?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="Lee Yerin">
+      <h2>Lee Yerin</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4snRyTH2Qftx?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="음성녹음">
+      <h2>음성녹음</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ws0DMi29JX7?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="이상순">
+      <h2>이상순</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4nvhls5XTO7R?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="Hareem">
+      <h2>Hareem</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4DfoRnntLyqi?utm_source=generator"></iframe>
+    </section>
+
+    <section class="artist" id="유재하">
+      <h2>유재하</h2>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4z3bR1tQ5YDX?utm_source=generator"></iframe>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       ASIDE RIGHT : 유사가수
+  ========================== -->
+  <aside class="right">
+
+    <ul class="dropbtn">gongwon
+      <div class="dropdown-content">
+        <li>규리</li>
+        <li>이영훈</li>
+        <li>김윤희</li>
+      </div>
+    </ul>
+
+    <ul class="dropbtn">규리
+      <div class="dropdown-content">
+        <li>slowly</li>
+        <li>Choi Jung Chul</li>
+        <li>Lee Oh Wook</li>
+      </div>
+    </ul>
+
+    <ul class="dropbtn">김윤희
+      <div class="dropdown-content">
+        <li>규리</li>
+        <li>Lee Oh Wook</li>
+        <li>slowly</li>
+      </div>
+    </ul>
+
+    <ul class="dropbtn">이영훈
+      <div class="dropdown-content">
+        <li>deulrejang</li>
+        <li>루시드폴</li>
+        <li>Kim Kwangjin</li>
+      </div>
+    </ul>
+
+    <ul class="dropbtn">slowly
+      <div class="dropdown-content">
+        <li>규리</li>
+        <li>Choi Jung Chul</li>
+        <li>Lee Oh Wook</li>
+      </div>
+    </ul>
+
+  </aside>
+
+</body>
+</html>
