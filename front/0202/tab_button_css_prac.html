@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab button only css</title>
+    <style>
+        input[name='tab-group']{ display: none;} /*radio 버튼 없애기*/
+        /* ✨하지만 숨겨도 라디오는 그대로 존재하고,
+        label 클릭 → 해당 라디오가 checked 됨
+        CSS는 :checked 상태를 이용해서 스타일/표시를 바꿈 
+
+        ✨display: none 이면 접근성에 불리할 수 있다. 그래서
+        대체 방법
+        input[name="tab-group"]{
+        position:absolute;
+        left:-9999px;
+        }*/
+        .tab-button{
+            display: inline-block;
+            width: 150px;
+            padding: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 3px;
+        }
+        .tab-content{
+            border: 3px solid #333;
+            width: 420px;
+            padding: 20px;
+            display: none;            
+            border-radius: 0px 15px 15px 15px;
+            box-shadow: 5px 5px #0000003e;
+            animation: scale 0.2s;
+        }
+
+        @keyframes scale {
+            from{
+                opacity: 0.8;
+                scale: 0.8;
+            }to{
+                opacity: 1;
+                scale: 1;
+            }
+            
+        }
+        
+        /* ✨체크된 라디오 버튼의 '다음' 라벨 스타일 변경 */
+        /* + : 인접 형제 선택자(Adjacent sibling) => 바로 다음에 오는 형제 요소 
+        input 다음에는 label이 옴, 
+        🙁중간에 다른 요소가 끼면 작동 안함 */
+
+        /* 사실 한번에 간추려 쓰기 ㄱㄴ 
+        input[name="tab-group"]:checked + label {
+        background: rgb(78,181,78);
+        font-weight: bold;
+        }
+        */
+
+        input#tab1:checked + label,
+        input#tab2:checked + label,
+        input#tab3:checked + label {
+            background-color: rgb(78, 181, 78);
+            font-weight: bold;
+            transform: scale(1.0);
+        }
+        /* 체크된 라디오 버튼의 '형제' 중 해당 컨텐츠만 보여준다. */
+        /* ✨~ : 일반 형제 선택자(General sibling)
+        → 같은 부모 아래에 있는 “뒤쪽의 형제들 중에서” 조건을 만족하는 것 선택 
+        
+        #📀tab1과 #content1은 같은 부모 안에서 형제 관계여야 합니다. 다른 div 안제 감싸서 분리되면 x*/
+        #tab1:checked ~ #content1,
+        #tab2:checked ~ #content2,
+        #tab3:checked ~ #content3{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <!-- 라디오 버튼 그룹(동일한 name을 가져야 함) -->
+        <input type="radio" name="tab-group" id="tab1" checked>
+        <label for="tab1" class="tab-button">탭 1</label>
+
+        <input type="radio" name="tab-group" id="tab2" >
+        <label for="tab2" class="tab-button">탭 2</label>
+
+        <input type="radio" name="tab-group" id="tab3" >
+        <label for="tab3" class="tab-button">탭 3</label>
+
+        <!-- 탭 내용들 (라디오 버튼들과 형제 관계여야) -->
+        <div id="content1" class="tab-content">
+            <h3>탭 1의 제목</h3>
+            <pre>11111111 TAB 내용입니다.</pre>
+        </div>
+        <div id="content2" class="tab-content">
+            <h3>탭 2의 제목</h3>
+            <pre>22222222 TAB 내용입니다.</pre>
+        </div>
+        <div id="content3" class="tab-content">
+            <h3>탭 3의 제목</h3>
+            <pre>33333333 TAB 내용입니다.</pre>
+        </div>
+    </div>
+    
+</body>
+</html>

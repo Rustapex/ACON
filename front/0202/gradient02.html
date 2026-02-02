@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gradient_color-stop 색상 중지, 01은 0126에</title>
+    <style>
+        div{
+            width:500px;
+            height: 350px;
+            border-radius: 20px;
+        }
+        .grad{
+            background: red;
+            background: linear-gradient(270deg, red, white); 
+            /* 표준 구문 : 45도(xy축 ++ 방향으로), 빨강에서 흰색으로 */
+            /* 0도 12시 방향, 90도 3시, 180도 6시, 270도 9시 */
+        }
+    </style>
+</head>
+<body>
+    <div class="grad"></div>
+    
+</body>
+</html>

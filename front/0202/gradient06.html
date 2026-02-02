@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gradation06</title>
+    <style>
+      div {
+        width: 500px;
+        height: 300px;
+        border: 1px solid;
+        margin-bottom: 5px;
+      }
+      .grad1 {
+        background: green;
+        background: repeating-linear-gradient(yellow, green 20px);
+      }
+      .grad2 {
+        background: green;
+        background: repeating-linear-gradient(yellow, green 20px, green 20px, green 40px);
+        /* 시작 색상과 끝 색상을 명확하게 구분 */
+        /* 시작에서 10%지점까지는 노랑, 10~20% 까지는 초록.. 나머지는 동일패턴 반복 */
+      }
+      .grad3 {
+        background: red;
+        background: repeating-radial-gradient(circle, yellow, red 10%);
+      }
+      .grad4 {
+        background: red;
+        background: repeating-radial-gradient(circle, white, white 10%, grey 10%, grey 20%);
+        /* 중심에서 10%지점까지는 흰색, 10~20% 까지는 회색.. 나머지는 동일패턴 반복 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grad1"></div>
+    <div class="grad2"></div>
+    <div class="grad3"></div>
+    <div class="grad4"></div>
+  </body>
+</html>
