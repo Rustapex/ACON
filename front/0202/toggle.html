@@ -23,13 +23,22 @@
     <button class="toggleBtn">토글버튼</button>
     
     <script>
+        // 🔸1) 버튼 요소를 Dom에서 찾는다.
         const toggleBtn = document.querySelector(".toggleBtn");
+        // 클래스가 toggleBtn인 첫 번째 요소(<button class="toggleBtn">토글버튼</button>)을 가져온다.
+
+        // 🔸2) 첫 번째 이미지 요소(<img class="pic1"> 요소)를 DOM에서 찾는다.
         const pic1 = document.querySelector(".pic1")
+
+        // 🔸3) 두 번째 이미지 요소(<img class="pic2"> 요소)를 DOM에서 찾는다.
         const pic2 = document.querySelector(".pic2")
 
         // ()=> {} 함수 선언하자 마자 바로 호출
+        // 🔸 4) 버튼에 클릭 이벤트를 등록한다.
+        // 형식 addEventListener("click", 콜백함수)
+        // 버튼이 클릭되면, 아래의 화살표 함수(콜백)가 실행된다.
         toggleBtn.addEventListener("click", ()=>{
-            pic1.classList.toggle("active"); // active가 없으면 추가
+            pic1.classList.toggle("active"); // active가 없으면 추가    
             pic2.classList.toggle("active"); // active가 있다면 뺌
         })
     </script>
