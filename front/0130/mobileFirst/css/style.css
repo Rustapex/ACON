@@ -235,6 +235,18 @@ footer {
     color: #fff;
     font-size: 0.95rem;
   }
+  .promo-list li {
+    display: flex;
+    /* 자식 요소가 부모 컨테이너의 
+        너비를 초과할 때 자동으로 다음 줄로 넘어간다.
+        NO-WRAP 한줄에 강제로 배치 */
+    flex-wrap: wrap; 
+    gap: 1.5rem;    
+    width: calc(25% - 1.125rem); /* ✅ 4열 (gap 보정) */
+    /* 내부 콘텐츠 정렬은 필요하면 아래처럼만 최소로 */
+    /* display:flex; flex-direction: column; */ /* ← 필요할 때만 켜기 */
+  }
+  
 }
 
 /* promotion 4열 */

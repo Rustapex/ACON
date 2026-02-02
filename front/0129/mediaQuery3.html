@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mediaQuery2</title>
     <style>
+      *{
+        box-sizing: border-box;
+      }
       .container {
         display: flex;
         flex-direction: column;
+        gap: 10px;  /*flex/grid에서는 보통 gap이 더 깔끔하다 */
       }
       .item {
         background-color: whitesmoke;
         color: black;
         border: 5px solid blue;
         padding: 30px;
-        margin: 5px;
+        margin: 0; /*flex/grid에서는 보통 gap이 더 깔끔하다 */
         text-align: center;
       }
       /* tablet */

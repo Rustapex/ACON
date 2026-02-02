@@ -1,8 +1,9 @@
+html{scroll-behavior: smooth;}
 body {
       margin: 0;
       display: grid;
       grid-template-areas:
-        "left header right"
+        "header header header"
         "left main right";
       grid-template-columns: 200px 1fr 250px;
       grid-template-rows: 64px 1fr;
@@ -31,6 +32,8 @@ body {
 
     header input {
       flex: 1;
+      display: flex;
+
       max-width: 420px;
       padding: 8px 14px;
       border-radius: 999px;

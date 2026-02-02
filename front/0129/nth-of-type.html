@@ -10,20 +10,21 @@
     nth-0f-type 특정 유형만을 선택
     nth-child 유형에 관계없이 해당 번째 선택
     
-    nth-child(n)은 어떤 요소든 n버냬ㅉ 것만 가져오지만
+    nth-child(n)은 어떤 요소든 n번 째 것만 가져오지만
     nth-of-type(n)은 앞에 지정한 요소의 n번째 것만 가져온다.*/
-    li{
-        list-style: none;
+    li {
+      list-style: none;
     }
-    .child_test :nth-child(1) {
+    .child_test > li:nth-child(1) {
       /*유형에 관계없이*/
       color: red;
     }
-    .child_test :nth-child(3) {
+    .child_test > li:nth-child(3) {
       color: red;
     }
 
-    .type_test li:nth-of-type(1) { /*li 요소 중에*/
+    .type_test li:nth-of-type(1) {
+      /*li 요소 중에*/
       color: blue;
     }
     .type_test li:nth-of-type(3) {
@@ -31,15 +32,15 @@
     }
   </style>
   <body>
+    <p>nth-child</p>
     <ul class="child_test">
-      <p>nth-child</p>
       <li>첫번째</li>
       <li>두번째</li>
       <li>세번째</li>
       <li>네번째</li>
     </ul>
+    <p>nth-of-type</p>
     <ul class="type_test">
-      <p>nth-of-type</p>
       <li>첫번째</li>
       <li>두번째</li>
       <li>세번째</li>

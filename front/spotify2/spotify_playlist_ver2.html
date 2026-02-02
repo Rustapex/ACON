@@ -1,169 +1,292 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>가수별 Spotify 인터페이스</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>가수별 Spotify 인터페이스</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- 좌측 aside (빈 영역 유지) -->
+    <aside class="left"></aside>
 
-  <!-- 좌측 aside (빈 영역 유지) -->
-  <aside class="left"></aside>
-
-  <!-- =========================
+    <!-- =========================
        HEADER (datalist 검색)
   ========================== -->
-  <header>
-    <h3>가수 검색</h3>
-    <input type="text" list="artists" placeholder="가수명을 입력하세요" />
-    <datalist id="artists">
-      <option value="gongwon">
-      <option value="규리">
-      <option value="김윤희">
-      <option value="이영훈">
-      <option value="slowly">
-      <option value="Choi Jung Chul">
-      <option value="Lee Oh Wook">
-      <option value="deulrejang">
-      <option value="루시드폴">
-      <option value="Kim Kwangjin">
-      <option value="Lee Yerin">
-      <option value="음성녹음">
-      <option value="이상순">
-      <option value="Hareem">
-      <option value="유재하">
-    </datalist>
-  </header>
+    <header>
+      <h3>가수 검색</h3>
+      <input type="text" list="artists" placeholder="가수명을 입력하세요" />
+      <datalist id="artists">
+        <a href="#gongwon"><option value="gongwon"></option></a>
+        <a href="#KYURI"><option value="KYURI"></option></a>
+        <a href="#KimYoonHee"><option value="KimYoonHee"></option></a>
+        <a href="#LeeYoungHoon"><option value="LeeYoungHoon"></option></a>
+        <a href="#slowly"><option value="slowly"></option></a>
+        <a href="#ChoiJungChul"><option value="ChoiJungChul"></option></a>
+        <a href="#LeeOhWook"><option value="LeeOhWook"></option></a>
+        <a href="#deulrejang"><option value="deulrejang"></option></a>
+        <a href="#LucidFall"><option value="LucidFall"></option></a>
+        <a href="#KimKwangjin"><option value="KimKwangjin"></option></a>
+        <a href="#LeeYerin"><option value="LeeYerin"></option></a>
+        <a href="RecordTheVoiceMessage"
+          ><option value="RecordTheVoiceMessage"></option
+        ></a>
+        <a href="#LeeSangSoon"><option value="LeeSangSoon"></option></a>
+        <a href="#Hareem"><option value="Hareem"></option></a>
+        <a href="#YooJaeHa"><option value="YooJaeHa"></option></a>
+      </datalist>
+    </header>
 
-  <!-- =========================
+    <!-- =========================
        MAIN : iframe 영역
   ========================== -->
-  <main>
+    <main>
+      <section class="artist" id="gongwon">
+        <h2 id="gongwon">gongwon</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4wWQOkCruFsh?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="gongwon">
-      <h2>gongwon</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4wWQOkCruFsh?utm_source=generator"></iframe>
-    </section>
+      <section class="artist" id="KYURI">
+        <h2>KYURI</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4vbbhNWGQ7Fj?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="규리">
-      <h2>규리</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4vbbhNWGQ7Fj?utm_source=generator"></iframe>
-    </section>
+      <section class="artist" id="KimYoonHee">
+        <h2>KimYoonHee</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4pHqwKdWOIeX?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="김윤희">
-      <h2>김윤희</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4pHqwKdWOIeX?utm_source=generator"></iframe>
-    </section>
+      <section class="artist" id="LeeYoungHoon">
+        <h2>LeeYoungHoon</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4viIaxva8D3H?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="이영훈">
-      <h2>이영훈</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4viIaxva8D3H?utm_source=generator"></iframe>
-    </section>
+      <section class="artist" id="slowly">
+        <h2>slowly</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ygeziG58tSU?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="slowly">
-      <h2>slowly</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ygeziG58tSU?utm_source=generator"></iframe>
-    </section>
+      <section class="artist" id="ChoiJungChul">
+        <h2>ChoiJungChul</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4va1ZPn3J7JZ?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="Choi Jung Chul">
-      <h2>Choi Jung Chul</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4va1ZPn3J7JZ?utm_source=generator"></iframe>
-    </section>
+      <section class="artLeeOhWookist" id="LeeOhWook">
+        <h2>LeeOhWook</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4v7GeECp8a7W?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="Lee Oh Wook">
-      <h2>Lee Oh Wook</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4v7GeECp8a7W?utm_source=generator"></iframe>
-    </section>
+      <section class="artist" id="deulrejang">
+        <h2>deulrejang</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4A5QGdiyGfS3?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="deulrejang">
-      <h2>deulrejang</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4A5QGdiyGfS3?utm_source=generator"></iframe>
-    </section>
+      <section class="artLucidFallist" id="LucidFall">
+        <h2>LucidFall</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4AfMqSwetGvN?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="루시드폴">
-      <h2>루시드폴</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4AfMqSwetGvN?utm_source=generator"></iframe>
-    </section>
+      <section classKimKwangjin="artist" id="KimKwangjinKimKwangjin">
+        <h2>KimKwangjin</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4zP2s5eYIIoF?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="Kim Kwangjin">
-      <h2>Kim Kwangjin</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4zP2s5eYIIoF?utm_source=generator"></iframe>
-    </section>
+      <section classLeeYerin="artist" id="LeeYerinLeeYerin">
+        <h2>LeeYerin</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4snRyTH2Qftx?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="Lee Yerin">
-      <h2>Lee Yerin</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4snRyTH2Qftx?utm_source=generator"></iframe>
-    </section>
+      <section class="arRecordTheVoiceMessageist" id="RecordTheVoiceMessage">
+        <h2>RecordTheVoiceMessage</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ws0DMi29JX7?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="음성녹음">
-      <h2>음성녹음</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ws0DMi29JX7?utm_source=generator"></iframe>
-    </section>
+      <section class="artLeeSangSoonist" id="LeeSangSoon">
+        <h2>LeeSangSoon</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4nvhls5XTO7R?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="이상순">
-      <h2>이상순</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4nvhls5XTO7R?utm_source=generator"></iframe>
-    </section>
+      <section class="artist" id="Hareem">
+        <h2>Hareem</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4DfoRnntLyqi?utm_source=generator"
+        ></iframe>
+      </section>
 
-    <section class="artist" id="Hareem">
-      <h2>Hareem</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4DfoRnntLyqi?utm_source=generator"></iframe>
-    </section>
+      <section class="artYooJaeHaist" id="YooJaeHa">
+        <h2 id="YooJaeHa">YooJaeHa</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E4z3bR1tQ5YDX?utm_source=generator"
+        ></iframe>
+      </section>
+    </main>
 
-    <section class="artist" id="유재하">
-      <h2>유재하</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E4z3bR1tQ5YDX?utm_source=generator"></iframe>
-    </section>
-
-  </main>
-
-  <!-- =========================
+    <!-- =========================
        ASIDE RIGHT : 유사가수
   ========================== -->
-  <aside class="right">
+    <aside class="right">
+      
 
-    <ul class="dropbtn">gongwon
-      <div class="dropdown-content">
-        <li>규리</li>
-        <li>이영훈</li>
-        <li>김윤희</li>
-      </div>
-    </ul>
+      <ul class="dropbtn">
+        KYURI
+        <div class="dropdown-content">
+          <li>slowly</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
 
-    <ul class="dropbtn">규리
-      <div class="dropdown-content">
-        <li>slowly</li>
-        <li>Choi Jung Chul</li>
-        <li>Lee Oh Wook</li>
-      </div>
-    </ul>
+      <ul class="dropbtn">
+        KimYoonHee
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>LeeOhWook</li>
+          <li>slowly</li>
+        </div>
+      </ul>
 
-    <ul class="dropbtn">김윤희
-      <div class="dropdown-content">
-        <li>규리</li>
-        <li>Lee Oh Wook</li>
-        <li>slowly</li>
-      </div>
-    </ul>
+      <ul class="dropbtn">
+        LeeYoungHoon
+        <div class="dropdown-content">
+          <li>deulrejang</li>
+          <li>LucidFall</li>
+          <li>KimKwangjin</li>
+        </div>
+      </ul>
 
-    <ul class="dropbtn">이영훈
-      <div class="dropdown-content">
-        <li>deulrejang</li>
-        <li>루시드폴</li>
-        <li>Kim Kwangjin</li>
-      </div>
-    </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        slowly
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>ChoiJungChul</li>
+          <li>LeeOhWook</li>
+        </div>
+      </ul>
+      <ul class="dropbtn">
+        <a href="#gongwon"><h3 id="gongwon">gongwon</h3></a>
+        <div class="dropdown-content">
+          <li>KYURI</li>
+          <li>LeeYoungHoon</li>
+          <li>KimYoonHee</li>
+        </div>
+      </ul>
 
-    <ul class="dropbtn">slowly
-      <div class="dropdown-content">
-        <li>규리</li>
-        <li>Choi Jung Chul</li>
-        <li>Lee Oh Wook</li>
-      </div>
-    </ul>
+      
 
-  </aside>
-
-</body>
+    </aside>
+  </body>
 </html>
