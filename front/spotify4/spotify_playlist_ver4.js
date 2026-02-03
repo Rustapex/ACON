@@ -1,22 +1,22 @@
-const iframes= document.querySelectorAll("iframe[data-src]");
+const iframes= document.querySelectorAll("main iframe");
 
 const observer = new IntersectionObserver(
     (entries, obs) => {
         entries.forEach(entry => {   
-            if (entry.isIntersecting){  // ✅ 올바른 조건
+            if (!entry.isIntersecting) return;
+
             const iframe = entry.target;
 
-            // 아직 로드 안되었다면
-            if (!iframe.src) {
+            // data-src가 있는 경우에만 src로 주입 아직 로드 안되었다면
+            if (!iframe.src && iframe.dataset.src) {
                 iframe.src = iframe.dataset.src;
             }
             // 다시 관찰하지 않음
             obs.unobserve(iframe);
-        }
         });
-    },
+      },
     {
-        threshold: 1.0 // iframe이 100% 보일 때만 로드
+        threshold: 0.2 // iframe이 100% 보일 때만 로드
     }
 );
 // 모든 iframe 관찰 시작

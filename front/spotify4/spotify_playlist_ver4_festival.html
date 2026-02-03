@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>가수별 Spotify 인터페이스</title>
+    <script src="https://kit.fontawesome.com/4ec79785b5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="spotify_playlist_ver4.css" />
+    <script defer src="spotify_playlist_ver4.js"></script>
+  </head>
+  <style> 
+  .festival-page {
+    grid-template-areas:
+    "header"
+    "main";
+    grid-template-columns: 1fr;
+}
+
+/* ✅ main: 7개 카드 flex 래핑 컨테이너 */
+  .festival-main {
+    grid-area: main;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-content: flex-start;
+  background: #000;
+  }
+
+/* ✅ 카드 공통(=flex box 7개) */
+  .festival-card {
+    position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #111;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+
+  /* ✅ 1024px 이상(PC): 2개가 한 줄에 꽉 차게 */
+  flex: 0 0 calc(50% - 8px);
+  height: 260px;
+  }
+
+/* ✅ 1024px 미만: 1개씩(모바일/태블릿) */
+@media (max-width: 1023px) {
+  .festival-card {
+    flex: 0 0 100%;
+    height: 240px;
+  }
+}
+
+/* ✅ 카드 이미지: flexbox(카드) 안에 꽉 채우기 */
+.festival-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.35s ease;
+}
+
+/* ✅ hover/focus 시 이미지 살짝 확대 */
+.festival-card:hover img,
+.festival-card:focus-visible img {
+  transform: scale(1.08);
+}
+
+/* ✅ 텍스트 오버레이: 처음엔 아래로 내려가서 안 보이게 */
+.festival-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+
+  /* 아래쪽은 진하게(가독성) */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.0) 80%
+  );
+
+  transform: translateY(22%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* ✅ hover/focus 시 텍스트 슬라이드업 */
+.festival-card:hover .festival-overlay,
+.festival-card:focus-visible .festival-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ✅ 페스티벌 이름 강조 */
+.festival-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+}
+
+/* 나머지 정보 */
+.festival-meta {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.35;
+}
+
+/* 가격 강조 */
+.festival-price {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* CTA 느낌 */
+.festival-cta {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1db954;
+}
+
+/* ✅ 링크 없는 카드(비활성) */
+.festival-card.is-disabled {
+  cursor: default;
+}
+.festival-card.is-disabled .festival-cta {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+
+
+  </style>
+
+  <body>
+    <!-- =========================
+       HEADER (datalist 검색)
+  ========================== -->
+
+    <header class="header">
+      <!-- 왼쪽 헤더(로고) -->
+      <div class="header-left">
+        <a href="./spotify_playlist_ver4.html">
+          <i class="fa-brands fa-spotify"></i>
+        </a>
+      </div>
+
+      <!-- 가운데(검색& 홈)  -->
+
+      <div class="header-center">
+        <div class="background-color"></div>
+        <a href="./spotify_playlist_ver4_festival.html">
+          <i class="fa-solid fa-icons"></i>
+        </a>
+        <div class="search-box">
+          <label for="song">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+          <input
+            type="text"
+            id="song"
+            placeholder="어떤 콘텐츠를 감상하고 싶으세요?"
+          />
+        </div>
+      </div>
+
+      <div class="header-right">
+        <a href="https://open.spotify.com/playlist/4Jl4PdbiwkiZ6jak5viuF8">
+          <i class="fa-regular fa-file-audio"></i>
+        </a>
+        <a href="./spotify_playlist_ver4_login.html">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- =========================
+       MAIN : iframe 영역
+  ========================== -->
+  <main class="festival-main">
+
+    <main class="festival-main">
+  <!-- 1) ASIAN POP FESTIVAL -->
+  <a
+    class="festival-card"
+    href="https://tickets.interpark.com/goods/25018300"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="../spotifyIMG/festivalIMG/asianpopFes.webp" alt="ASIAN POP FESTIVAL 2026" />
+    <div class="festival-overlay">
+      <div class="festival-title">ASIAN POP FESTIVAL 2026</div>
+      <div class="festival-meta">05/30 토 ~ 05/31 일</div>
+      <div class="festival-meta">인천광역시 파라다이스 시티</div>
+      <div class="festival-price">양일권 143,000원</div>
+      <div class="festival-cta">예매하러 가기 →</div>
+    </div>
+  </a>
+
+  <!-- 2) THE AIR HOUSE -->
+  <a
+    class="festival-card"
+    href="https://kream.co.kr/exhibitions/theairhouse2026?srsltid=AfmBOoqsxqJVlShSKOHgQeyOt4XRf_IidDM99kl0xdG07t0pdKSM96LU"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="../spotifyIMG/festivalIMG/theairhouse.jfif"
+      alt="THE AIR HOUSE 2026"
+    />
+    <div class="festival-overlay">
+      <div class="festival-title">THE AIR HOUSE 2026</div>
+      <div class="festival-meta">05/23 토 ~ 05/25 월</div>
+      <div class="festival-meta">경기도 가평군 남이섬</div>
+      <div class="festival-price">일일권 - 70,000원</div>
+      <div class="festival-cta">예매하러 가기 →</div>
+    </div>
+  </a>
+
+  <!-- 3) 과천재즈피크닉 -->
+  <a
+    class="festival-card"
+    href="https://www.gcfest.or.kr/lmth/board_view.html?b_idx=MjU0OSAg&cate=notice"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://www.gcfest.or.kr/data/notice/2026-%EA%B3%BC%EC%B2%9C%EC%9E%AC%EC%A6%88%ED%94%BC%ED%81%AC%EB%8B%89-%EB%82%A0%EC%A7%9C%EA%B3%B5%EC%A7%803.jpg"
+      alt="2026 과천재즈피크닉"
+    />
+    <div class="festival-overlay">
+      <div class="festival-title">2026 과천재즈피크닉</div>
+      <div class="festival-meta">05/01 금 ~ 05/02 토</div>
+      <div class="festival-meta">경기도 과천시 과천시민광장</div>
+      <div class="festival-price">일일권 -</div>
+      <div class="festival-cta">공지/예매 확인 →</div>
+    </div>
+  </a>
+
+  <!-- 4) 그린캠프 -->
+  <a
+    class="festival-card"
+    href="https://nol.yanolja.com/ticket/places/26000059/products/26000869"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="../spotifyIMG/festivalIMG/greencampFes.gif" alt="2026 그린캠프페스티벌" />
+    <div class="festival-overlay">
+      <div class="festival-title">2026 그린캠프페스티벌</div>
+      <div class="festival-meta">04/18 토 ~ 04/19 일</div>
+      <div class="festival-meta">경기도 이천시 지산포레스트 리조트</div>
+      <div class="festival-price">일일권 - 109,000원</div>
+      <div class="festival-cta">예매하러 가기 →</div>
+    </div>
+  </a>
+
+  <!-- 5) LOVESOME -->
+  <a
+    class="festival-card"
+    href="https://tickets.interpark.com/contents/notice/detail/12604"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="../spotifyIMG/festivalIMG/lovesome.jpg" alt="2026 LOVESOME – 조선미술관" />
+    <div class="festival-overlay">
+      <div class="festival-title">2026 LOVESOME – 조선미술관</div>
+      <div class="festival-meta">04/11 토 ~ 04/12 일</div>
+      <div class="festival-meta">인천광역시 인스파이어 디스커버리 파크</div>
+      <div class="festival-price">얼리버드 1일권 - 88,000원</div>
+      <div class="festival-cta">예매하러 가기 →</div>
+    </div>
+  </a>
+
+  <!-- 6) KT&G 상상실현(링크 없음) -->
+  <div class="festival-card is-disabled" tabindex="0">
+    <img src="../spotifyIMG/festivalIMG/sangsangFes.png" alt="2026 KT&G 상상실현 페스티벌" />
+    <div class="festival-overlay">
+      <div class="festival-title">2026 KT＆G 상상실현 페스티벌</div>
+      <div class="festival-meta">날짜 미정</div>
+      <div class="festival-meta">강원도 춘천시 KT&G 상상마당 춘천 아트센터</div>
+      <div class="festival-price">가격미정</div>
+      <div class="festival-cta">예매 링크 준비 중</div>
+    </div>
+  </div>
+
+  <!-- 7) THE GLOW -->
+  <a
+    class="festival-card"
+    href="https://theglowseoul.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="../spotifyIMG/festivalIMG/theglow.webp" alt="THE GLOW 2026" />
+    <div class="festival-overlay">
+      <div class="festival-title">THE GLOW 2026</div>
+      <div class="festival-meta">03/21 토 ~ 03/22 일</div>
+      <div class="festival-meta">경기도 고양시 킨텍스</div>
+      <div class="festival-price">일일권 - 121,000원</div>
+      <div class="festival-cta">공식 사이트 →</div>
+    </div>
+  </a>
+</main>  
+    
+
+  </body>
+</html>

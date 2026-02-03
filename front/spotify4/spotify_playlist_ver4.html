@@ -3,48 +3,230 @@
   <head>
     <meta charset="UTF-8" />
     <title>가수별 Spotify 인터페이스</title>
+    <script
+      src="https://kit.fontawesome.com/4ec79785b5.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="spotify_playlist_ver4.css" />
     <script defer src="spotify_playlist_ver4.js"></script>
   </head>
 
   <body>
-    <!-- 좌측 aside (빈 영역 유지) -->
-    <!-- ▶️ aside-left -->
-    <aside class="aside-left">        
-        <!-- ✅ datalist 제거 → scrollable artist 링크 목록 추가 -->      
-      <a class="artist-link-block" href="#gongwon" data-artist="gongwon">gongwon</a>
-      <a class="artist-link-block" href="#KYURI" data-artist="KYURI">KYURI</a>
-      <a class="artist-link-block" href="#KimYoonHee" data-artist="KimYoonHee">KimYoonHee</a>
-      <a class="artist-link-block" href="#LeeYoungHoon" data-artist="LeeYoungHoon">LeeYoungHoon</a>
-      <a class="artist-link-block" href="#slowly" data-artist="slowly">slowly</a>
-      <a class="artist-link-block" href="#ChoiJungChul" data-artist="ChoiJungChul">ChoiJungChul</a>
-      <a class="artist-link-block" href="#LeeOhWook" data-artist="LeeOhWook">LeeOhWook</a>
-      <a class="artist-link-block" href="#deulrejang" data-artist="deulrejang">deulrejang</a>
-      <a class="artist-link-block" href="#LucidFall" data-artist="LucidFall">LucidFall</a>
-      <a class="artist-link-block" href="#KimKwangjin" data-artist="KimKwangjin">KimKwangjin</a>
-      <a class="artist-link-block" href="#LeeYerin" data-artist="LeeYerin">LeeYerin</a>
-      <a class="artist-link-block" href="#RecordTheVoiceMessage" data-artist="RecordTheVoiceMessage">RecordTheVoiceMessage</a>
-      <a class="artist-link-block" href="#LeeSangSoon" data-artist="LeeSangSoon">LeeSangSoon</a>
-      <a class="artist-link-block" href="#Hareem" data-artist="Hareem">Hareem</a>
-      <a class="artist-link-block" href="#YooJaeHa" data-artist="YooJaeHa">YooJaeHa</a>
-    </aside>
-
     <!-- =========================
        HEADER (datalist 검색)
   ========================== -->
 
-    <header>
+    <header class="header">
+      <!-- 왼쪽 헤더(로고) -->
+      <div class="header-left">
+        <a href="./spotify_playlist_ver4.html">
+          <i class="fa-brands fa-spotify"></i>
+        </a>
+      </div>
+
+      <!-- 가운데(검색& 홈)  -->
+
+      <div class="header-center">
+        <div class="background-color"></div>
+        <a href="./spotify_playlist_ver4_festival.html">
+          <i class="fa-solid fa-icons"></i>
+        </a>
+        <div class="search-box">
+          <label for="song">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+          <input
+            type="text"
+            id="song"
+            placeholder="어떤 콘텐츠를 감상하고 싶으세요?"
+          />
+        </div>
+      </div>
+
+      <div class="header-right">
+        <a href="https://open.spotify.com/playlist/4Jl4PdbiwkiZ6jak5viuF8">
+          <i class="fa-regular fa-file-audio"></i>
+        </a>
+        <a href="./spotify_playlist_ver4_login.html">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </div>
     </header>
+
+    <!-- 좌측 aside (빈 영역 유지) -->
+    <!-- ▶️ aside-left -->
+
+    <!-- ✅ 수정된 aside-left 부분만 -->
+    <aside class="aside-left">
+      <a class="artist-link-block" href="#gongwon" data-artist="gongwon">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/gongwon.jpg"
+          alt="gongwon"
+        />
+        <span class="artist-name">gongwon</span>
+      </a>
+
+      <a class="artist-link-block" href="#KYURI" data-artist="KYURI">
+        <img class="artist-avatar" src="../spotifyIMG/KYURI.jfif" alt="KYURI" />
+        <span class="artist-name">KYURI</span>
+      </a>
+
+      <a class="artist-link-block" href="#KimYoonHee" data-artist="KimYoonHee">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/KimYoonHee.jfif"
+          alt="KimYoonHee"
+        />
+        <span class="artist-name">KimYoonHee</span>
+      </a>
+
+      <a
+        class="artist-link-block"
+        href="#LeeYoungHoon"
+        data-artist="LeeYoungHoon"
+      >
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/LeeYoungHoon.jfif"
+          alt="LeeYoungHoon"
+        />
+        <span class="artist-name">LeeYoungHoon</span>
+      </a>
+
+      <a class="artist-link-block" href="#slowly" data-artist="slowly">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/slowly.webp"
+          alt="slowly"
+        />
+        <span class="artist-name">slowly</span>
+      </a>
+
+      <a
+        class="artist-link-block"
+        href="#ChoiJungChul"
+        data-artist="ChoiJungChul"
+      >
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/ChoiJungChul.jfif"
+          alt="ChoiJungChul"
+        />
+        <span class="artist-name">ChoiJungChul</span>
+      </a>
+
+      <a class="artist-link-block" href="#LeeOhWook" data-artist="LeeOhWook">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/LeeOhWook.webp"
+          alt="LeeOhWook"
+        />
+        <span class="artist-name">LeeOhWook</span>
+      </a>
+
+      <a class="artist-link-block" href="#deulrejang" data-artist="deulrejang">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/deulrejang.jfif"
+          alt="deulrejang"
+        />
+        <span class="artist-name">deulrejang</span>
+      </a>
+
+      <a class="artist-link-block" href="#LucidFall" data-artist="LucidFall">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/LucidFall.jfif"
+          alt="LucidFall"
+        />
+        <span class="artist-name">LucidFall</span>
+      </a>
+
+      <a
+        class="artist-link-block"
+        href="#KimKwangjin"
+        data-artist="KimKwangjin"
+      >
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/KimKwangjin.jfif"
+          alt="KimKwangjin"
+        />
+        <span class="artist-name">KimKwangjin</span>
+      </a>
+
+      <a class="artist-link-block" href="#LeeYerin" data-artist="LeeYerin">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/Leeyerin.jfif"
+          alt="LeeYerin"
+        />
+        <span class="artist-name">LeeYerin</span>
+      </a>
+
+      <a
+        class="artist-link-block"
+        href="#RecordTheVoiceMessage"
+        data-artist="RecordTheVoiceMessage"
+      >
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/RecordTheVoiceMessage.jfif"
+          alt="RecordTheVoiceMessage"
+        />
+        <span class="artist-name">RecordTheVoiceMessage</span>
+      </a>
+
+      <a
+        class="artist-link-block"
+        href="#LeeSangSoon"
+        data-artist="LeeSangSoon"
+      >
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/LeeSangSoon.jfif"
+          alt="LeeSangSoon"
+        />
+        <span class="artist-name">LeeSangSoon</span>
+      </a>
+
+      <a class="artist-link-block" href="#Hareem" data-artist="Hareem">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/Hareem.jfif"
+          alt="Hareem"
+        />
+        <span class="artist-name">Hareem</span>
+      </a>
+
+      <a class="artist-link-block" href="#YooJaeHa" data-artist="YooJaeHa">
+        <img
+          class="artist-avatar"
+          src="../spotifyIMG/YooJaeHa.jfif"
+          alt="YooJaeHa"
+        />
+        <span class="artist-name">YooJaeHa</span>
+      </a>
+    </aside>
 
     <!-- =========================
        MAIN : iframe 영역
   ========================== -->
     <main>
       <section class="artist" id="gongwon">
-        <h2 id="gongwon">gongwon</h2>
+        <h2>gongwon</h2>
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4wWQOkCruFsh?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -53,6 +235,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4vbbhNWGQ7Fj?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -61,6 +251,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4pHqwKdWOIeX?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -69,6 +267,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4viIaxva8D3H?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -77,6 +283,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ygeziG58tSU?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -85,6 +299,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4va1ZPn3J7JZ?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -93,6 +315,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4v7GeECp8a7W?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -101,6 +331,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4A5QGdiyGfS3?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -109,6 +347,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4AfMqSwetGvN?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -117,6 +363,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4zP2s5eYIIoF?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -125,6 +379,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4snRyTH2Qftx?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -133,6 +395,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ws0DMi29JX7?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -141,6 +411,14 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4nvhls5XTO7R?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
@@ -149,14 +427,30 @@
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4DfoRnntLyqi?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
 
       <section class="artist" id="YooJaeHa">
-        <h2 id="YooJaeHa">YooJaeHa</h2>
+        <h2>YooJaeHa</h2>
         <iframe
           src="https://open.spotify.com/embed/playlist/37i9dQZF1E4z3bR1tQ5YDX?utm_source=generator"
           loading="lazy"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            fullscreen;
+            picture-in-picture;
+          "
+          allowfullscreen
         ></iframe>
       </section>
     </main>
@@ -168,123 +462,131 @@
       <ul class="dropbtn" data-artist="gongwon">
         <h3 id="gongwon"><a href="#gongwon">gongwon</a></h3>
         <div class="dropdown-content">
-          <li>KYURI</li>
-          <li>LeeYoungHoon</li>
-          <li>KimYoonHee</li>
+          <li data-artist="KYURI">KYURI</li>
+          <li data-artist="LeeYoungHoon">LeeYoungHoon</li>
+          <li data-artist="KimYoonHee">KimYoonHee</li>
+        </div>
+      </ul>
+      <ul class="dropbtn" data-artist="KYURI">
+        <h3 id="KYURI"><a href="#KYURI">KYURI</a></h3>
+        <div class="dropdown-content">
+          <li data-artist="slowly">slowly</li>
+          <li data-artist="ChoiJungChul">ChoiJungChul</li>
+          <li data-artist="LeeOhWook">LeeOhWook</li>
         </div>
       </ul>
       <ul class="dropbtn" data-artist="KimYoonHee">
         <h3><a href="#KimYoonHee">KimYoonHee</a></h3>
         <div class="dropdown-content">
-          <li>KYURI</li>
-          <li>LeeOhWook</li>
-          <li>slowly</li>
+          <li data-artist="KYURI">KYURI</li>
+          <li data-artist="LeeOhWook">LeeOhWook</li>
+          <li data-artist="slowly">slowly</li>
         </div>
       </ul>
       <ul class="dropbtn" data-artist="LeeYoungHoon">
         <h3><a href="#LeeYoungHoon">LeeYoungHoon</a></h3>
         <div class="dropdown-content">
-          <li>deulrejang</li>
-          <li>LucidFall</li>
-          <li>KimKwangjin</li>
+          <li data-artist="deulrejang">deulrejang</li>
+          <li data-artist="LucidFall">LucidFall</li>
+          <li data-artist="KimKwangjin">KimKwangjin</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="slowly">
         <h3><a href="#slowly">slowly</a></h3>
         <div class="dropdown-content">
-          <li>KYURI</li>
-          <li>ChoiJungChul</li>
-          <li>LeeOhWook</li>
+          <li data-artist="KYURI">KYURI</li>
+          <li data-artist="ChoiJungChul">ChoiJungChul</li>
+          <li data-artist="LeeOhWook">LeeOhWook</li>
         </div>
       </ul>
       <ul class="dropbtn" data-artist="ChoiJungChul">
         <h3><a href="#ChoiJungChul">ChoiJungChul</a></h3>
         <div class="dropdown-content">
-          <li>slowly</li>
-          <li>LeeOhWook</li>
-          <li>KYURI</li>
+          <li data-artist="slowly">slowly</li>
+          <li data-artist="LeeOhWook">LeeOhWook</li>
+          <li data-artist="KYURI">KYURI</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="LeeOhWook">
         <h3><a href="#LeeOhWook">LeeOhWook</a></h3>
         <div class="dropdown-content">
-          <li>ChoiJungChul</li>
-          <li>slowly</li>
-          <li>KYURI</li>
+          <li data-artist="ChoiJungChul">ChoiJungChul</li>
+          <li data-artist="slowly">slowly</li>
+          <li data-artist="KYURI">KYURI</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="deulrejang">
         <h3><a href="#deulrejang">deulrejang</a></h3>
         <div class="dropdown-content">
-          <li>LeeYoungHoon</li>
-          <li>LeeYerin</li>
-          <li>RecordTheVoiceMessage</li>
+          <li data-artist="LeeYoungHoon">LeeYoungHoon</li>
+          <li data-artist="LeeYerin">LeeYerin</li>
+          <li data-artist="RecordTheVoiceMessage">RecordTheVoiceMessage</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="LucidFall">
         <h3><a href="#LucidFall">LucidFall</a></h3>
         <div class="dropdown-content">
-          <li>deulrejang</li>
-          <li>LeeYoungHoon</li>
-          <li>LeeSangSoon</li>
+          <li data-artist="deulrejang">deulrejang</li>
+          <li data-artist="LeeYoungHoon">LeeYoungHoon</li>
+          <li data-artist="LeeSangSoon">LeeSangSoon</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="KimKwangjin">
         <h3><a href="#KimKwangjin">KimKwangjin</a></h3>
         <div class="dropdown-content">
-          <li>Hareem</li>
-          <li>YooJaeHa</li>
-          <li>Exhibition</li>
+          <li data-artist="Hareem">Hareem</li>
+          <li data-artist="YooJaeHa">YooJaeHa</li>
+          <li data-artist="EroticWormsExhibition">EroticWormsExhibition</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="LeeYerin">
         <h3><a href="#LeeYerin">LeeYerin</a></h3>
         <div class="dropdown-content">
-          <li>n@di</li>
-          <li>2DanJi</li>
-          <li>KimFeelsun</li>
+          <li data-artist="n@di">n@di</li>
+          <li data-artist="2DanJi">2DanJi</li>
+          <li data-artist="KimFeelsun">KimFeelsun</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="RecordTheVoiceMessage">
         <h3><a href="#RecordTheVoiceMessage">RecordTheVoiceMessage</a></h3>
         <div class="dropdown-content">
-          <li>ShinInRyu</li>
-          <li>EroticWormsExhibition</li>
-          <li>ParksoEun</li>
+          <li data-artist="ShinInRyu">ShinInRyu</li>
+          <li data-artist="EroticWormsExhibition">EroticWormsExhibition</li>
+          <li data-artist="ParksoEun">ParksoEun</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="LeeSangSoon">
         <h3><a href="#LeeSangSoon">LeeSangSoon</a></h3>
         <div class="dropdown-content">
-          <li>VerandahProject</li>
-          <li>JuYoonHa</li>
-          <li>CoffeeBoy</li>
+          <li data-artist="VerandahProject">VerandahProject</li>
+          <li data-artist="JuYoonHa">JuYoonHa</li>
+          <li data-artist="CoffeeBoy">CoffeeBoy</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="Hareem">
         <h3><a href="#Hareem">Hareem</a></h3>
         <div class="dropdown-content">
-          <li>LeeJuck</li>
-          <li>KimKwangjin</li>
-          <li>JangHyeJin</li>
+          <li data-artist="LeeJuck">LeeJuck</li>
+          <li data-artist="KimKwangjin">KimKwangjin</li>
+          <li data-artist="JangHyeJin">JangHyeJin</li>
         </div>
       </ul>
 
       <ul class="dropbtn" data-artist="YooJaeHa">
         <h3><a href="#YooJaeHa">YooJaeHa</a></h3>
         <div class="dropdown-content">
-          <li>LeeSeungHwan</li>
-          <li>ShinHaeChul</li>
-          <li>ByunJinSub</li>
+          <li data-artist="LeeSeungHwan">LeeSeungHwan</li>
+          <li data-artist="ShinHaeChul">ShinHaeChul</li>
+          <li data-artist="ByunJinSub">ByunJinSub</li>
         </div>
       </ul>
     </aside>

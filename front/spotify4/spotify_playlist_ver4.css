@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -7,16 +13,17 @@ body {
   grid-template-areas:
     "header header header"
     "left main right";
-  grid-template-columns: 200px 1fr 250px;
+  grid-template-columns: 60px 1fr 250px;
   grid-template-rows: 64px 1fr;
   height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: #000;
   color: #fff;
+  /* transition: grid-template-columns 0.25s ease; */
 }
 
 /* =========================
-       HEADER (비워둠)
+       HEADER 
     ========================== */
 header {
   grid-area: header;
@@ -26,6 +33,84 @@ header {
   gap: 12px;
   padding: 0 20px;
 }
+/* left-header */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.fa-spotify {
+  font-size: 32px;
+  color: #1db954;
+}
+
+/* center-header */
+.header-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0; /* 가운데 영역이 필요할 때 줄어들 수 있게(아이콘을 안 막도록) */
+}
+
+/* festival icon*/
+.fa-solid {
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* search box */
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  background-color: #2a2a2a;
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  margin-left: 10px;
+  min-width: 0; /* place holder 길어도 input 수축 ㄱㄴ */
+}
+
+.search-icon {
+  color: #b3b3b3;
+}
+
+/* 오른쪽 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+/* icon */
+
+header .header-right i {
+  color: #b3b3b3;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #2a2a2a;
+  border-radius: 999px;
+  padding: 10px;
+}
+
+header .header-right i:hover {
+  color: #ffffff;
+}
+
 /* =========================
        ASIDE LEFT 
     ========================== */
@@ -36,9 +121,23 @@ header {
   background: #121212;
   padding: 10px;
   overflow-y: auto;
+  width: 100%;
+  /* transition: background 0.2s ease;  */
+  /* 폭은 gird에서 바뀌니까 배경만 transition*/
 }
+
+
+
+
+
+/* 반응형 */
+
+/* 링크 안에서 이미지 + 텍스트 나란히*/
 .artist-link-block {
-  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background: #333;
   color: white;
   text-decoration: none;
@@ -49,6 +148,68 @@ header {
 .artist-link-block:hover {
   background: #444;
 }
+
+/* 가수 얼굴 이미지 스타일 */
+.artist-avatar{
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+/* 기본(768px 미만 mobile) : 이미지(o) + 이름(x) */
+.artist-name{ 
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* 이상하면 지우기*/
+}
+
+/* 768 이하 이미지(o) + 이름(x) */
+@media (max-width: 767px){
+  .artist-name{ display: none;}
+  .artist-line-block{
+    justify-content: cetner; /*사진 보일때만 가운데*/
+    padding: 10px;
+  }
+}
+/* tablet(768 이상 : 이미지(x) + 이름(o)*/
+@media (min-width: 768px){
+  body {
+    grid-template-columns: 120px 1fr 250px; /* ✅ 이름만 모드일 때 적당 폭 */
+    /* transition: grid-template-columns 0.25s ease; */
+  }
+
+  .artist-avatar { display: none; } /* ✅ 기본은 이름만 */
+  .artist-name { display: block; }
+
+  /* ✅ hover 시(>=768): 좌측 컬럼 200px로 확장 + 사진+이름 모두 표시 */
+  body:has(.aside-left .artist-link-block:hover) {
+    grid-template-columns: 200px 1fr 250px; /* ✅ hover 확장 */
+  }
+
+  body:has(.aside-left .artist-link-block:hover) .aside-left .artist-avatar {
+    display: block; /* ✅ hover 시 사진 다시 표시 */
+  }
+  body:has(.aside-left .artist-link-block:hover) .aside-left .artist-name {
+    display: block; /* ✅ hover 시 이름도 유지 */
+  }
+  body:has(.aside-left .artist-link-block:hover) .aside-left .artist-link-block {
+    justify-content: flex-start; /* ✅ 사진+이름 보이게 정렬 */
+  }
+}
+  
+  
+@media(min-width: 1024px){
+  body {
+    grid-template-columns: 200px 1fr 250px; /* ✅ PC는 기본부터 200 */
+  }
+  .artist-avatar { display: block; }
+  .artist-name { display: block; }
+}
+
+
+
 /* =========================
        MAIN (iframe 영역)
     ========================== */
@@ -58,11 +219,12 @@ main {
   overflow-y: auto;
   background: #000;
 }
-iframe {
+main iframe {
   width: 100%;
   height: 90vh;
   border-radius: 12px;
   border: none;
+  display: block;
 }
 
 /* 추가된(검색가능한) 가수 링크 목록 스타일 */
@@ -107,15 +269,15 @@ aside.right {
 }
 /* 기본적으로 숨기기 */
 .dropbtn {
-    display: none;
+  display: none;
 }
 /* 클릭된 가수만 표시 */
-.dropbtn.active{
-    display: block;
+.dropbtn.active {
+  display: block;
 }
-.dropbtn.highlight{
-    border: 2px solid #f39c12;
-    background-color: #ffeaa7;
+.dropbtn.highlight {
+  border: 2px solid #f39c12;
+  background-color: #ffeaa7;
 }
 
 ul.dropbtn {
@@ -179,3 +341,44 @@ ul.dropbtn h3 a:hover {
   color: #aaa;
   margin-top: 4px;
 }
+.dropdown-content li::after{
+  content: "없는 가수입니다.";
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
+/* aside-left에 해당 data-artist가 있으면 문구 변경 */
+body:has(.aside-left .artist-link-block[data-artist="gongwon"])
+  .dropdown-content li[data-artist="gongwon"]::after,
+body:has(.aside-left .artist-link-block[data-artist="KYURI"])
+  .dropdown-content li[data-artist="KYURI"]::after,
+body:has(.aside-left .artist-link-block[data-artist="KimYoonHee"])
+  .dropdown-content li[data-artist="KimYoonHee"]::after,
+body:has(.aside-left .artist-link-block[data-artist="LeeYoungHoon"])
+  .dropdown-content li[data-artist="LeeYoungHoon"]::after,
+body:has(.aside-left .artist-link-block[data-artist="slowly"])
+  .dropdown-content li[data-artist="slowly"]::after,
+body:has(.aside-left .artist-link-block[data-artist="ChoiJungChul"])
+  .dropdown-content li[data-artist="ChoiJungChul"]::after,
+body:has(.aside-left .artist-link-block[data-artist="LeeOhWook"])
+  .dropdown-content li[data-artist="LeeOhWook"]::after,
+body:has(.aside-left .artist-link-block[data-artist="deulrejang"])
+  .dropdown-content li[data-artist="deulrejang"]::after,
+body:has(.aside-left .artist-link-block[data-artist="LucidFall"])
+  .dropdown-content li[data-artist="LucidFall"]::after,
+body:has(.aside-left .artist-link-block[data-artist="KimKwangjin"])
+  .dropdown-content li[data-artist="KimKwangjin"]::after,
+body:has(.aside-left .artist-link-block[data-artist="LeeYerin"])
+  .dropdown-content li[data-artist="LeeYerin"]::after,
+body:has(.aside-left .artist-link-block[data-artist="RecordTheVoiceMessage"])
+  .dropdown-content li[data-artist="RecordTheVoiceMessage"]::after,
+body:has(.aside-left .artist-link-block[data-artist="LeeSangSoon"])
+  .dropdown-content li[data-artist="LeeSangSoon"]::after,
+body:has(.aside-left .artist-link-block[data-artist="Hareem"])
+  .dropdown-content li[data-artist="Hareem"]::after,
+body:has(.aside-left .artist-link-block[data-artist="YooJaeHa"])
+  .dropdown-content li[data-artist="YooJaeHa"]::after {
+  content: "가수를 검색할 수 있습니다.";
+}
+
