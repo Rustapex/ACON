@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>가수별 Spotify 인터페이스</title>
+    <script src="https://kit.fontawesome.com/4ec79785b5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="spotify_playlist_ver4.css" />
+     <!-- ✅ 기존 CSS 파일은 건드리지 않고, 이 페이지에서만 필요한 것만 override -->
+    <style>
+      /* =========================================================
+        ✅ 이 페이지에서만 grid area 변경 (left + right만 사용)
+        - 기존 CSS(body) grid를 "left right right"로 덮어씀
+      ========================================================= */
+      body.artist-page {
+        grid-template-areas:
+          "header header header"
+          "left right right";
+        /* left는 넓게(연관 가수 맵), right는 2칸 합쳐서 상세/테이블 공간 */
+        grid-template-columns: minmax(320px, 1fr) minmax(260px, 320px) minmax(
+            260px,
+            320px
+          );
+      }      
+
+      /* left 영역(aside-left)은 기존 스타일이 있으니, 내부에 네트워크 영역만 예쁘게 보이게 */
+      body.artist-page .aside-left {
+        padding: 14px; /* 기존 10px 위에 override */
+        overflow: hidden; /* 네트워크 선/노드가 깔끔하게 */
+      }
+
+      /* right 영역 */
+      body.artist-page aside.right {
+        padding: 14px;
+      }
+
+      /* =========================================================
+        ✅ LEFT : 가수 네트워크(유의어 사전 느낌)
+        - root(중앙) + related(주변)
+        - 전체를 하나의 클래스로 묶음: .artist-network
+      ========================================================= */
+      .artist-network {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: calc(100vh - 64px - 28px); /* header(64) + padding 여유 */
+        border-radius: 16px;
+        background: #0b0b0b;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+        transition: background 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* ✅ root hover 시: related box 제외하고, 같은 클래스(artist-network) 배경만 변경 */
+      .artist-network:has(.root-artist:hover) {
+        background: #efece365; /* 임의 색상 */
+      }
+
+      /* 중앙 기준점(선/노드 위치 기준) */
+      .artist-network .network-center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* 가지(선) */
+      .artist-network .branch {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 2px;
+        width: var(--dist, 220px);
+        background: rgba(255, 255, 255, 0.12);
+        transform-origin: left center;
+        transform: translateY(-50%) rotate(var(--angle, 0deg));
+        pointer-events: none; /* hover 방해 X */
+      }
+
+      /* ================= root(해당 가수) ================= */
+      .root-artist {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 190px;
+        height: 190px;
+        border-radius: 999px;
+        background: #4A70A9; /* ✅ 해당가수 background로 집중 */
+        border: 1px solid #efece3c6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          background 0.2s ease;
+        cursor: default;
+        z-index: 5;
+      }
+
+      .root-artist .root-photo {
+        width: 92px;
+        height: 92px;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.18);
+      }
+      .root-artist .root-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 0.2s ease;
+        display: block;
+      }
+
+      .root-artist .root-name {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 1.2;
+        padding: 0 10px;
+        max-width: 160px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      /* ✅ root hover: 이미지 약간 커짐 + shadow 강조 */
+      .root-artist:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+        transform: translate(-50%, -50%) scale(1.03);
+        background: #8FABD4;
+      }
+      .root-artist:hover .root-photo img {
+        transform: scale(1.08);
+      }
+
+      /* ================= related(연관 가수) ================= */
+      .related-artist {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        /* ✅ 중앙에서 var로 이동 (가지처럼) */
+        transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px));
+        width: 150px;
+        min-height: 44px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        background: #8FABD4; /* ✅ 연관가수는 별도 background 유지(네트워크 배경 바뀌어도 영향 덜 받게) */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        text-decoration: none;
+
+        /* ✅ 가운데 정렬(요청: justify-content / align-content / text-align 등) */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        transition: transform 0.18s ease, box-shadow 0.18s ease,
+          background 0.18s ease;
+        z-index: 3;
+      }
+
+      /* 작은 포인트 점(이미지 느낌 비슷하게) */
+      .related-artist::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #5aa7ff;
+        position: absolute;
+        right: 10px;
+      }
+
+      /* ✅ related hover: 박스 커지기 */
+      .related-artist:hover {
+        transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px))
+          scale(1.08);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+        background: #4A70A9;
+      }
+
+      /* =========================================================
+        ✅ RIGHT : 프로필 + 월별청취자 + 인기곡 table
+        - 전체를 하나의 클래스로 묶음: .artist-right-wrap
+      ========================================================= */
+      .artist-right-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      /* 상단 프로필 카드(원형 이미지 + 이름 + 월별청취자) */
+      .artist-profile-card {
+        background: #121212;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 6px; /* 요청: 약간의 margin */
+      }
+
+      .artist-profile-card .profile-avatar {
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 2px solid rgba(255, 255, 255, 0.14);
+      }
+      .artist-profile-card .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .artist-profile-card .profile-meta {
+        min-width: 0;
+      }
+      .artist-profile-card .profile-meta h2 {
+        font-size: 18px;
+        margin: 0 0 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .artist-profile-card .profile-meta .monthly {
+        margin: 0;
+        font-size: 13px;
+        color: #bdbdbd;
+      }
+
+      /* 하단 인기곡 카드(상단 카드와 background로 구분) */
+      .artist-toptracks-card {
+        background: #0f0f0f;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 14px;
+      }
+      .artist-toptracks-card h3 {
+        margin: 0 0 10px;
+        font-size: 15px;
+      }
+
+      /* table */
+      .toptracks-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; /* ✅ 고정 레이아웃으로 ellipsis 안정 */
+        font-size: 12.5px;
+      }
+      .toptracks-table th,
+      .toptracks-table td {
+        padding: 8px 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        vertical-align: middle;
+      }
+      .toptracks-table th {
+        color: #cfcfcf;
+        font-weight: 700;
+        text-align: left;
+      }
+
+      /* 열 너비(대충) */
+      .col-rank {
+        width: 44px;
+      }
+      .col-title {
+        width: 38%;
+      }
+      .col-album {
+        width: 34%;
+      }
+      .col-len {
+        width: 64px;
+      }
+      .col-play {
+        width: 82px;
+      }
+
+      /* ✅ 제목/앨범 길어지면 숨김(overflow:hidden) */
+      .ellipsis {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      /* 반응형: 화면 좁으면 위아래로 쌓이게 */
+      @media (max-width: 980px) {
+        body.artist-page {
+          grid-template-areas:
+            "header"
+            "left"
+            "right";
+          grid-template-columns: 1fr;
+          grid-template-rows: 64px auto auto;
+        }
+      }
+    </style>
+    
+  </head>
+
+  <!-- ✅ 이 페이지에서만 grid override 적용하려고 body에 class 부여 -->
+  <body class="artist-page">
+    <!-- =========================
+       HEADER (datalist 검색)
+  ========================== -->
+
+    <header class="header">
+      <!-- 왼쪽 헤더(로고) -->
+      <div class="header-left">
+        <a href="./spotify_playlist_ver4.html">
+          <i class="fa-brands fa-spotify"></i>
+        </a>
+      </div>
+
+      <!-- 가운데(검색& 홈)  -->
+
+      <div class="header-center">
+        <div class="background-color"></div>
+        <a href="./spotify_playlist_ver4_festival.html">
+          <i class="fa-solid fa-icons"></i>
+        </a>
+        <div class="search-box">
+          <label for="song">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+          <input
+            type="text"
+            id="song"
+            placeholder="어떤 콘텐츠를 감상하고 싶으세요?"
+          />
+        </div>
+      </div>
+
+      <div class="header-right">
+        <a href="https://open.spotify.com/playlist/4Jl4PdbiwkiZ6jak5viuF8">
+          <i class="fa-regular fa-file-audio"></i>
+        </a>
+        <a href="./spotify_playlist_ver4_login.html">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </div>
+    </header>
+
+     <!-- =========================
+      ✅ LEFT : 연관가수 네트워크 (하나의 class로 묶음)
+    ========================== -->
+    <aside class="aside-left">
+      <section class="artist-network">
+        <!-- 중앙 root 가수 -->
+        <div class="root-artist" title="Gongwon">
+          <div class="root-photo">
+            <!-- 임시 이미지(원하는 이미지로 바꿔도 됨) -->
+            <img
+              src="../spotifyIMG/gongwon.jpg"
+              alt="root artist"
+            />
+          </div>
+          <div class="root-name">Gongwon</div>
+        </div>
+
+        <!-- 가지(선) + 연관 가수 노드들 -->
+        <!-- ✅ 노드 추가 방법:
+             branch 하나 + related-artist 하나를 같이 추가하고,
+             --angle(각도), --dist(선 길이), --x/--y(노드 위치)만 바꾸면 됨 -->
+
+        <span class="branch" style="--angle: -35deg; --dist: 240px"></span>
+        <a class="related-artist" href="#" style="--x: 220px; --y: -150px"
+          >구름</a
+        >
+
+        <span class="branch" style="--angle: 5deg; --dist: 260px"></span>
+        <a class="related-artist" href="#" style="--x: 260px; --y: 20px"
+          >Lee Oh Wook</a
+        >
+
+        <span class="branch" style="--angle: 40deg; --dist: 240px"></span>
+        <a class="related-artist" href="#" style="--x: 210px; --y: 160px"
+          >안희수</a
+        >
+
+        <span class="branch" style="--angle: 150deg; --dist: 230px"></span>
+        <a class="related-artist" href="#" style="--x: -200px; --y: 140px"
+          >이영훈</a
+        >
+
+        <span class="branch" style="--angle: 180deg; --dist: 250px"></span>
+        <a class="related-artist" href="#" style="--x: -260px; --y: 0px"
+          >이제</a
+        >
+
+        <span class="branch" style="--angle: 220deg; --dist: 240px"></span>
+        <a class="related-artist" href="#" style="--x: -210px; --y: -160px"
+          >김수영</a
+        >
+
+        <span class="branch" style="--angle: 260deg; --dist: 210px"></span>
+        <a class="related-artist" href="#" style="--x: -40px; --y: -210px"
+          >이젤</a
+        >
+      </section>
+    </aside>
+
+    <!-- =========================
+      ✅ RIGHT : 프로필 + 월별청취자 + 인기곡 table (하나의 class로 묶음)
+    ========================== -->
+    <aside class="right">
+      <section class="artist-right-wrap">
+        <!-- 상단 프로필 영역(한 클래스로 묶음) -->
+        <div class="artist-profile-card">
+          <div class="profile-avatar">
+            <img
+              src="../spotifyIMG/gongwon.jpg"
+              alt="artist profile"
+            />
+          </div>
+          <div class="profile-meta">
+            <h2>Gongwon</h2>
+            <p class="monthly">월별 청취자: 38,568명</p>
+          </div>
+        </div>
+
+        <!-- 하단 인기곡 영역(한 클래스로 묶음) -->
+        <div class="artist-toptracks-card">
+          <h3>인기곡 TOP 5</h3>
+
+          <table class="toptracks-table">
+            <thead>
+              <tr>
+                <th class="col-rank">순번</th>
+                <th class="col-title">제목</th>
+                <th class="col-album">앨범</th>
+                <th class="col-len">길이</th>
+                <th class="col-play">재생(횟수)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- ✅ 구현 확인용 더미 텍스트 -->
+              <tr>
+                <td>1</td>
+                <td class="ellipsis">La La La Love Song</td>
+                <td class="ellipsis">La La La Love Song(From "작전명 순정") </td>
+                <td>03:20</td>
+                <td>191,798</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="ellipsis">불꽃놀이</td>
+                <td class="ellipsis">01</td>
+                <td>03:21</td>
+                <td>53,952</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="ellipsis">메아리</td>
+                <td class="ellipsis">메아리</td>
+                <td>03:32</td>
+                <td>45,002</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="ellipsis">미워하는 마음</td>
+                <td class="ellipsis">Flows #1</td>
+                <td>04:37</td>
+                <td>23,288</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="ellipsis">나비효과</td>
+                <td class="ellipsis">싱어게인4 - 무명가수전 Episode.1</td>
+                <td>02:52</td>
+                <td>236,515</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </aside>
+
+    
+
+
+  </body>
+</html>
