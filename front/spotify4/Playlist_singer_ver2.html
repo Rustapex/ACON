@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가수 관련 정보</title>
+
+    <script
+      src="https://kit.fontawesome.com/4ec79785b5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ✅ CSS 분리 파일 -->
+    <link rel="stylesheet" href="spotify_playlist_ver4_singer.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+       HEADER (수정 X)
+    ========================== -->
+    <header class="header">
+      <div class="header-left">
+        <i class="fa-brands fa-spotify"></i>
+      </div>
+
+      <div class="header-center">
+        <div class="background-color"></div>
+        <a href="https://open.spotify.com/" target="_blank">
+          <i class="fa-solid fa-icons"></i>
+        </a>
+        <div class="search-box">
+          <label for="song">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+          <input
+            type="text"
+            id="song"
+            placeholder="어떤 콘텐츠를 감상하고 싶으세요?"
+          />
+        </div>
+      </div>
+
+      <div class="header-right">
+        <a href="#"><i class="fa-regular fa-bell"></i></a>
+        <a href="#"><i class="fa-regular fa-file-audio"></i></a>
+        <a href="#"><i class="fa-regular fa-user"></i></a>
+      </div>
+    </header>
+
+    <!-- =========================================================
+      ✅ TAB(라디오) 상태값: “상단 1열(3명) 클릭 → RIGHT 내용 표시”
+      - JS 없이 label 클릭으로 radio가 checked 됨
+      - CSS는 :checked 상태를 이용해 RIGHT 콘텐츠를 display:block 처리
+      - display:none은 접근성에 불리할 수 있어, 화면 밖으로 숨김 처리
+    ========================================================== -->
+    <input class="tab-radio" type="radio" name="artist-tab" id="tab-none" checked />
+    <input class="tab-radio" type="radio" name="artist-tab" id="tab-gongwon" />
+    <input class="tab-radio" type="radio" name="artist-tab" id="tab-janepop" />
+    <input class="tab-radio" type="radio" name="artist-tab" id="tab-jungwoo" />
+
+    <!-- =========================
+       LEFT (아티스트 라이브러리)
+       - 3×7 고정(항상 한 줄 3개)
+       - ✅ 1열(상단 3명)은 “클릭=right 표시”
+       - 2열~7열은 기존 hover(이름 오버레이) 유지
+    ========================== -->
+    <aside class="aside-left">
+      <section class="artist-stage">
+        <div class="artist-grid">
+          <!-- =====================================================
+              ✅ [1열 3명] : a태그 대신 label 사용
+              - label for="tab-..." 클릭 → 해당 radio가 checked
+              - hover는 “확대+영상” 특수동작 유지
+          ====================================================== -->
+
+          <!-- 1) Gongwon (featured) -->
+          <label
+            for="tab-gongwon"
+            class="artist-card featured artist-card--gongwon"
+            aria-label="gongwon"
+            title="클릭하면 오른쪽 설명이 고정됩니다"
+          >
+            <div class="featured-wrap">
+              <div class="featured-thumb">
+                <img
+                  src="../spotifyIMG/gongwon.jpg"
+                  alt="gongwon"
+                />
+                <div class="artist-name">gongwon</div>
+              </div>
+
+              <!-- hover 시만 표시되는 YouTube(16:9) -->
+              <div class="featured-video">
+                <div class="video-16x9">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/gY3oBP-evKo?si=FpK0c4zXs8dHwCU7&amp;start=891"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="
+                      accelerometer;
+                      autoplay;
+                      clipboard-write;
+                      encrypted-media;
+                      gyroscope;
+                      picture-in-picture;
+                      web-share;
+                    "
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </label>
+
+          <!-- 2) JanePOP (featured) -->
+          <label
+            for="tab-janepop"
+            class="artist-card featured artist-card--janepop"
+            aria-label="JanePOP"
+            title="클릭하면 오른쪽 설명이 고정됩니다"
+          >
+            <div class="featured-wrap">
+              <div class="featured-thumb">
+                <img
+                  src="../spotifyIMG/JanePOP.jpeg"
+                  alt="JnaePOP"
+                />
+                <div class="artist-name">JanePOP</div>
+              </div>
+
+              <div class="featured-video">
+                <div class="video-16x9">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/u3Jnn2p2Nvs?si=RW6-LeoImGsyAJp8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </label>
+
+          <!-- 3) JungWoo (featured) -->
+          <label
+            for="tab-jungwoo"
+            class="artist-card featured artist-card--jungwoo"
+            aria-label="JungWoo"
+            title="클릭하면 오른쪽 설명이 고정됩니다"
+          >
+            <div class="featured-wrap">
+              <div class="featured-thumb">
+                <img
+                  src="../spotifyIMG/Jungwoo.jpeg"
+                  alt="JungWoo"
+                />
+                <div class="artist-name">JungWoo</div>
+              </div>
+
+              <div class="featured-video">
+                <div class="video-16x9">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/-_XyUJkP5e4?si=xLCjUOe_fcXLrDQo&amp;start=1054" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                </div>
+              </div>
+            </div>
+          </label>
+
+          <!-- =====================================================
+              ✅ [2열~7열] : 기존 hover 유지(이름 오버레이)
+          ====================================================== -->
+          <a href="#" class="artist-card" aria-label="쿠기">
+            <img src="https://placehold.co/800x800/png?text=%EC%BF%A0%EA%B8%B0" alt="쿠기" />
+            <div class="artist-name">쿠기</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="이창섭">
+            <img src="https://placehold.co/800x800/png?text=%EC%9D%B4%EC%B0%BD%EC%84%AD" alt="이창섭" />
+            <div class="artist-name">이창섭</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label=":DamDam">
+            <img src="https://placehold.co/800x800/png?text=:DamDam" alt=":DamDam" />
+            <div class="artist-name">:DamDam</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="솔">
+            <img src="https://placehold.co/800x800/png?text=%EC%86%94" alt="솔" />
+            <div class="artist-name">솔</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="Danny Elfman">
+            <img src="https://placehold.co/800x800/png?text=Danny+Elfman" alt="Danny Elfman" />
+            <div class="artist-name">Danny Elfman</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="홍이삭">
+            <img src="https://placehold.co/800x800/png?text=%ED%99%8D%EC%9D%B4%EC%82%AD" alt="홍이삭" />
+            <div class="artist-name">홍이삭</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="홍대광">
+            <img src="https://placehold.co/800x800/png?text=%ED%99%8D%EB%8C%80%EA%B4%91" alt="홍대광" />
+            <div class="artist-name">홍대광</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="혁오">
+            <img src="https://placehold.co/800x800/png?text=%ED%98%81%EC%98%A4" alt="혁오" />
+            <div class="artist-name">혁오</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="헤일">
+            <img src="https://placehold.co/800x800/png?text=%ED%97%A4%EC%9D%BC" alt="헤일" />
+            <div class="artist-name">헤일</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="헤르쯔 아날로그">
+            <img src="https://placehold.co/800x800/png?text=%ED%97%A4%EB%A5%B4%EC%AF%94+%EC%95%84%EB%82%A0%EB%A1%9C%EA%B7%B8" alt="헤르쯔 아날로그" />
+            <div class="artist-name">헤르쯔 아날로그</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="허수진">
+            <img src="https://placehold.co/800x800/png?text=%ED%97%88%EC%88%98%EC%A7%84" alt="허수진" />
+            <div class="artist-name">허수진</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="한올">
+            <img src="https://placehold.co/800x800/png?text=%ED%95%9C%EC%98%AC" alt="한올" />
+            <div class="artist-name">한올</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="하현상">
+            <img src="https://placehold.co/800x800/png?text=%ED%95%98%ED%98%84%EC%83%81" alt="하현상" />
+            <div class="artist-name">하현상</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="하진">
+            <img src="https://placehold.co/800x800/png?text=%ED%95%98%EC%A7%84" alt="하진" />
+            <div class="artist-name">하진</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="폴킴">
+            <img src="https://placehold.co/800x800/png?text=%ED%8F%B4%ED%82%B4" alt="폴킴" />
+            <div class="artist-name">폴킴</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="편지네로">
+            <img src="https://placehold.co/800x800/png?text=%ED%8E%B8%EC%A7%80%EB%84%A4%EB%A1%9C" alt="편지네로" />
+            <div class="artist-name">편지네로</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="케이윌">
+            <img src="https://placehold.co/800x800/png?text=%EC%BC%80%EC%9D%B4%EC%9C%8C" alt="케이윌" />
+            <div class="artist-name">케이윌</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="케이시">
+            <img src="https://placehold.co/800x800/png?text=%EC%BC%80%EC%9D%B4%EC%8B%9C" alt="케이시" />
+            <div class="artist-name">케이시</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="잔나비">
+            <img src="https://placehold.co/800x800/png?text=%EC%9E%94%EB%82%98%EB%B9%84" alt="잔나비" />
+            <div class="artist-name">잔나비</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="백예린">
+            <img src="https://placehold.co/800x800/png?text=%EB%B0%B1%EC%98%88%EB%A6%B0" alt="백예린" />
+            <div class="artist-name">백예린</div>
+          </a>
+
+          <a href="#" class="artist-card" aria-label="검정치마">
+            <img src="https://placehold.co/800x800/png?text=%EA%B2%80%EC%A0%95%EC%B9%98%EB%A7%88" alt="검정치마" />
+            <div class="artist-name">검정치마</div>
+          </a>
+        </div>
+      </section>
+    </aside>
+
+    <!-- =========================
+       RIGHT
+       - 배경 이미지(흐릿)
+       - 상단 3명 클릭 시(라디오 checked) 내용 표시
+       - hover가 아니라 “클릭 고정”이 핵심
+    ========================== -->
+    <aside class="right">
+      <section class="right-panel">
+        <div class="right-content">
+          <!-- ✅ 탭 초기화(닫기): tab-none을 체크하는 label -->
+          <label class="tab-clear" for="tab-none">설명 닫기</label>
+
+          <!-- ===================================================
+               기본 안내(아무것도 선택 안 했을 때)
+          ==================================================== -->
+          <div class="genre-panel genre--default">
+            <p>
+              왼쪽 상단 1열(3명) 중 한 명을 <b>클릭</b>하면 이 영역에 설명이 표시됩니다.
+            </p>
+            <p>
+              (JS 없이 라디오 탭 방식으로 구현됨)
+            </p>
+          </div>
+
+          <!-- ===================================================
+               Gongwon (클릭: tab-gongwon)
+          ==================================================== -->
+          <div class="genre-panel genre--gongwon">
+            <p>
+              Hello, I'm gongwon. In Korean, it means "park" - a quiet place to
+              feel free, breathe, and escape. That's the kind of space I hope my
+              miusic can be.
+            </p>
+            <p>A place to rest , reflect, and reconnect.</p>
+            <p>Thank you for listening.</p>
+
+            <p><span class="accent">장르명 :</span> 슈게이즈(shoegaze)</p>
+            <p>80년대 말에서 90년대 초까지 영국의 인디 신에서 유행한 장르</p>
+
+            <p><span class="accent">역사</span></p>
+            <p>
+              장르명인 Shoegaze는 신발(Shoe) + 뚫어지게 보다(Gaze)의 합성어로서,
+              이 음악을 하는 밴드들의 무대매너에서 파생된 단어다.
+            </p>
+
+            <p><span class="accent">특징</span></p>
+            <p>
+              이펙터를 총동원해서 노이즈가 강하면서 신경질적인, 거의 소음에 가까운
+              기타 소리와 함께 가느다랗고 여린 보컬이 들릴듯 말듯 깔리고, 그 보컬을
+              중심으로 몽환적이면서도 아름다운 멜로디 가락이 따라가는 게 장르의
+              특징이라고 할 수 있다.
+            </p>
+          </div>
+
+          <!-- ===================================================
+               JanePOP (클릭: tab-janepop) - 더미 텍스트(비워두지 않음)
+          ==================================================== -->
+          <div class="genre-panel genre--janepop">
+            <p>
+              Hello, I'm JanePOP. My songs try to stay gentle, but honest.
+              I like melodies that feel like a quiet conversation.
+            </p>
+
+            <p><span class="accent">장르명 :</span> 시티 팝(City pop)</p>
+            <p>대형 상업 음악 흐름과는 다른, 비교적 자유로운 감성과 사운드를 추구하는 팝 계열</p>
+
+            <p><span class="accent">역사</span></p>
+            <p>
+                통상적으로 2010년대 이후 시티팝이라고 한다면 이런 퓨전식 음악에서 City+Pop이라는 단어가 
+                직관적으로 갖는 세련된 도시 이미지를 추출해 포지셔닝한 스타일이나 마케팅 용어적 성격을 
+                가지고 있다고 보는 것이 좀 더 적절할 것이다. 이렇게 사람에 따라 해석이 달라질 수 있는 
+                주관적이고 모호한 기준을 포함하다 보니 후술할 한국 시티 팝처럼 시티 팝하면 특징적으로 
+                떠오르는 요소를 몇 개 포함하지 않더라도 시티 팝이라고 언급되는 경우도 있다.
+            </p>
+
+            <p><span class="accent">특징</span></p>
+            <p>
+                시티 팝이 지향하는 기본적인 틀은 다운템포이며, 전반적으로 낭만적이고 몽환적인 분위기가 짙다. 
+                악기는 퓨전 재즈의 요소들을 기반으로 한다. 즉 일렉트릭 기타, 베이스 기타, 신디사이저, 드럼, 
+                색소폰 등 다양한 악기들이 활용되며 필요에 따라 여타 다른 악기를 채용한다.
+            </p>
+          </div>
+
+          <!-- ===================================================
+               jungwoo (클릭: tab-jungwoo) - 더미 텍스트(비워두지 않음)
+          ==================================================== -->
+          <div class="genre-panel genre--jungwoo">
+            <p>
+              Hello, I'm jungwoo. I enjoy writing songs that feel like a small diary—
+              calm, reflective, and close to everyday life.
+            </p>
+
+            <p><span class="accent">장르명 :</span>모던 록(Modern Rock)</p>
+            <p>
+                1990~2000년대 홍대 인디씬의 부흥과 함께 ‘모던 록’은, 보통 한국에서 인식하는 '록 음악 = 강렬한 헤비메탈 스타일'이라는 
+                고정관념과 달리, 보다 감성적이고 현대적인 사운드를 추구하는 밴드 중심 록 음악을 가리키는 말로 자리잡았다.
+            </p>
+
+            <p><span class="accent">역사</span></p>
+            <p>
+                “모던 록”이라는 용어는 정확한 기원은 불분명하나, 1988년 미국 빌보드에서 'Modern Rock Tracks' 차트를 
+                창설하면서 공식적으로 통용되기 시작했다. 해당 차트는 당시 라디오 방송국들이 ‘메인스트림 록(Mainstream Rock)’이나 
+                ‘클래식 록’으로 묶기 어려웠던 새로운 록 사운드를 다루기 위해 개설된 것이다.
+            </p>
+
+            <p><span class="accent">특징</span></p>
+            <p>
+                밴드 기반의 록 음악 형식을 유지하면서도, 전통적 록의 미학에서 벗어난 실험적 요소를 도입 신시사이저, 
+                전자음, 디지털 이펙트 등 테크놀로지를 활용한 사운드 확장 펑크, 일렉트로닉, 힙합, 포크 등 이질적 장르와의 
+                크로스오버 샤우팅, 파워 코드 중심의 고전적 록 창법보다는 다채롭고 절제된 보컬 스타일 등을 추구하는 편이었다.
+            </p>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </body>
+</html>

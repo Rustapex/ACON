@@ -1,0 +1,431 @@
+/* =========================================================
+   0) RESET
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* =========================================================
+     ✅ 화면을 꽉 채우고, LEFT : RIGHT = 1 : 1 만들기
+     - 2컬럼이 가장 단순하고 “정확히 1:1”이 됨
+     - header는 2칸 모두를 차지
+  ========================================================= */
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "left right";
+  grid-template-columns: 1fr 1fr; /* ✅ 1:1 */
+  grid-template-rows: 64px 1fr;
+  height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* =========================================================
+   1) HEADER (원본 유지)
+========================================================= */
+header {
+  grid-area: header;
+  background: #121212;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+/* left-header */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.fa-spotify {
+  font-size: 32px;
+  color: #1db954;
+}
+
+/* center-header */
+.header-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* icon */
+.fa-solid {
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* search box */
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  background-color: #2a2a2a;
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  margin-left: 10px;
+  min-width: 0;
+}
+
+/* right-header */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+header .header-right i {
+  color: #b3b3b3;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #2a2a2a;
+  border-radius: 999px;
+  padding: 10px;
+}
+header .header-right i:hover {
+  color: #ffffff;
+}
+
+/* =========================================================
+   2) TAB RADIO (JS 없이 클릭 고정 구현)
+   - display:none 대신 화면 밖으로 숨김(접근성/동작 안정)
+========================================================= */
+.tab-radio {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  opacity: 0;
+}
+
+/* =========================================================
+   3) LEFT / RIGHT 기본 배치
+========================================================= */
+.aside-left {
+  grid-area: left;
+  padding: 12px;
+  background: #000;
+}
+
+.right {
+  grid-area: right;
+  padding: 12px;
+  background: #000;
+}
+
+/* =========================================================
+   4) LEFT: 3×7 원형 아티스트 그리드
+   - 어떤 화면에서도 “한 줄 3개” 유지
+   - 7줄 이상이면 내부 스크롤(LEFT 영역만)
+========================================================= */
+.artist-stage {
+  position: relative;               /* hover 확대 카드의 기준점 */
+  height: calc(100vh - 64px);       /* header 제외 */
+  overflow-y: auto;                 /* ✅ left 내부 스크롤 */
+  border-radius: 16px;
+}
+
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* ✅ 항상 3열 */
+  column-gap: 18px;
+  row-gap: 26px; /* ✅ 줄과 줄 사이 거리(요청한 margin 느낌) */
+  padding: 14px;
+}
+
+/* =========================================================
+   5) 공통 카드(원형) - 2~7행 hover는 그대로 유지
+========================================================= */
+.artist-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+/* label도 카드로 쓰기 때문에 기본 inline 특성 방지 */
+label.artist-card {
+  display: flex;
+  user-select: none;
+}
+
+.artist-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ✅ 일반 hover 유지(요청사항) */
+.artist-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* hover 시 이름 오버레이 */
+.artist-name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 10px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.artist-card:hover .artist-name {
+  opacity: 1;
+}
+
+/* =========================================================
+   6) 1열(상단 3명)만 hover 특수 동작(확대 + 영상)
+   - right 내용은 “hover”가 아니라 “클릭(:checked)”로 표시됨
+========================================================= */
+
+/* ✅ 1열 hover 중엔 다른 카드 숨김(코드 단순) */
+.aside-left:has(.artist-card.featured:hover) .artist-card:not(:hover) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ✅ hover된 1열 카드는 중앙으로 크게 보여줌 */
+.aside-left:has(.artist-card.featured:hover) .artist-card.featured:hover {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+
+  width: min(520px, 92%);
+  aspect-ratio: auto;
+  border-radius: 18px;
+
+  /* 원형 crop 해제 느낌을 “object-fit: contain + 라운드 박스”로 해결 */
+  overflow: hidden;
+
+  z-index: 50;
+  background: #0f0f0f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+
+  /* 내용이 많아지면 카드 내부 스크롤로 안전하게 */
+  max-height: calc(100% - 24px);
+}
+
+.artist-card.featured:hover img {
+  object-fit: contain;
+  background: #000;
+}
+
+/* featured 내부 구조 */
+.featured-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+.featured-thumb {
+  width: 100%;
+  height: min(340px, 48vh);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 영상은 hover일 때만 표시 */
+.featured-video {
+  display: none;
+}
+.artist-card.featured:hover .featured-video {
+  display: block;
+}
+
+/* 16:9 wrapper */
+.video-16x9 {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* ✅ 16:9 */
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #000;
+}
+
+.video-16x9 iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ✅ 화면이 영상비율 유지 불가능할 정도로 작으면 완전 차단 */
+@media (max-width: 520px), (max-height: 560px) {
+  .artist-card.featured:hover .featured-video {
+    display: none !important;
+    pointer-events: none !important;
+  }
+}
+
+/* =========================================================
+   7) RIGHT: 배경 이미지 흐릿하게 + 클릭 탭 내용 표시
+========================================================= */
+.right-panel {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: calc(100vh - 64px);
+
+  background: #0f0f0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 흐릿한 배경 이미지 레이어 */
+.right-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1521334726092-b509a19597c1?auto=format&fit=crop&w=1200&q=60");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  filter: blur(1px);
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+.right-content {
+  position: relative;
+  z-index: 2;
+  padding: 16px;
+}
+
+/* 과한 꾸밈 없이 기본 문단만 */
+.right-content p {
+  margin: 0 0 10px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+}
+
+/* 강조: “장르명 / 역사 / 특징”만 */
+.accent {
+  color: #1db954;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* =========================================================
+   8) 탭 콘텐츠(genre-panel) : tab 방식처럼 display 제어
+   - 기본은 모두 숨김
+========================================================= */
+.genre-panel {
+  display: none;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 14px;
+
+  /* 탭 전환 시 살짝 등장 애니메이션 */
+  animation: contentIn 0.2s ease;
+}
+
+@keyframes contentIn {
+  from {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ✅ 아무 것도 선택 안 했을 때 기본 안내 */
+#tab-none:checked ~ aside.right .genre--default {
+  display: block;
+}
+
+/* ✅ 클릭(checked)된 탭에 맞는 콘텐츠만 표시 */
+#tab-gongwon:checked ~ aside.right .genre--gongwon,
+#tab-janepop:checked ~ aside.right .genre--janepop,
+#tab-jungwoo:checked ~ aside.right .genre--jungwoo {
+  display: block;
+}
+
+/* ✅ 선택된(checked) 1열 카드에 시각적 표시 */
+#tab-gongwon:checked ~ aside.aside-left .artist-card--gongwon,
+#tab-janepop:checked ~ aside.aside-left .artist-card--janepop,
+#tab-jungwoo:checked ~ aside.aside-left .artist-card--jungwoo {
+  outline: 3px solid #1db954;
+  outline-offset: 3px;
+}
+
+/* ✅ “설명 닫기” 버튼(탭 초기화용 label) */
+.tab-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  user-select: none;
+  margin-bottom: 10px;
+}
+.tab-clear:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
