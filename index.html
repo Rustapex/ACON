@@ -3,100 +3,312 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mediaQueryMenuBar</title>
-    <!--폰트어썸 CDN : -->
+    <title>Portfolio</title>
+    
+
+    <!-- Font Awesome (원하면 로고 아이콘만 써도 됨) -->
     <script
       src="https://kit.fontawesome.com/4ec79785b5.js"
       crossorigin="anonymous"
     ></script>
+
     <style>
-      * {margin: 0; padding: 0;}
-      nav {
-        background-color: lightseagreen;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 70px;
-        padding: 30px;}
-      ul {
-        list-style: none;
-        display: flex;}
-      li { padding: 15px; }
-      a {
-        text-decoration: none;
-        color: grey;
-        font-weight: 800;}
-      a:hover{ color: blue;}
-      .appo{ padding: 0 5px;}
-      .appo:hover {
-        background-color: rgb(73, 223, 216);
-        cursor: pointer;
-        color: aliceblue;
-        border-radius: 7px;
+
+
+      /* =========================
+        0) Reset + Base
+      ========================== */
+      * { margin: 0; padding: 0; box-sizing: border-box;}
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0b0c10;
+        color: #e9eef5;
+        line-height: 1.5;
       }
-      /* 브라우저 가로가 768 이하일 때  */
-      @media screen and (max-width: 768px) {
-        nav {
-          height: 170px;
+      a { text-decoration: none; color: inherit; }
+      ul { list-style: none; }
+
+      .container {
+        width: min(1200px, 92%);
+        margin: 0 auto;
+      }
+
+      /* =========================
+        1) NAV (깔끔한 톤)
+        - icons 영역 삭제
+        - 메뉴 균등 정렬 + 반응형
+      ========================== */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(15, 17, 23, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 0;
+      }
+
+      /* 로고 */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+      }
+      .logo i {
+        font-size: 22px;
+        opacity: 0.9;
+      }
+      .logo h1 {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+      }
+
+      /* 메뉴 */
+      .navbar ul {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;          /* ✅ 좁아지면 자연스럽게 줄바꿈 */
+        justify-content: center;  /* ✅ 균등하게 보이게 */
+      }
+
+      .navbar a {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        color: rgba(233, 238, 245, 0.9);
+        transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      }
+      .navbar a:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        transform: translateY(-1px);
+      }
+
+      /* ✅ nav 반응형: 768 이하에서 세로로 */
+      @media (max-width: 768px) {
+        .nav-inner {
+          flex-direction: column;
           align-items: flex-start;
+          gap: 12px;
+          padding: 14px 0;
         }
         .navbar ul {
-          flex-direction: column;
+          width: 100%;
+          justify-content: flex-start;
         }
-        .navbar ul li {
-          line-height: 2;
+      }
+
+      /* =========================
+        2) Main: Portfolio Grid
+        - 1024+ : 4개
+        - 768+  : 2개
+        - 그 미만: 1개
+      ========================== */
+      main {
+        padding: 34px 0 60px;
+      }
+
+      .page-title {
+        margin: 24px 0 18px;
+      }
+      .page-title h2 {
+        font-size: 24px;
+        font-weight: 900;
+        letter-spacing: 0.2px;
+        margin-bottom: 6px;
+      }
+      .page-title p {
+        color: rgba(233, 238, 245, 0.75);
+        font-size: 14px;
+      }
+
+      /* ✅ flexbox grid */
+      .portfolio-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      /* 기본: 1개 */
+      .project-card {
+        width: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: rgba(255, 255, 255, 0.04);
+        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      /* 768 이상: 2개 */
+      @media (min-width: 768px) {
+        .project-card {
+          width: calc((100% - 18px) / 2);
         }
-        .fa-helicopter,
-        .fa-water,
-        .fa-wind,
-        .appo {
-          /* visibility: hidden; */ /*눈에만 안보이고 자리 차지*/
-          display: none; /*자리 자체 차지X*/
+      }
+
+      /* 1024 이상: 4개 */
+      @media (min-width: 1024px) {
+        .project-card {
+          width: calc((100% - 18px * 3) / 4);
         }
+      }
+
+      /* 카드 내부 */
+      .thumb {
+        height: 140px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(233, 238, 245, 0.7);
+        font-weight: 800;
+        letter-spacing: 0.3px;
+      }
+
+      .card-body {
+        padding: 14px 14px 16px;
+      }
+
+      .card-body h3 {
+        font-size: 16px;
+        font-weight: 900;
+        margin-bottom: 6px;
+      }
+      .card-body p {
+        font-size: 13px;
+        color: rgba(233, 238, 245, 0.75);
+        margin-bottom: 10px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .tag {
+        font-size: 11px;
+        font-weight: 800;
+        padding: 6px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(233, 238, 245, 0.85);
       }
     </style>
   </head>
+
   <body>
+    <!-- =========================
+      NAV
+      - icons 영역 삭제
+      - 메뉴는 균등하게 정렬
+    ========================== -->
     <nav>
-      <div class="logo">
-        <h1>&nbsp; <i class="fa-solid fa-helicopter"></i> LOGO &nbsp;</h1>
-        <!-- NTT CODE -->
-        <!--    < (Less than): &lt;
-                > (Greater than): &gt;
-                & (Ampersand): &amp;
-                " (Double quote): &quot;
-                ' (Single quote): &apos;
-                공백 (Space): &nbsp;  -->
-      </div>
-      <div class="navbar">
-        <ul>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">PAGE</a></li>
-          <li><a href="#">BLOG</a></li>
-          <li><a href="#">ABOUT</a></li>
-          <li><a href="#">CONTENT</a></li>
-        </ul>
-      </div>
-      <div class="icons">
-        <ul>
-          <li>
-            <a href="#"><i class="fa-solid fa-water"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-wind"></i></a>
-          </li>
-          <li class="appo">Appoiontment</li>
-        </ul>
+      <div class="container">
+        <div class="nav-inner">
+          <div class="logo">
+            <i class="fa-brands fa-diaspora"></i>
+            <h1>INDEX</h1>
+          </div>
+
+          <div class="navbar">
+            <ul>
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">PROJECTS</a></li>
+              <li><a href="#">BLOG</a></li>
+              <li><a href="#">ABOUT</a></li>
+              <li><a href="#">CONTACT</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
 
+    <!-- =========================
+      MAIN (포트폴리오 카드)
+      - 카드 클릭 => a 링크 이동
+    ========================== -->
     <main>
-      <h1>FRONT</h1>
-      <details>
-        <summary>0122</summary>
-        <section></section>
+      <div class="container">
+        <div class="page-title">
+          <h2>Portfolio</h2>
+          <p>Click a project card to open the project page.</p>
+        </div>
 
-      </details>
+        <section class="portfolio-grid">
+          <!-- ✅ 카드 1 -->
+          <a class="project-card" href="../front/spotify4/spotify_playlist_ver4_login.html" target="_blank" rel="noopener">
+            <div class="thumb">Project 01</div>
+            <div class="card-body">
+              <h3>Playlist</h3>
+              <p>플레이리스트 추천</p>
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- ✅ 카드 2 -->
+          <a class="project-card" href="#" target="_blank" rel="noopener">
+            <div class="thumb">Project 02</div>
+            <div class="card-body">
+              <h3>NONE</h3>
+              <p>202</p>
+              <div class="tags">
+                <span class="tag">202</span>
+                <span class="tag">202</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- ✅ 카드 3 -->
+          <a class="project-card" href="project3.html" target="_blank" rel="noopener">
+            <div class="thumb">Project 03</div>
+            <div class="card-body">
+              <h3>NONE</h3>
+              <p>303</p>
+              <div class="tags">
+                <span class="tag">303</span>
+                <span class="tag">303</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- ✅ 카드 4 -->
+          <a class="project-card" href="project4.html" target="_blank" rel="noopener">
+            <div class="thumb">Project 04</div>
+            <div class="card-body">
+              <h3>NONE</h3>
+              <p>404</p>
+              <div class="tags">
+                <span class="tag">404</span>
+                <span class="tag">404</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 필요하면 카드 더 복붙해서 늘리면 됨 -->
+        </section>
+      </div>
     </main>
   </body>
 </html>

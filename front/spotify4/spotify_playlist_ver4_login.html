@@ -10,55 +10,165 @@
     <link rel="stylesheet" href="spotify_playlist_ver4.css" />
 
     <style>
-      main{
-        min-height: calc(100vh - 64px);
-        display: grid;
-        place-items: center;
-        position: relative;
+      /* ✅ 이 로그인 페이지에서만: 좌/우 컬럼 제거해서 작은 화면 잘림 방지 */
+      body {
+        grid-template-areas:
+          "header"
+          "main";
+        grid-template-columns: 1fr;
+        grid-template-rows: 64px 1fr;
+        height: 100dvh; /* 모바일 주소창 고려 */
       }
-      main::before{
-        content:"";
+
+      main {
+        grid-area: main;
+        min-height: 0;
+        padding: clamp(16px, 4vw, 40px);
+        overflow: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        background: #000;
+      }
+
+      main::before {
+        content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0,0,0,0.45);
-        opacity: 0.2;
+        background: rgba(0, 0, 0, 0.55);
         z-index: 0;
       }
-      main .login-box{
-        width: min(420px, 90vw);
-        padding: 24px;
+
+      .login-box {
+        --field-h: 44px;
+        width: min(560px, 100%);
+        padding: 22px;
         position: relative;
         z-index: 1;
-        display: grid;
-        flex: 1;
 
-        background: rgba(18,18,18,0.9);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(18, 18, 18, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.55);
-      }
-      
-      main .login-box > input{
-        width: 100%;
-        border-radius: 0;
-      } 
-      main .login-box > input:focus{
-        font-weight: 200;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+
+        display: grid;
+        gap: 14px;
       }
 
+      .login-title {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -0.2px;
+        margin-bottom: 6px;
+      }
+      .login-sub {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.4;
+        margin-bottom: 6px;
+      }
+
+      /* ✅ 라벨-인풋-버튼(버튼은 2줄 높이) */
+      .login-form {
+        display: grid;
+        grid-template-columns: max-content 1fr 110px;
+        grid-template-rows: auto auto;
+        gap: 10px 12px;
+        align-items: center;
+      }
+
+      .login-form label {
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
+      }
+
+      .login-form input {
+        height: var(--field-h);
+        width: 100%;
+        padding: 0 12px;
+
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        outline: none;
+      }
+
+      .login-form input::placeholder {
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 400;
+      }
+
+      .login-form input:focus {
+        border-color: rgba(29, 185, 84, 0.7);
+        box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.18);
+      }
+
+      .login-btn {
+        grid-column: 3;
+        grid-row: 1 / span 2; /* ✅ 두 줄 높이(입력창 2개 + gap 포함) */
+        height: 100%;
+
+        border: none;
+        border-radius: 12px;
+        background: #1db954;
+        color: #000;
+
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .login-btn:hover {
+        filter: brightness(0.98);
+      }
+      .login-btn:active {
+        filter: brightness(0.95);
+      }
+
+      /* 아주 작은 화면에서도 안 깨지게 살짝만 조정 */
+      @media (max-width: 420px) {
+        .login-form {
+          grid-template-columns: max-content 1fr 92px;
+        }
+        header {
+          padding: 0 12px;
+        }
+        .search-box {
+          padding: 6px 10px;
+        }
+        .search-box input {
+          font-size: 13px;
+        }
+      }
+
+      .login-btn > a {
+        text-decoration: none;
+        color: inherit; /* 부모 요소의 색상 상속 */
+      }
+      .login-btn > a:hover {
+        text-decoration: none;
+      }
     </style>
   </head>
 
   <body>
-        <!-- =========================
+    <!-- =========================
        HEADER (datalist 검색)
   ========================== -->
 
     <header class="header">
       <!-- 왼쪽 헤더(로고) -->
       <div class="header-left">
-        <a href="./spotify_playlist_ver4.html">
-          <i class="fa-brands fa-spotify"></i>
+        <a href="./spotify_playlist_ver4.html" class="logo-link">
+          <img  class="logo-img" src="../spotifyIMG/logo2.png" alt="Playlist logo">
         </a>
       </div>
 
@@ -82,7 +192,7 @@
       </div>
 
       <div class="header-right">
-        <a href="https://open.spotify.com/playlist/4Jl4PdbiwkiZ6jak5viuF8">
+        <a href="./spotify_playlist_ver4_singer_rel.html">
           <i class="fa-regular fa-file-audio"></i>
         </a>
         <a href="./spotify_playlist_ver4_login.html">
@@ -91,26 +201,37 @@
       </div>
     </header>
 
-
     <!-- =========================
        MAIN : iframe 영역
   ========================== -->
     <main>
       <div class="login-box">
-        <label for="user-id"> 아이디 </label>
-        <input
-          type="text"
-          id="user-id"
-          name="user-id"
-          placeholder="아이디를 입력해주세요."
-        />
-        <label for="user-pw"> 비밀번호 </label>
-        <input
-          type="password"
-          id="user-pw"
-          name="user-pw"
-          placeholder="비밀번호를 입력해주세요."
-        />
+        <div>
+          <div class="login-title">로그인</div>
+          <div class="login-sub">아이디와 비밀번호를 입력해주세요.</div>
+        </div>
+
+        <form class="login-form">
+          <label for="user-id">로그인</label>
+          <input
+            type="text"
+            id="user-id"
+            name="user-id"
+            placeholder="아이디를 입력해주세요."
+          />
+
+          <label for="user-pw">비밀번호</label>
+          <input
+            type="password"
+            id="user-pw"
+            name="user-pw"
+            placeholder="비밀번호를 입력해주세요."
+          />
+
+          <button class="login-btn" type="submit">
+            <a href="./spotify_playlist_ver4.html"> 로그인 </a>
+          </button>
+        </form>
       </div>
     </main>
   </body>

@@ -39,9 +39,16 @@ header {
   align-items: center;
   gap: 20px;
 }
-.fa-spotify {
-  font-size: 32px;
-  color: #1db954;
+.logo-link{
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-img{
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
 }
 
 /* center-header */
