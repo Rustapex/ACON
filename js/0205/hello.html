@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 자바 스크립트 코드 (문서의 요소(element) 선택할 때는 순서가 중요 ) 
+        body {script -> html} 위치에서는 오류발생. 
+        class가 aa인 p태그가 읽혀지지 않음   -->
+    
+    <p class="aa">안녕</p>
+    
+    <!-- shitft+alt+f -->
+    <script>
+        /* 올바른 위치(클래스가 aa인 p태그 선택가능) */
+        let pTage = document.querySelector(".aa");
+        // console.log(pTage); 항상 선택한 후 확인하자
+        pTage.innerHTML = "안녕하세요"
+
+        // alert("hello javascript");
+    </script>
+</body>
+</html>

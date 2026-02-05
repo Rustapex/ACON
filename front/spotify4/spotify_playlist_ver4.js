@@ -23,7 +23,7 @@ const observer = new IntersectionObserver(
 iframes.forEach(iframe => observer.observe(iframe));
 
 
-// ✅ 좌측 가수 목록 클릭 → 우측 유사가수만 보여주는 로직
+//  좌측 가수 목록 클릭 → 우측 유사가수만 보여주는 로직
 const leftLinks = document.querySelectorAll(".artist-link-block");
 const rightBlocks = document.querySelectorAll(".dropbtn");
 

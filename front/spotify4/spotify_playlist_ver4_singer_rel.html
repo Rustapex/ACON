@@ -7,11 +7,10 @@
       src="https://kit.fontawesome.com/4ec79785b5.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="spotify_playlist_ver4.css" />
-    <!-- ✅ 기존 CSS 파일은 건드리지 않고, 이 페이지에서만 필요한 것만 override -->
+    <link rel="stylesheet" href="spotify_playlist_ver4.css" />    
     <style>
       /* =========================================================
-        ✅ 이 페이지에서만 grid area 변경 (left + right만 사용)
+         이 페이지에서만 grid area 변경 (left + right만 사용)
         - 기존 CSS(body) grid를 "left right right"로 덮어씀
       ========================================================= */
       body.artist-page {
@@ -37,7 +36,7 @@
       }
 
       /* =========================================================
-        ✅ LEFT : 가수 네트워크(유의어 사전 느낌)
+         LEFT : 가수 네트워크
         - root(중앙) + related(주변)
         - 전체를 하나의 클래스로 묶음: .artist-network
       ========================================================= */
@@ -56,7 +55,7 @@
         justify-content: center;
       }
 
-      /* ✅ root hover 시: related box 제외하고, 같은 클래스(artist-network) 배경만 변경 */
+      /*  root hover 시: related box 제외하고, 같은 클래스(artist-network) 배경만 변경 */
       .artist-network:has(.root-artist:hover) {
         background: #efece365; /* 임의 색상 */
       }
@@ -91,7 +90,7 @@
         width: 190px;
         height: 190px;
         border-radius: 999px;
-        background: #4a70a9; /* ✅ 해당가수 background로 집중 */
+        background: #4a70a9; /*  해당가수 background로 집중 */
         border: 1px solid #efece3c6;
         display: flex;
         flex-direction: column;
@@ -134,7 +133,7 @@
         text-overflow: ellipsis;
       }
 
-      /* ✅ root hover: 이미지 약간 커짐 + shadow 강조 */
+      /*  root hover: 이미지 약간 커짐 + shadow 강조 */
       .root-artist:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
         transform: translate(-50%, -50%) scale(1.03);
@@ -149,18 +148,18 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        /* ✅ 중앙에서 var로 이동 (가지처럼) */
+        /*  중앙에서 var로 이동 (가지처럼) */
         transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px));
         width: 150px;
         min-height: 44px;
         padding: 10px 12px;
         border-radius: 999px;
-        background: #8fabd4; /* ✅ 연관가수는 별도 background 유지(네트워크 배경 바뀌어도 영향 덜 받게) */
+        background: #8fabd4; /*  연관가수는 별도 background 유지(네트워크 배경 바뀌어도 영향 덜 받게) */
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: #fff;
         text-decoration: none;
 
-        /* ✅ 가운데 정렬(요청: justify-content / align-content / text-align 등) */
+        /*  가운데 정렬(요청: justify-content / align-content / text-align 등) */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -184,7 +183,7 @@
         right: 10px;
       }
 
-      /* ✅ related hover: 박스 커지기 */
+      /*  related hover: 박스 커지기 */
       .related-artist:hover {
         transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px))
           scale(1.08);
@@ -193,7 +192,7 @@
       }
 
       /* =========================================================
-        ✅ RIGHT : 프로필 + 월별청취자 + 인기곡 table
+         RIGHT : 프로필 + 월별청취자 + 인기곡 table
         - 전체를 하나의 클래스로 묶음: .artist-right-wrap
       ========================================================= */
       .artist-right-wrap {
@@ -261,7 +260,7 @@
       .toptracks-table {
         width: 100%;
         border-collapse: collapse;
-        table-layout: fixed; /* ✅ 고정 레이아웃으로 ellipsis 안정 */
+        table-layout: fixed; /*  고정 레이아웃으로 ellipsis 안정 */
         font-size: 12.5px;
       }
       .toptracks-table th,
@@ -293,7 +292,7 @@
         width: 82px;
       }
 
-      /* ✅ 제목/앨범 길어지면 숨김(overflow:hidden) */
+      /*  제목/앨범 길어지면 숨김(overflow:hidden) */
       .ellipsis {
         overflow: hidden;
         white-space: nowrap;
@@ -314,7 +313,7 @@
     </style>
   </head>
 
-  <!-- ✅ 이 페이지에서만 grid override 적용하려고 body에 class 부여 -->
+  <!--  이 페이지에서만 grid override 적용하려고 body에 class 부여 -->
   <body class="artist-page">
     <!-- =========================
        HEADER (datalist 검색)
@@ -362,7 +361,7 @@
     </header>
 
     <!-- =========================
-      ✅ LEFT : 연관가수 네트워크 (하나의 class로 묶음)
+       LEFT : 연관가수 네트워크 (하나의 class로 묶음)
     ========================== -->
     <aside class="aside-left">
       <section class="artist-network">
@@ -376,7 +375,7 @@
         </div>
 
         <!-- 가지(선) + 연관 가수 노드들 -->
-        <!-- ✅ 노드 추가 방법:
+        <!--  노드 추가 방법:
              branch 하나 + related-artist 하나를 같이 추가하고,
              --angle(각도), --dist(선 길이), --x/--y(노드 위치)만 바꾸면 됨 -->
 
@@ -418,7 +417,7 @@
     </aside>
 
     <!-- =========================
-      ✅ RIGHT : 프로필 + 월별청취자 + 인기곡 table (하나의 class로 묶음)
+       RIGHT : 프로필 + 월별청취자 + 인기곡 table (하나의 class로 묶음)
     ========================== -->
     <aside class="right">
       <section class="artist-right-wrap">
@@ -448,7 +447,7 @@
               </tr>
             </thead>
             <tbody>
-              <!-- ✅ 구현 확인용 더미 텍스트 -->
+              <!--  구현 확인용 더미 텍스트 -->
               <tr>
                 <td>1</td>
                 <td class="ellipsis">La La La Love Song</td>
