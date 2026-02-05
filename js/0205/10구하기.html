@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        // 1번
+      alert(1 + 2 + 3 + 4 + 5);
+    </script>
+
+    <script> /* 2번 */
+      let result;
+      result = 1 + 2 + 3 + 4 + 5;
+      alert(result);
+    </script>
+
+    <script> /* 3번 */
+      let a = 1,
+        b = 2,
+        c = 3,
+        d = 4,
+        e = 5;
+      let result2 = a + b + c + d + e;
+      alert(result2);
+    </script>
+
+    <script> /* 4번 */
+      // 변수 1개를 이용해서 1~10까지의 합 구하기
+      let su = 1;
+      let sum = 0; /* 출력값을 저장할 변수 */
+      sum = sum + su; /* sum =0+1 = 1 */
+
+      su = su + 1; /* su=2 */
+      sum = sum + su; /* sum=3 */
+
+      su = su + 1; /* su=3 */
+      sum = sum + su; /* sum = 6 */
+
+      su = su + 1; /* su=4 */
+      sum = sum + su; /* sum= 4+6 = 10 */
+
+      su = su + 1; /* su=5 */
+      sum = sum + su; /* sum= 15 */
+
+      su = su + 1; /* su=6 */
+      sum = sum + su; /* sum= 21 */
+
+      su = su + 1; /* su=7 */
+      sum = sum + su; /* sum= 28 */
+
+      su = su + 1; /* su=8 */
+      sum = sum + su; /* sum= 36 */
+
+      su = su + 1; /* su=9 */
+      sum = sum + su; /* sum= 45 */
+
+      su = su + 1; /* su=10 */
+      sum = sum + su; /* sum= 55 */
+
+      alert(sum);
+    </script>
+
+    <script> /* 5번 */
+      // while문으로 변경
+      // sum - 출력, su - 수를 만들어내는 변수
+      let SU = 1,
+        SUM = 0;
+      while (SU <= 10) {
+        SUM += SU;
+        SU += 1;
+      }
+      alert(SUM);
+    </script>
+  </body>
+</html>

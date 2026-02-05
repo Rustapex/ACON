@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 사각형의 넓이를 구하는 프로그램을 작성하시오
+
+      // 자료명세(데이터 , 변수찾기)
+      // 입력: 가로 : width, 세로 :height
+      // 출력: 넓이:area
+      // 처리:  x
+
+      // 처리과정(순서)
+      //  1. 가로,세로 입력받는다
+      //  2. 넓이를 구한다
+      //  3. 넓이를 출력한다
+
+      //  순서도 (그리기, 검증)
+
+      //  코딩( 자바스크립트)
+
+      //    주석문
+      /* 여러 줄 주석문 */
+
+      let width, height, area; /* js 변수 선언(동적 타입) */
+      // int width, height, area; c or java(정적 타입)
+
+      width = prompt("가로 입력");
+      height = prompt("세로 입력"); /* prompt에 입력x -> null 들어감 */
+
+      area = width * height; /* width, height 형식이 다르면 area = NaN 출력 */
+
+      alert("넓이는 " + area + "입니다"); /* "area" => 문자열 */
+    </script>
+  </body>
+</html>
