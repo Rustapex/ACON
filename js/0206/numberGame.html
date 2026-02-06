@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수 맞히기 게임</title>
+</head>
+<body>
+    <script>
+        /* 입력 ,출력, 랜덤 수 ,시도 횟수 */
+        let input, output, randomNumber, tryCnt=0;
+
+        randomNumber = Math.floor((Math.random() * 100)) +1;
+        /* 0~ 99사이 임의의 수 */
+
+        input = prompt("숫자를 입력하시오.");
+        while(randomNumber != input) {
+            tryCnt++;
+            if( randomNumber > input){
+                alert("더 큰수를 입력하시오.");
+            }
+            else if(randomNumber < input){
+                alert("더 작은 수를 입력하시오.");
+            }
+            else{
+                input = prompt("숫자를 입력하시오.")
+            }                        
+        }
+        if (tryCnt <= 3)
+        {
+            alert("축하합니다.")
+        }
+        else{
+            alert("수고하셨습니다. 상품은 없습니다.")
+        }
+
+        // 3
+        // alert("숫자를 맞혔습니다.")
+        
+    </script>
+    
+</body>
+</html>

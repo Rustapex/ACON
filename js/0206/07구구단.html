@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* i 변수 반복횟수로 사용 */
+      for(let i=1; i<=9; i++){
+        document.write("4 *"+ i +"= "+  (4*i) + "<br>")
+      }
+      for(let i=1; i<=9; i++){
+        document.write(i + "단 <br>")
+        for(let j=1; j<=9 ; j++){            
+            document.write(i + " * " +j + " = " + i*j + "<br>" )
+        }
+        document.write("<br>")
+      }
+        
+
+
+      let n=1;
+      while(n<=5){
+        alert("즐거운 금요일 되세요.")
+        n++;
+      }
+
+      /* stop할 때까지 자기 이름 출력 */
+      /* 무한루프, 반드시 탈출조건 필요 */
+      while(true){
+        let name = prompt("이름을 입력하시오");
+        if(name=="stop") break; /* wile 빠져나가기 */
+        alert(name);
+
+      }
+
+    // false, 0 "" null undefined NaN -> false 로 취급
+ 
+
+    
+    </script>
+  </body>
+</html>

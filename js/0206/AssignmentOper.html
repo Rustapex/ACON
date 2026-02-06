@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 비교 연산자 => 참,거짓 true, false
+        
+        == (값), ===(값, type) , != (같x), > , <=
+        
+        
+        */
+      let num1 = 10,
+        num2 = 3;
+
+      console.log(num1 > num2); //10 > 3 true
+      console.log(num1 == num2); // 10 != 3 false
+
+      //    엄격한 비교 == ===
+      let a = 10,
+        b = "10";
+      console.log(a == b); /* true, 자동 형변환 */
+      console.log(a === b);/* false, 자동 형변환 x, type까지 비교 */
+    </script>
+
+    <script>
+      /* 대입 연산자 */
+      // let a= 10;
+
+      /* 대입 연산자 기준으로 왼쪽은 항상 공간(변수)가 와야 함(L_value)
+      L => left, location => L_value 에는 반드시 변수(메모리공간) 만 올수있음
+
+      대입 연산자 기준으로 오른쪽 값, 변수 올 수 있다. (R_value) right
+      R_value 에는 값, 수식, 변수*/
+
+      let d=10;
+      let x=y=z=5;
+      console.log(x);
+      console.log(y);
+      console.log(z);
+
+      // Assignment Operator 대입 연산자
+      // Compound Assignment Operator 복합 대입 연산자
+      /* +=, -=,  %= etc */
+
+      let num=10;
+      num += 1;
+      console.log(num); /* 대입연산 */
+
+      num =10;
+      num = num+1;
+      console.log(num);/* 복합 대입 */
+
+       num =10;
+      num++;
+      console.log(num);/* 단항 연산 */
+
+
+    </script>
+  </body>
+</html>

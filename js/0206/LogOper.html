@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 논리 연산자 : 논리 and && (둘다 참이어야 참), 
+      논리 or ||(하나만 참이여도 참)  
+      논리부정 ! (반댓값)*/
+
+      let a = true,
+        b = false,
+        c = 10;
+
+      console(a && b); // true and false = false
+      console(a || b); /* true or false = true */
+      console(!a); /* NOT ture = false */
+
+      let age=25, hasId = true;
+      if(age>=18 && hasId){
+        console.log("입장가능");
+      }
+      else{
+        console.log("입장불가");
+      }
+    </script>
+  </body>
+</html>

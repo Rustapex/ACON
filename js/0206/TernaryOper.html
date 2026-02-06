@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ternary operator</title>
+  </head>
+  <body>
+    <script>
+      /*
+            삼항 연산자 - 간단한 조건문을 한 줄로 작성 가능
+                    t       f
+            조건 ?  식1  :  식2;
+              */
+      let num1 = 10,
+        num2 = 20,
+        max;
+
+      max = num1 > num2 ? num1 : num2; /* num1 > num2 10> 20 false -> max = num2*/
+      console.log(max);
+
+      // if(num1> num2){
+      //     max=num1;
+      // }
+      // else if(num1<num2){
+      //     max=num2;
+      // }
+    </script>
+  </body>
+</html>

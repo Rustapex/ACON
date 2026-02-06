@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 증감 연산자(increment, decrement operator)
+      /*
+            전위(++a, --a), 후위(a++, a--)
+
+            공통점 : 변수의 값을 1증가, 1감소
+            차이점 : 연산의 결과가 다름
+
+
+
+         */
+      let a = 5,
+        b = 5;
+
+      let result = a++;
+      let result2 = ++b;
+
+      // let result1= a++; /* result = a++ =6 : 변수의 값 1증가 */
+      // let result2 = ++b; /* result = ++b=5 : 연산 결과가 증가전의 값 반환 */
+
+      console.log(a);
+      console.log(b);
+      console.log(result1);
+      console.log(result2);
+    </script>
+
+    <script>
+      let c = 5;
+      // c++ , c+d => 단항 연산자(unary operator)
+      ++d;
+
+      console.log(d);
+    </script>
+    <script>
+      <!-- 문제 -->
+      let x = 5,
+        y = 10;
+      x++; /* 5+1 = 6 */
+      let z = x++ + ++y; /* 6++ + ++10 = 7 + 10 = 17 */
+      /* z= x++ + ++y = */
+      console.log(z); 
+    </script>
+    <!-- 문제 -->
+     <script>
+        let k1=10 ,k2=8;
+        --k2; /* --k2 = --8 = 7 */
+        let reesult= k1-- - --k2; /* 10-- - --7 = 10 - 6 =4 */
+        console.log(result);
+     </script>
+  </body>
+</html>

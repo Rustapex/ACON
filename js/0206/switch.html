@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            //메뉴 선택 시 다른 코드를 수행하기
+            // 많은 분기 코드를 작성 시 적합
+        */
+      let menu;
+      menu = prompt(" char 입력 메뉴를 선택하시오 1. 등록 2. 조회 3. 삭제 4. 종료");
+      //   prompt 입력 시 모두 문자열로 취급 , 1 (number) , "1" 문자열1
+      switch (menu) {
+        case "1":
+          alert("등록합니다");
+          break;
+        case "2":
+          alert("조회합니다");
+          break;
+        case "3":
+          alert("삭제합니다");
+          break; // 종료하려면 break 안쓰면 다음 case도 실행
+        case "4":
+          alert("종료합니다");
+          break;
+        default:
+          alert("메뉴에 없습니다");
+      }
+    </script>
+
+    <!-- 숫자로 변환해서 switch case문 -->
+    <!-- parseInt(); 함수 ,문자열(숫자형태를 가진)을 실제 숫자로 바꿔줌 -->
+    <script>
+      let menu2;
+      menu2 = prompt(" number 입력 메뉴를 선택하시오 1. 등록 2. 조회 3. 삭제 4. 종료");
+      //   prompt 입력 시 모두 문자열로 취급 , 1 (number) , "1" 문자열1
+
+      menu24 = parseInt(menu24); /* "2" -> 2 */
+
+      switch (menu2) {
+        case 1:
+          alert("등록합니다");
+          break;
+        case 2:
+          alert("조회합니다");
+          break;
+        case 3:
+          alert("삭제합니다");
+          break; // 종료하려면 break 안쓰면 다음 case도실
+        case 4:
+          alert("종료합니다");
+          break;
+        default:
+          alert("메뉴에 없습니다");
+      }
+    </script>
+  </body>
+</html>

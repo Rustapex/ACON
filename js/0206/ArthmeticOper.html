@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 연산자는 연산의 결과가 반드시 발생한다.
+      // 산술 연산자 * / % + -
+
+      let a = 10,
+        b = 20;
+
+      let result = a + b; /* 덧  10+20 =30*/
+      console.log(result);
+
+      let result2 = a - b; /* 뺄 10 -20 =-10 */
+      console.log(result2);
+
+      let result3 = a * b; /* 곱 10*20=200*/
+      console.log(result3);
+
+      let result4 = b / a; /* 몫 20/10 = 2  */
+      console.log(result4);
+
+      let result5 = b % a; /* 나머지 20%10 =0 */
+      console.log(result5);
+
+      /* 나누기에서 정수만 5.25 가까운 정수로 변환 */
+      let result6 = Math.floor(result4);
+      console.log(result6);
+
+      /* 짝수 판별 나머지 활용 */
+      let number2 = 10; /* 짝수 판별하기 */
+      let margin = number2 % 2; /* 0 or 1 */
+
+      if (margin == 0){ console.log("짝수");}
+      else{ console.log("홀수");}
+
+      /* 거듭제곱 */
+      let base=2, exponent = 3, resultEx;
+      exponent = bas ** exponent;
+      console.log(exponent);
+
+    </script>
+  </body>
+</html>
