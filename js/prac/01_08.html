@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점수에 따른 등급</title>
+</head>
+<body>
+    <script>
+        let score =0;
+
+        score = parseInt(prompt("(100분율) 점수를 입력하세요:" ));
+
+        switch(true)
+        {
+            case(score >= 90):
+            document.write("A입니다."); break;
+            case(score >= 80):
+            document.write("B입니다."); break;
+            case(score >= 70):
+            document.write("C입니다."); break;
+            case(score >= 60):
+            document.write("D입니다."); break;
+            default:
+            document.write("F입니다."); break;
+        }
+    </script>
+    
+</body>
+</html>

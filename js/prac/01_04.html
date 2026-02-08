@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 3개 입력 후 최댓값 구하기(함수x)</title>
+</head>
+<body>
+    <script>
+        let max_val=0;
+        let num1, num2, num3;
+        parseInt(num1); parseInt(num2); parseInt(num3);
+
+        num1 = prompt("1번 숫자 입력");
+        num2 = prompt("2번 숫자 입력");
+        num3 = prompt("3번 숫자 입력");
+
+        if((num3 >= num2) && (num3 >= num1)){
+            max_val = num3;            
+        } else if(num2 >= num1 && num2 >= num3){
+            max_val = num2;
+        }
+        else{
+            max_val = num1;
+        }
+       
+        document.write("가장 큰 숫자는 "+ max_val +"입니다."); 
+
+    </script>
+    
+</body>
+</html>

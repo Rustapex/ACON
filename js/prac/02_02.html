@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>몸무게 키 입력 Bmi 계산</title>
+</head>
+
+<body>
+    <script>
+        const height = parseInt(prompt("키(정수cm)를 입력하세요:"));
+        const weight = parseInt(prompt("몸무게(정수kg)를 입력하세요:"));
+        const Bmi = weight / ((height/100) **2);
+
+
+        if (Bmi >= 25) {
+            document.write("bmi 는 "+ Bmi+ ", 비만입니다");
+        }
+        else if (Bmi >= 23) {
+            document.write("bmi 는 "+ Bmi+ ", 과체중입니다");
+        }
+        else if (Bmi >= 18.5) {
+            document.write("bmi 는 "+ Bmi+ ", 정상입니다");
+        }
+        else if (Bmi < 18.5) {
+            document.write("bmi 는 "+ Bmi+ ", 저체중입니다");
+        }else{
+            document.write("잘못된 값입니다");
+        }
+
+    </script>
+</body>
+
+</html>

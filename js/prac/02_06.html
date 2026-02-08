@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홀수와 짝수 합 구하기</title>
+  </head>
+  <body>
+    <!--6. 홀수와 짝수 합 구하기
+        문제: 1부터 사용자가 입력한 숫자 N까지의 홀수와 짝수를 구분하여 각각의 합을 출력하세요.
+        예: N = 10 → 홀수 합 = 25, 짝수 합 = 30 
+     -->
+    <script>
+      let intNum = prompt("1보다 큰 정수을 입력하세요.");
+      let num = parseInt(intNum);
+      let quo;
+      let evenTotal = (oddTotal = 0);
+
+      while (num<1){
+        intNum = prompt("1보다 큰 정수을 입력하세요.");
+        num= parseInt(intNum);
+
+      }
+   
+      
+        
+        if (num % 2 == 0) {
+          quo = num / 2;
+          for (quo; quo != 0; quo--) {
+            evenTotal = evenTotal + 2 * quo;
+            oddTotal = oddTotal + 2 * quo - 1;
+          }
+
+          document.write(
+            "1부터 입력한 숫자까지의 짝수의 합은 " + evenTotal + "입니다. <br>",
+          );
+          document.write(
+            "1부터 입력한 숫자까지의 홀수의 합은 " + oddTotal + "입니다. <br>",
+          );
+        } else {
+          quo = (num + 1) / 2;
+          for (quo; quo != 0; quo--) {
+            oddTotal = oddTotal + 2 * quo - 1;
+            evenTotal = evenTotal + 2 * (quo - 1);
+          }
+
+          document.write(
+            "1부터 입력한 숫자까지의 짝수의 합은 " + evenTotal + "입니다. <br>",
+          );
+          document.write(
+            "1부터 입력한 숫자까지의 홀수의 합은 " + oddTotal + "입니다. <br>",
+          );
+        }
+      
+    </script>
+
+    <script></script>
+  </body>
+</html>

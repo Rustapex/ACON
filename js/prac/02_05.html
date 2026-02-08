@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자 삼각형 출력</title>
+  </head>
+  <body>
+    <!--
+    5 숫자 삼각형 출력
+    문제: 사용자로부터 숫자 N을 입력받아 다음과 같은 숫자 삼각형을 출력하세요.
+    예: N = 4
+ 
+    1
+    12
+    123
+    1234  -->
+
+    <script>
+        let N = parseInt(prompt("정수를 입력하세요."));
+    
+
+        for(let row=1; row<= N ; row++){
+            let currentNum =1; // 여기서 초기화해야 지역변수 되서 다시 1로 바뀜
+            for(let col=1; col<=row; col++){2                
+                document.write(currentNum);
+                currentNum++;
+            }
+            document.write("<br>");
+        }    
+        
+    
+    </script>
+  </body>
+</html>

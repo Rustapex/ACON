@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사칙 연산 계산기</title>
+  </head>
+
+  <body>
+    <script>
+      while (true) {
+
+        let num1 = prompt("첫 번째 숫자를 입력하시오,  'stop' 입력 시 종료");
+        if(num1 === "stop" || num1 == null){break;}
+        let num2 = prompt("두 번째 숫자를 입력하시오,  'stop' 입력 시 종료");
+        if(num2 === "stop" || num2 == null){break;}
+        let operator = prompt("연산자를 입력하시오,  'stop' 입력 시 종료");
+        if(operator === "stop" || operator == null){break;}            
+
+        // switch-case문 이전에 사용해서 이번에는 if-else문으로
+        let result = 0;
+        const number1 = parseInt(num1); 
+        const number2 = parseInt(num2);
+        if (operator == "+") {
+          result = number1 + number2;
+        } else if (operator == "-") {
+          result = number1 - number2;
+        } else if (operator == "*") {
+          result = number1 * number2;
+        } else if (operator == "/") {
+          result = number1 / number2;
+        } else if (operator == "%") {
+          result = number1 % number2;
+        } else { document.write("올바르지 않은 연산자입니다.");
+            continue;
+        }
+        alert(num1 + " " + operator+ " " + num2 + " = " + result);
+        console.log({ num1Input, num2Input, operatorInput });
+      }
+    </script>
+  </body>
+</html>

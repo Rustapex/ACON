@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>과목 3개 </title>
+  </head>
+  <body>
+    <script>
+      let totalScroe = 0;
+      let avgScore = 0;
+
+      let Korean = parseInt(prompt("국어 점수 입력"));
+      let English = parseInt(prompt("영어 점수 입력"));
+      let Mathatic = parseInt(prompt("수학 점수 입력"));
+
+      totalScroe = Korean + English + Mathatic;
+      avgScore = totalScroe / 3;
+
+      document.write("총점 : " + totalScroe + "<br>");
+      document.write("평균 : " + avgScore);
+
+    </script>
+  </body>
+</html>
