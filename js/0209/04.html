@@ -29,25 +29,45 @@
         1 + N,
       ); /* nums slice해서 소수 판별할 요소들 */
 
+
+
+    //   const primeArray = [
+    //     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
+    //     71, 73, 79, 83, 89, 97,
+    //   ]; => 하단에 소수 판별 함수로 대체됨
+      function isPrime(x) {
+        if (x < 2) {
+          return false;
+        } /* 2보다 작은 소수는 없음 */ else {
+          for (let i = 2; i <= x; i++) {
+            if (x % i == 0) {
+              return false;
+            } 
+            return true;  
+            }
+          }
+        }
       
 
       let ansPrimeArray = [];
-
-      const primeArray = [
-        2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
-        71, 73, 79, 83, 89, 97,
-      ];
-
-      ansPrimeArray = nums.filter(function (value) {
-        for (let j = 0; j < nums.length; j++) {
-            for (let i = 0; i < primeArray.length; i++) {
-                if (nums[j] == primeArray[i]) {
-                    ansPrimeArray.push(nums[j]);
-                }
-            }
+      nums.forEach(function(value){
+        if(isPrime(value)){
+            ansPrimeArray.push(value);
         }        
       });
-      document.log(`소수는 ${ansPrimeArray} 입니다.`);
+
+      document.write(`입력한 값은 `);
+      for(let i=0; i< nums.length; i++){
+        document.write(`${nums[i]} `);
+      }
+      document.write(`입니다.<br>`);
+      
+      document.write(`정답은 `);
+      for(let i=0; i<ansPrimeArray.length; i++){
+            document.write(`${ansPrimeArray[i]} `);
+      }
+      document.write(`입니다.<br>`);
+      
     </script>
   </body>
 </html>
