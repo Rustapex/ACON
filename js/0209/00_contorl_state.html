@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제어문</title>
+  </head>
+  <body>
+    <script>
+      /* break 문 : 반복문에서 break 사용 - 자신이 속한 반복문을 탈출*/
+
+      // 3번 인사
+
+      let Cnt = 0;
+      while (ture) {
+        alert("hi");
+        Cnt = Cnt + 1;
+
+        if (Cnt > 3) {
+          break;
+        }
+      }
+      for (let i = 0; i < 3; i++) {
+        alert("hi");
+      }
+    </script>
+    <script>
+      /* switch -> 메뉴 입력 , 3번 반복해서 메뉴 입력 */
+
+      for (let i = 0; i < 3; i++) {
+        /* 3번 반복  0 1 2 */
+        let menu = parseInt(prompt("메뉴선택 1 등록, 2 조회, 3 종료"));
+
+        switch (menu) {
+          case 1:
+            alert("등록");
+            break;
+          case 2:
+            alert("조회");
+            break;
+          case 3:
+            alert("종료");
+            break;
+          default:
+            alert("다시 입력");
+        }
+      }
+    </script>
+    <script>
+      /* while 제어문 */
+
+      loop: while (true) {
+        let menu = parseInt(prompt("메뉴선택 1 등록, 2 조회, 3 종료"));
+
+        switch (menu) {
+          case 1:
+            alert("등록");
+            break;
+          case 2:
+            alert("조회");
+            break;
+          case 3:
+            alert("종료");
+            break loop; /* loop */
+          default:
+            alert("다시 입력");
+        }
+      }
+    </script>
+  </body>
+</html>

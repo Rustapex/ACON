@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 중첩 반복문 */
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          alert("hi");
+        }
+      }
+    </script>
+
+    <script>
+      //continue
+      //반복문안에서 수행할 코드를 건너뛰게 하는 기능
+      //1~10까지 홀수의 합을 구하시오
+      // 1  2  3  4  5 6 7 8 9 10
+      let sum = 0; //누적은 초기값 중요
+      for (let i = 1; i <= 10; i++) {
+        if (i % 2 == 1) {
+          //
+          console.log(i); //확인용 출력
+          sum = sum + i;
+        }
+      }
+      console.log(sum);
+
+      //홀수의 합 구하기 에서  continue 사용하기
+      //짝수인경우 누적하지 않기
+      let total = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (i % 2 == 0) continue;
+        //continue를 만나면 아래코드를 수행하지 않고 다음반복으로 진행
+        total = total + i; // total  += i ;
+      }
+      console.log(" continue 사용한  홀수합" + total);
+    </script>
+      <script>
+        for (i = 2; i <= 9; i++) {
+            document.write(`${i} 단 출력<br>`);
+            for(j=1; j<10;j++)
+            document.write(i +" x " + j + " = " + (j * i) + "<br>")
+        }
+
+    </script>
+    <script>
+        for (i = 0; i <3; i++) {
+            for(j=0; j<5;j++){
+                document.write(`*`);
+            }
+            document.write(`<br>`);            
+        }
+
+    </script>
+  </body>
+</html>

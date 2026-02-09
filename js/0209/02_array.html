@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let fruit = ["strawberry", "apple", `orange`];
+
+      document.write(`<h2> 배열 - 반복문으로 출력 </h2>`);
+      for (i = 0; i < 3; i++) {
+        document.write(`fruit[${i}] : ${fruit[i]}<br>`);
+      }
+    </script>
+    <script>
+      // 1부터 10까지의 합 for문
+      {
+        let sum = 0;
+        for (i = 1; i <= 10; i++) {
+          sum += i;
+        }
+        document.write(`1부터 10까지의 합 : ${sum}<br>`);
+      }
+      // 1부터 10까지 합 while
+      {
+        let Sum = 0;
+        let i = 1;
+
+        while (i <= 10) {
+          Sum += i;
+          i++;
+        }
+        document.write(`1부터 10까지의 합 : ${Sum}<br>`);
+      }
+      // 반복문 사용 x
+      document.write(
+        `1부터 10까지의 합 : ${1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10}<br>`,
+      );
+      let sumNoLoop = 0;
+      let z = 1;
+
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;
+      sumNoLoop += z; z++;      
+
+      document.write(`1부터 10까지의 합 : ${sumNoLoop}<br>`);
+    </script>
+  </body>
+</html>

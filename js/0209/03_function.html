@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function</title>
+  </head>
+  <body>
+    <script>
+      function ChiKa() {
+        document.write("칫솔에 치약 짜");
+        document.write("칫솔질");
+        document.write("물 행구기");
+      }
+      ChiKa();
+      ChiKa();
+      ChiKa();
+    </script>
+    <script>
+        /* 함수
+        기능 : 성적표 타이틀 출력하기
+        입력(매개변수) : 외부로부터 받는 값 (없거나, 한개이상)
+        반환 : 없거나 하나 */
+      function titleScroe() {
+        document.write(`************************`);
+        document.write(`********성적표**********`);
+        document.write(`************************`);
+      }
+    </script>
+    <script>
+        // 함수 : 특정 기능 수행하는 코드 묶음
+        /* 입력 : 매개변수, 반환 :  */
+        /*
+        함수 만드는 법(input, return)
+        
+        1) (x,x)
+
+        2) (o,x)
+        3) (o,o)
+        4) (x,o)
+        
+         */
+
+         /* 더하기 함수(o,o) */
+        function add(num1, num2){
+            return (num1+num2);
+        }
+        document.write(add());
+         /* 더하기 함수(o,x) */
+        function addWrite(num1, num2){
+            document.write(`${num1} + ${num2} = ${num1+num2}`);
+        }
+        addWrite();
+
+        /* 어린이 판단하기(10살 기준)(o,x) */
+        function isKid(age){
+            if(age <=10) {
+                document.write(`나이는 ${age}이므로 어린이입니다.`);}
+            else {document.write(`나이는 ${age}이므로 어린이가 아닙니다`);}
+        }
+        /* 어린이 판단하기2 */
+        let ticketPrice = 10000, age=10;
+
+        function IsKid(age){
+            if(age <= 10) {
+                return true;}
+            else{ return false;}
+        }
+        let payPrice = ticketPrice;
+        let result = IsKid(age);
+        if (result ==true){
+            payPrice= ticketPrice * 0.5;
+        }
+        alert(`payPrice`)
+        
+
+    </script>
+    <script>
+        /* 인사하기 */
+        function sayHi(){
+            alert(`hi`);
+        }
+        sayHi();
+        sayHi();
+        sayHi();
+        /* 인사하기2 */
+
+    </script>
+    <script>
+        /* 세 배로 만들기, 금액(매개변수), 반환(세배 곱한 금액) */
+
+        function product(atm){
+            let reuslt;
+            result = amt*3;
+            return result;
+        }
+        let cash = product(20000);
+        alert(cash);
+
+
+    </script>
+    <script>
+        /* 메뉴추천, 매개변수x, 반환 메뉴명 */
+        function menuRec(){
+            return foodName;
+        }
+        let result6 = menuRec();
+        alert(result6);
+        function menuRec2(){
+            let food=["김밥", "돈까스","초밥"];
+            let index = Math.floor(math.random() *3);
+            return food[index];
+        }
+        alert(`${manuRec2}을 추천합니다.`);
+    </script>
+    <script>
+        
+    </script>
+  </body>
+</html>
