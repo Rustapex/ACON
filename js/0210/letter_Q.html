@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>단어 56개 (한 달에 :28개씩 두 달 :56개 단어 공부하기 )</h2>
+
+    <script>
+      /*
+ 단어 56개 저장하기  :2달 단어정보 저장하기 
+"apple" 
+"banana" 
+"cat" 
+"dog" 
+"elephant" 
+"flower" 
+"guitar" 
+"house" 
+"internet" 
+"jungle" 
+"kangaroo" 
+"lion" 
+"moon" 
+"nest" 
+"orange" 
+"piano" 
+"queen" 
+"rabbit"
+"sun"
+"tree"
+"umbrella"
+"vase"
+"water"
+"xylophone"
+"yacht"
+"zebra"
+"ant"
+"ball"
+"car"
+"door"
+"egg"
+"fire"
+"garden"
+"hat"
+"ice"
+"jacket"
+"key"
+"lamp"
+"mouse"
+"note"
+"orange"
+"pencil"
+"queen"
+"rain"
+"sun"
+"table"
+"umbrella"
+"vase"
+"water"
+"xylophone"
+"yacht"
+"zebra"
+"apple"
+"banana"
+"cat"
+"dog" 
+*/
+
+      let word1 = "apple";
+      let word2 = "banana";
+      let word3 = "cat";
+      let word4 = "dog";
+      let word5 = "elephant";
+      let word6 = "flower";
+      let word7 = "guitar";
+      let word8 = "house";
+      let word9 = "internet";
+      let word10 = "jungle";
+      let word11 = "kangaroo";
+      let word12 = "lion";
+      let word13 = "moon";
+      let word14 = "nest";
+      let word15 = "orange";
+      let word16 = "piano";
+      let word17 = "queen";
+      let word18 = "rabbit";
+      let word19 = "sun";
+      let word20 = "tree";
+      let word21 = "umbrella";
+      let word22 = "vase";
+      let word23 = "water";
+      let word24 = "xylophone";
+      let word25 = "yacht";
+      let word26 = "zebra";
+      let word27 = "ant";
+      let word28 = "ball";
+      let word29 = "car";
+      let word30 = "door";
+      let word31 = "egg";
+      let word32 = "fire";
+      let word33 = "garden";
+      let word34 = "hat";
+      let word35 = "ice";
+      let word36 = "jacket";
+      let word37 = "key";
+      let word38 = "lamp";
+      let word39 = "mouse";
+      let word40 = "note";
+      let word41 = "orange";
+      let word42 = "pencil";
+      let word43 = "queen";
+      let word44 = "rain";
+      let word45 = "sun";
+      let word46 = "table";
+      let word47 = "umbrella";
+      let word48 = "vase";
+      let word49 = "water";
+      let word50 = "xylophone";
+      let word51 = "yacht";
+      let word52 = "zebra";
+      let word53 = "apple";
+      let word54 = "banana";
+      let word55 = "cat";
+      let word56 = "dog";
+
+      // 변수를 이용해서 단어를 저장하고 출력하기   (56개 출력하기 )
+      document.write(`word1<br>`);
+      document.write(`word2<br>`);
+      document.write(`word3<br>`);
+      document.write(`word4<br>`);
+      document.write(`word5<br>`);
+      document.write(`word6<br>`);
+      document.write(`word7<br>`);
+      document.write(`word8<br>`);
+      document.write(`word9<br>`);
+      document.write(`word10<br>`);
+      document.write(`word11<br>`);
+      document.write(`word12<br>`);
+      document.write(`word13<br>`);
+      document.write(`word14<br>`);
+      document.write(`word15<br>`);
+      document.write(`word16<br>`);
+      document.write(`word17<br>`);
+      document.write(`word18<br>`);
+      document.write(`word19<br>`);
+      document.write(`word20<br>`);
+      document.write(`word21<br>`);
+      document.write(`word22<br>`);
+      document.write(`word23<br>`);
+      document.write(`word24<br>`);
+      document.write(`word25<br>`);
+      document.write(`word26<br>`);
+      document.write(`word27<br>`);
+      document.write(`word28<br>`);
+      document.write(`word29<br>`);
+      document.write(`word30<br>`);
+      document.write(`word31<br>`);
+      document.write(`word32<br>`);
+      document.write(`word33<br>`);
+      document.write(`word34<br>`);
+      document.write(`word35<br>`);
+      document.write(`word36<br>`);
+      document.write(`word37<br>`);
+      document.write(`word38<br>`);
+      document.write(`word39<br>`);
+      document.write(`word40<br>`);
+      document.write(`word41<br>`);
+      document.write(`word42<br>`);
+      document.write(`word43<br>`);
+      document.write(`word44<br>`);
+      document.write(`word45<br>`);
+      document.write(`word46<br>`);
+      document.write(`word47<br>`);
+      document.write(`word48<br>`);
+      document.write(`word49<br>`);
+      document.write(`word50<br>`);
+      document.write(`word51<br>`);
+      document.write(`word52<br>`);
+      document.write(`word53<br>`);
+      document.write(`word54<br>`);
+      document.write(`word55<br>`);
+      document.write(`word56<br>`);
+
+      //1차원배열 (변수를 연속적으로 7개 사용) : 변수의 집합 , 배열의 요소가 변수 한 개 의미
+      //1주일 단어 정보 저장하기
+      let week1 = [
+        "apple",
+        "banana",
+        "cat",
+        "dog",
+        "elephant",
+        "flower",
+        "guitar",
+      ];
+      let week2 = [
+        "apple2",
+        "banana2",
+        "cat2",
+        "dog2",
+        "elephant2",
+        "flower2",
+        "guitar2",
+      ];
+      let week3 = [
+        "apple3",
+        "banana3",
+        "cat3",
+        "dog3",
+        "elephant3",
+        "flower3",
+        "guitar3",
+      ];
+      let week4 = [
+        "apple4",
+        "banana4",
+        "cat4",
+        "dog4",
+        "elephant4",
+        "flower4",
+        "guitar4",
+      ];
+
+      let week5 = [
+        "apple5",
+        "banana5",
+        "cat5",
+        "dog5",
+        "elephant5",
+        "flower5",
+        "guitar5",
+      ];
+      let week6 = [
+        "apple6",
+        "banana6",
+        "cat6",
+        "dog6",
+        "elephant6",
+        "flower6",
+        "guitar6",
+      ];
+      let week7 = [
+        "apple7",
+        "banana7",
+        "cat7",
+        "dog7",
+        "elephant7",
+        "flower7",
+        "guitar7",
+      ];
+      let week8 = [
+        "apple8",
+        "banana8",
+        "cat8",
+        "dog8",
+        "elephant8",
+        "flower8",
+        "guitar8",
+      ];
+
+      //56개 단어 출력하기
+
+      /* 첫 번째 주 단어 출력하기*/
+
+      console.log(week1[0]);
+      console.log(week1[1]);
+      console.log(week1[2]);
+      console.log(week1[3]);
+      console.log(week1[4]);
+      console.log(week1[5]);
+      console.log(week1[6]);
+
+      // 2차원배열  : 1차원배열의 집합 : 배열의 요소 가 1차원 배열 한 개 의미
+
+      let month1 = [
+        ["apple", "banana", "cat", "dog", "elephant", "flower", "guitar"],
+        ["house", "internet", "jungle", "kangaroo", "lion", "moon", "nest"],
+        ["apple2", "banana2", "cat2", "dog2", "elephant2", "flower2", "guitar2"],
+        ["house2", "internet2", "jungle2", "kangaroo2", "lion2", "moon2", "nest2"]
+      ];
+
+      let month2 = [[], [], [], []];
+
+      //console.log(  month1[0][0]);     기준으로 부터 행정보, 열정보가 필요함  ( 변수 하나에 접근가능 )
+
+      //2차원배열로 단어  56개 출력하기
+
+      // 3차원 배열 : 2차원 배열의 집합 : 배열의 요소가 2차원 배열 한 개 의미
+      // 면, 행, 열 로 접근
+
+      let word_year = [
+        //1월달
+
+        [
+          ["apple", "banana", "cat", "dog", "elephant", "flower", "guitar"],
+          ["house", "internet", "jungle", "kangaroo", "lion", "moon", "nest"],
+          ["orange", "piano", "queen", "rabbit", "sun", "tree", "umbrella"],
+          ["vase", "water", "xylophone", "yacht", "zebra", "ant", "ball"],
+        ],
+
+        //2월달
+        [[], [], [], []],
+      ];
+
+      console.log(word_year[0][0][0]); //면행열
+
+      //단어 56개 출력하기
+    </script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 함수 : 관련 명령 묶어서 이름붙임
+        사용 이유 
+        - 코드 재사용 (유지보수, 중복 제거)
+        - 코드 분할    
+        
+        1)입력 : 매개변수(parameter), 0개 이상 / 호출시 전달값 저장목적 변수
+        2)호출 : 인수(argument) /호출 시 실제 전달 값
+        3)반환 : 0 : undefined / 0< <1  , 함수 기능수행후 돌려주는 값 2< : 배열, 객체
+        */
+       let result = console.log("안녕");
+       alert(result);
+    </script>
+    <script>
+        /* javascript 제공 함수 */
+
+//1. 사용자 입력/출력 관련 함수
+//함수  설명  예시
+//alert() 경고창 표시 alert("경고!")
+//prompt()  입력창 표시 후 입력 받기  prompt("이름 입력:")
+//confirm() 확인/취소 버튼 있는 창  confirm("정말 삭제하시겠습니까?")
+
+//2. 타이머 관련 함수
+//함수  설명  예시
+//setTimeout()  일정 시간 후 함수 실행  setTimeout(() => alert("3초 후"), 3000)
+//setInterval() 일정 간격으로 반복 실행 setInterval(() => console.log("1초마다"), 1000)
+//clearTimeout()  타임아웃 취소 clearTimeout(timerId)
+//clearInterval() 인터벌 취소 clearInterval(intervalId)
+
+// 브라우저 정보 및 위치
+//함수  설명  예시
+//navigator 브라우저 정보 navigator.userAgent   , 현재사용자 위치정보 가져오기
+//location  현재 주소 정보  location.href, location.reload()
+//history 방문 기록 제어  history.back(), history.forward()
+//4. DOM 조작 관련 (문서 객체 조작)
+//이건 함수보다는 객체 메서드 형태지만, 브라우저에서 제공하는 대표적인 API입니다.
+ 
+//document.getElementById() ID로 요소 선택
+//document.querySelector()  CSS 선택자로 요소 선택
+//element.addEventListener()  이벤트 리스너 등록
+//element.innerHTML 내부 HTML 변경
+
+// 네트워크 요청 (비동기)
+//함수/객체 설명  예시
+//fetch() HTTP 요청 보내기  fetch('/data.json')
+//XMLHttpRequest  옛날 방식의 HTTP 요청 (거의 사용 X)
+ // 6. 콘솔 관련
+//함수  설명
+//console.log() 로그 출력
+//console.error() 에러 출력
+ 
+//////////////////////////////////////////////////
+// 7. 자바스크립트 내장함수 (언어 자체에서 제공함 )
+//////////////////////////////////////////////////
+// ▶️ 전역 내장 함수
+// parseInt()       : 문자열 → 정수
+// parseFloat()     : 문자열 → 실수
+// isNaN()          : 숫자인지 검사
+// isFinite()       : 유한한 숫자인지 검사
+// Number()     : 문자열 → 숫자 (정수/실수 모두, 엄격)
+// eval()           : 문자열을 코드로 실행 ( 사용 자제)
+// 예)
+let result1 = parseInt("100");        // 100
+let result2= parseFloat("3.14");    // 3.14
+let result3= isNaN("abc");           // true
+let result4= Number("10")       // 10
+let result5 =Number("10.5")     // 10.5
+let result6  =Number("10원")     // NaN  
+
+
+console.log( result1);
+console.log( result2);
+console.log( result3);
+console.log( result4);
+console.log( result5);
+console.log( result6);
+
+//////////////////////////////////////////////////
+// 8. String 내장 메서드 (문자열)
+//////////////////////////////////////////////////
+// str.length
+// str.includes()
+// str.indexOf()
+// str.substring()
+// str.replace()
+// str.toUpperCase()
+// str.toLowerCase()
+//////////////////////////////////////////////////
+// 9. Array 내장 메서드 (배열 매서드)
+//////////////////////////////////////////////////
+// push()      : 뒤에 추가
+// pop()       : 뒤에서 제거
+// shift()     : 앞에서 제거
+// unshift()   : 앞에 추가
+// forEach()   : 반복
+// map()       : 변환
+// filter()    : 조건 필터
+// find()      : 조건 만족 1개
+// includes()  : 포함 여부
+//////////////////////////////////////////////////
+// 10. Math 내장 객체 (수학)
+//////////////////////////////////////////////////
+// Math.random()
+// Math.floor()
+// Math.ceil()
+// Math.round()
+// Math.abs()
+// Math.max()
+// Math.min()
+//////////////////////////////////////////////////
+// 11. Date 내장 객체 (날짜/시간)
+//////////////////////////////////////////////////
+// new Date()
+// getFullYear()
+// getMonth()    // 0부터 시작
+// getDate()
+// getDay()
+//////////////////////////////////////////////////
+// 12. JSON 내장 객체 (통신 필수)
+//////////////////////////////////////////////////
+// JSON.stringify()   : 객체 → 문자열
+// JSON.parse()       : 문자열 → 객체
+
+  </script>
+  
+  <script>
+    let num = "100";
+    console.log(parseInt(num)*10); 
+    /* (수형태)문자열 ->정수로 형변환 */
+
+    let num2 = "asdf";
+    result2 = parseInt(num2)
+    // console.log(parseInt(num2)); NaN not a number
+    if(num2 == NaN){alert(`숫자아님`);}
+    if(isNaN(result2) == true){alert(`숫자아님. 숫자입력`);}
+
+
+
+
+  </script>
+  <script>
+    /* 변수 선언 위치에 따라 전역, 지역(함수), 블럭변수(중괄호) : for, if */
+
+    /* 블럭 변수 예시 - i */
+    for(let i=1; i<5; i++){document.write(i);}
+  </script>
+  <script>
+    if(5>3) { 
+        let result="5가 크다.";
+        document.write("if블럭 안에서 선언된" + result);
+    } /* 임의로 if 블럭 만들어 사용 ㄱㄴ */
+  </script>
+  <script>
+    /* 임의로 블럭 만들어 사용 ㄱㄴ */
+    /* 변수의 유효범위 줄일 수 있다. */
+    {let k=10; document.write(k);}
+    {let k=20; document.write(k);}
+
+  </script>
+  
+</body>
+
+
+    
+    
+
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const numArr = [];
+      for (let i = 0; i < 3; i++) {
+        if (i % 2 == 0) {
+          numArr[i] = Number(prompt("숫자를 입력하시오"));
+        } else numArr[i] = prompt("연산자를 입력하시오");
+      }
+      /* numArr = [숫자, "*", 숫자] 
+        numArr[0] numArr[1] */
+      function plus(num1, num2) {
+        return num1 + num2;
+      }
+      function minus(num1, num2) {
+        return num1 - num2;
+      }
+
+      function square(num1, num2) {
+        const result = num1 * num2;
+        return result;
+      }
+      function divide(num1, num2) {
+        const result = num1 / num2;
+        return result;
+      }
+      function modulo(num1, num2) {
+        const result = num1 % num2;
+        return result;
+      }
+
+      switch (numArr[1]) {
+        case "+":
+          alert(plus(numArr[0], numArr[2]));
+          break;
+        case "-":
+          alert(minus(numArr[0], numArr[2]));
+          break;
+        case "*":
+          alert(square(numArr[0], numArr[2]));
+          break;
+        case "/":
+          alert(divide(numArr[0], numArr[2]));
+          break;
+        case "%":
+          alert(modulo(numArr[0], numArr[2]));
+          break;
+        default:
+          alert("다시 입력하세요");
+      }
+    </script>
+  </body>
+</html>

@@ -7,12 +7,8 @@
   </head>
   <body>
     <script>
-      function max() {
+      function maxValue(num1,num2,num3) {
         let max_val = 0;
-        
-        let num1 = parseInt(prompt("1번 숫자 입력"));
-        let num2 = parseInt(prompt("2번 숫자 입력"));
-        let num3 = parseInt(prompt("3번 숫자 입력"));
 
         if (num3 >= num2 && num3 >= num1) {
           max_val = num3;
@@ -21,12 +17,17 @@
         } else {
           max_val = num1;
         }
-        document.write("가장 큰 숫자는 " + max_val + "입니다.");       
-      }
-      max();    
-      
+        return max_val;
+        // alert("가장 큰 숫자는 " + max_val + "입니다.");
+      } 
 
-      
+      // let result = Math.max(2, 3, 5);
+      // alert(result);
+      const num1 = parseInt(prompt("1번 숫자 입력"));
+      const num2 = parseInt(prompt("2번 숫자 입력"));
+      const num3 = parseInt(prompt("3번 숫자 입력"));
+      let result = maxValue(num1,num2,num3);
+      alert(result);
     </script>
   </body>
 </html>

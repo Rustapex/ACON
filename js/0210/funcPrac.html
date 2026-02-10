@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 문제</title>
+  </head>
+  <body>
+    <script>
+        /* 홀수 함수 */
+      function isOdd(item) {
+        if (item % 2 != 0) {
+          return true;
+        } else return false;
+      }
+
+      const numArr = [];
+      numArr[0] = parseInt(prompt("입력할 수의 개수를 쓰세요:").trim(),10);
+      for (let i = 1; i <= numArr[0]; i++) {
+        numArr.push(parseInt(prompt("입력할 수를 쓰세요:").trim(),10));               
+      }
+    //   console.log(numArr.join("\n"));
+      const oddArr = numArr.slice(1).filter(function(item){
+        if(isOdd(item) === true){
+            return true;
+        }
+        else return false;
+      });
+      alert(`입력한 수의 개수는${numArr[0]}개 이다.`);
+      alert(`그중에 홀수는 ${oddArr.join(" ")} 이다.`);
+    </script>
+  </body>
+</html>
