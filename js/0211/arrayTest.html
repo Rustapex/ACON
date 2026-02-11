@@ -1,43 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        /* 문제: 아래 과일 배열에서 첫 번째와 세 번째 요소를 출력하세요. */
+      /* 문제: 아래 과일 배열에서 첫 번째와 세 번째 요소를 출력하세요. */
 
-        const fruit = ['apple', 'banana', 'cherry'];
+      const fruit = ["apple", "banana", "cherry"];
 
-        document.write(`첫번째 : ${fruit[0]}, 두번째 : ${fruit[2]}\n`);
+      document.write(`첫번째 : ${fruit[0]}, 두번째 : ${fruit[2]}\n`);
+
+      /* 2 아래 배열 컬러 길이를 출력하세요. */
+      const color = ["red", "blue", "green", "yellow"];
+      document.write(`배열 color의 길이는 ${color.length}\n`);
+
+      /* 3 아래 배열 점수에 있는 모든 숫자의 합을 계산하세요. */
+
+      const score = [10, 20, 30, 40];
+      scoreSum = 0;
+      for (let i = 0; i < score.length; i++) {
+        scoreSum += score[i];
+      }
+      document.write(`모든 숫자의 합은 ${scoreSum}\n`);
 
 
-        /* 2 아래 배열 컬러 길이를 출력하세요. */
-        const color = ['red', 'blue', 'green', 'yellow'];
-        document.write(`배열 color의 길이는 ${color.length}\n`);
 
-        /* 3 아래 배열 점수에 있는 모든 숫자의 합을 계산하세요. */
 
-        const score = [10, 20, 30, 40];
-        scoreSum = 0;
-        for(let i=0; i<score.length; i++){
-            scoreSum += score[i];
-        }
-        document.write(`모든 숫자의 합은 ${scoreSum}\n`);
+      /* 13 아래  fruits 배열을  거꾸로 순서대로 한 새로운 배열을 만드시오   */
 
-        /* 13 아래  fruits 배열을  거꾸로 순서대로 한 새로운 배열을 만드시오   */
+        
+        let newFr = [];
 
-        let fruits = ["자두", "복숭아", "포도"];
+        // 배열의 item 에 추가하기
+        // 
 
-        for(let i=0; i<fruits.length; i++){
-            fruits[i] = fruits[fruits.length-i];
-        }
-        document.write(`거꾸로 출력 :`);
-        document.write(`fruits.join(' ')`);
+      for (let i = 1; i <= fruits.length; i++) {
+        newFr[i-1] = fruits[fruits.length - i];
+      }
+    //   i=1  newFr[0] = fruits[3-1];
+    //  i=2     newFr[1] = fruits[3-2]
+    // i=3      newFr[2] = fruits[3-3]
+      document.write(`거꾸로 출력 :`);
+      document.write(`fruits.join(' ')`);
+    //  fruits.join("\n") == ["자두 복숭아 포도"]
+    </script>
+
+    <script>
+      let fruits = ["자두", "복숭아", "포도"];
+      let New = [];
+      for (i = 2; i >= 0; i--){
+        New[2-i] = fruits[i];
+      }
+      alert(New);
+      // i=2  / New[2-2] =  / fruits[2] = "포도"
+      // i=1  / New[2-1] = " / fruits[1] = "복숭아"
+      // i=0 / New[2-0] =  / fruits[0] = "자두" 
 
     </script>
-    
-</body>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // 13.  문제 :아래  fruits 배열을  거꾸로 순서대로 한 새로운 배열을 만드시오  
+        let FRUIT = ["자두", "복숭아", "포도"];
+        const Length = FRUIT.length;
+
+        let newFruit = [];
+
+        for(let i=0; i<Length ; i++){
+            newFruit[i] = FRUIT[Length-i];
+        }
+        // newFruit = ["포도", "복숭아", "자두"]
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      //8. 문제: 아래  kors 배열에서   평균보다 높은 점수는 몇개인가 ?
+      const kors = [90, 80, 70, 99, 100];
+
+      //1.평균 구하기
+      let sum = 0;
+      let avg = 0;
+
+      for (i = 0; i < kors.length; i++) {
+        sum = sum + kors[i];
+        //  alert(sum);
+        // avg = sum / i;
+      }
+      avg = sum / kors.length;
+
+      higtCnt = 0;
+
+      //2.high 구하기
+      for (j = 0; j < kors.length; j++) {
+        let high = kors[j];
+        if (high > avg) {
+          //   high = avg;
+          highCnt = highCnt + 1;
+        }
+      }
+    </script>
+    <script>
+      //11.  문제 :아래  fruits 배열에  자두 포함 여부 true, false 출력하시오
+    //   let fruits = ["자두", "복숭아", "포도"];
+      for (let i = 0; i < fruits.length; i++) {
+        if (fruits[i] == "자두") {
+          document.write(`${fruits[i]}는 자두입니다. true\n`);
+        } else {
+          document.write(`${fruits[i]}는 자두가 아닙니다. false\n`);
+        }
+      }
+    </script>
+  </body>
 </html>
