@@ -6,6 +6,38 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+        /* 문제: 아래 과일 배열에서 첫 번째와 세 번째 요소를 출력하세요. */
+
+        const fruit = ['apple', 'banana', 'cherry'];
+
+        document.write(`첫번째 : ${fruit[0]}, 두번째 : ${fruit[2]}\n`);
+
+
+        /* 2 아래 배열 컬러 길이를 출력하세요. */
+        const color = ['red', 'blue', 'green', 'yellow'];
+        document.write(`배열 color의 길이는 ${color.length}\n`);
+
+        /* 3 아래 배열 점수에 있는 모든 숫자의 합을 계산하세요. */
+
+        const score = [10, 20, 30, 40];
+        scoreSum = 0;
+        for(let i=0; i<score.length; i++){
+            scoreSum += score[i];
+        }
+        document.write(`모든 숫자의 합은 ${scoreSum}\n`);
+
+        /* 13 아래  fruits 배열을  거꾸로 순서대로 한 새로운 배열을 만드시오   */
+
+        let fruits = ["자두", "복숭아", "포도"];
+
+        for(let i=0; i<fruits.length; i++){
+            fruits[i] = fruits[fruits.length-i];
+        }
+        document.write(`거꾸로 출력 :`);
+        document.write(`fruits.join(' ')`);
+
+    </script>
     
 </body>
 </html>
