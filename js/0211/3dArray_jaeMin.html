@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        //0,1 랜덤숫자
+        function random01() {
+            return Math.floor(Math.random()*2);
+        }
+        // 0,1,2 랜덤 숫자
+        function random03() {
+            return Math.floor(Math.random() * 3);
+        }
+
+        let age=[10,20,30];
+        let Food=[
+            ["국밥","김치찌개","된장찌개"],
+            ["짜장면","짬뽕","탕수육"],
+            ["초밥","돈까스","타코야끼"]
+        ];
+        let Exer=[
+            ["축구","농구","배구"],
+            ["걷기","수영","러닝"],
+            ["스트레칭","휴식","숨쉬기"]
+        ]
+
+        let wants=[
+            Food,Exer
+        ];
+
+
+        while(true) {
+            let uAge = parseInt(prompt("나이를 고르세요. 0:10대,1:20대,3:30대"));
+            if (uAge>=0 && uAge<=2){
+                document.write("당신의 나이는" + age[uAge] + "입니다.")
+                break;
+            }
+        }
+
+        document.write("당신은"+wants[random01()][random03()][random03()]+"을 원합니다");
+
+    </script>
+</body>
+</html>

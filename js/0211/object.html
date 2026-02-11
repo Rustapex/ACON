@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let snack={
+            name: "맛동산",
+            maker : "해태",
+            weight : 200,
+            price : 3500
+        };
+        document.write(snack.name); /* 멤버접근연산자 */
+        document.write(snack[name]);
+
+        let key = "name";
+        document.write(snack[key]);
+
+        let books=[
+            {
+                title : "명품",
+                author: "홍길동",
+                price : 30000,
+                publisher: "생능"
+            },
+            {
+                title : "명2품",
+                author: "홍2길동",
+                price : 20000,
+                publisher: "생2능"
+            }
+        ];
+        document.write(`${books[0].title}\n`);
+        document.write(books[0][title]);
+
+
+    </script>
+    
+</body>
+</html>

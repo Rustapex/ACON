@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login-wrap{
+            width: 400px;
+            /*height: 500px;*/
+            border: 1px solid black;
+            margin: 0  auto;
+            padding: 10px;
+        }
+
+        .image-wrap{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        .user-info-wrap{
+            width: 350px;
+            /* height: 250px;*/
+            border: 1px solid black;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .image-wrap   img{   /*  이미지영역 (200*200)안에 이미지태그 채우기*/
+                             /*  이미지영역 (이미지태그의 부모)의 크기가 있어야 함 */
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .user-info-wrap  input , button{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    
+    <!--로그인-->
+    <div class="login-wrap">
+        <!-- 이미지영역-->
+        <div class="image-wrap">
+            <img src="data:image/webp;base64,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">
+        </div>
+
+        <!--로그인정보 영역-->
+        <div class="user-info-wrap">
+            <input type="text">
+            <input type="password">
+            <button>로그인</button>
+        </div>
+    </div>
+</body>
+</html>
