@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 함수 선언식 : 
+        function 함수이름() {명령어;} }
+        
+        함수 호출 반드시 해야
+
+        특징 : 함수 호출 보다 뒤에 선언되도 정상 작동(Hoisting)
+
+         */
+        function sum10(){
+            result=0;
+            for(let i=0; i<10; i++){
+                result += i;
+            }
+            return result;
+        }
+    </script>
+    <script>
+        /* 함수 표현식 
+        함수를 변수에 저장하고 사용하는 문법
+        hoisting 되지 않음  1. 선언 후 2. 호출*/
+
+        
+        // sayHi(); -> hoisting 안돼
+        let sayHi = function(){
+            alert(`함수표현식`);
+        }
+        sayHi(); /* 여기서 호출 */
+
+        let sum11 = function(){
+            let sum=0;
+            for(let i=0;i<11; i++){
+                sum+= i;
+            }
+        }
+        let result11 = sum11();
+        console.log(result11);
+
+        
+    </script>
+    <script>
+        /* 화살표 함수 function 부분 생략 */
+
+        let SAYHI = () =>{
+            alert(`hello`);
+        }
+    </script>
+    <script>
+        function SayHi(Cnt){
+            for(let i=1; i<=cnt; i++){
+                alert(`안녕`);
+            }
+        }
+        sayHi(4); 
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열에서 객체 method 사용</title>
+  </head>
+  <body>
+    <script>
+      // 문자열 let str="hello"; 객체
+
+      let str = "hello";
+      // str[0] = "h"; str[1] = "e" str[2] = l
+      let result0 = str.charAt(0); /* "h" */
+      console.log(result0);
+
+      /* 문자열 추출 */
+      /* String.substring(start, end);        index start <= x < end 까지 */
+      let str2 = "I like javascript.";
+      let result2 = str2.substring(2, 6);
+
+      /* split - 문자열 분리 */
+      let str3 = "hi-bye-^^";
+      let result3 = str.split("-");
+      console.log(result3);
+
+      /* String.indexOf(searchValue[, fromIndex]): 
+        String(문자열), searchValue : 찾을 문자열 (또는 값), fromIndex(선택사항) : 검색을 시작할 위치(0부터), 기본값 0
+        // indexOf는 "searchValue(찾을 문자열)"이 str 안에 처음 등장하는 위치(인덱스)를 반환한다.
+        // 찾으면: 0 이상의 정수(0, 1, 2, ...)
+        // 못 찾으면: -1
+        // ※ 인덱스(index)는 "0부터 시작"한다 (첫 글자 위치가 0)
+
+    const str = "banana";
+
+    // 1) 찾는 문자열이 있을 때: "a"의 첫 등장 위치는 1
+    const r1 = str.indexOf("a");
+    // r1 === 1
+    // 의미: str[1]이 "a"라는 뜻 (b a n a n a)
+    //             0 1 2 3 4 5
+
+    // 2) 같은 문자열이 여러 번 있어도: "처음" 나온 위치만 반환
+    const r2 = str.indexOf("na");
+    // r2 === 2
+    // 의미: "na"가 시작되는 첫 위치가 2라는 뜻 (str.slice(2, 4) === "na")
+
+    // 3) 못 찾으면: -1 반환
+    const r3 = str.indexOf("x");
+    // r3 === -1
+    // 의미: "x"는 str 안에 존재하지 않는다
+
+    // 4) fromIndex(두 번째 인자): "몇 번째 인덱스부터 검색 시작"할지 지정
+    const r4 = str.indexOf("a", 2);
+    // r4 === 3
+    // 의미: 인덱스 2부터 검색을 시작하면, 첫 "a"(인덱스 1)는 건너뛰고
+    //       다음 "a"가 있는 인덱스 3을 반환한다
+
+    // 5) fromIndex를 더 뒤로 주면 더 뒤의 결과를 찾음
+    const r5 = str.indexOf("a", 4);
+    // r5 === 5
+    // 의미: 인덱스 4부터 찾으면 마지막 "a" 위치(5)를 반환
+
+    // 6) fromIndex가 너무 뒤면 못 찾게 되어 -1
+    const r6 = str.indexOf("a", 6);
+    // r6 === -1
+    // 의미: 인덱스 6부터 검색인데 문자열 길이가 6(마지막 인덱스 5)이라 범위를 벗어나 못 찾음
+
+    // 7) 주의: 반환값을 if에 그냥 넣으면 버그가 자주 난다
+    // - 찾은 위치가 0이면(맨 앞에 있으면) 0은 falsy라서 if가 false가 됨
+    const s2 = "abc";
+    const r7 = s2.indexOf("a"); // r7 === 0 (맨 앞에서 찾음)
+
+    if (r7) {
+        // 실행 안 됨! (0은 false처럼 취급)
+    }
+
+    // ✅ 올바른 체크: -1과 비교해야 함
+    if (r7 !== -1) {
+    // "a"가 존재하면 실행됨
+    }
+
+    // (참고) 포함 여부만 필요하면 includes가 더 직관적
+    if (s2.includes("a")) {
+    // true/false로 바로 판단 가능
+    }
+        */
+      let str4 = "i like javascript";
+
+      let result = str.indexOf("like"); /* 2, 문자열 없으면 -1 */
+
+      /* String.startsWith() : 특정 문자열로 시작하는지  boolean*/
+      /* String.endsWith() : 특정 문자열로 끝나는지 boolean*/
+
+      let fileName = "test.html";
+
+      console.log(fileName.startsWith("t")); /* True */
+      console.log(fileName.endsWith("html")); /* True */
+
+      /* 문자열 치환 */
+      /* String.replace("대상", "바꿀 문자열"); */
+      let str5 = "I like java";
+      let result5 = str5.replace("java", "javascript");
+      console.log(result5);
+    </script>
+  </body>
+</html>

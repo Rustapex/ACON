@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* javascript 내장 객체(Math, date, String) */
+
+        /*1. date */
+        let current = new Date(); /* date 객체 생성 */ /* new 예약어 뭔지 알아보기 */
+        console.log(current); /* 현재 날짜 가져옴 */
+
+        let year = current.getFullYear();
+        let month = current.getMonth() + 1; /* 월은 0~11로 반환 */
+        let date = current.getDate();
+        let day = current.getday(); /* 일0,월1,화2, ..., 토6 요일 순번 반환 */
+        let days = ["su","mo","tu","we","th","fr","sa"]; 
+    </script>
+    <script>
+        /* 오늘 날짜 */
+        /* 크리스마스 날짜 */
+
+        /* d-day =  크리스마스 날짜 - 오늘날짜 */ /* ms 형태 (sec/1000) 1second -> 1s/1000 1ms */
+        let today = new Date();
+        let Xmas = new date(2026,11,25); /* 월은 -1 해야 0~11까지 존재 */
+        let dDay = Math.ceil((Xmas - today) / (60*60*24*1000));
+        alert(`${today}로부터 ${Xmas}까지 남은 기간은  ${dDAy}일 입니다.`);
+
+        alert(Math.floor(3.4));
+
+    </script>
+    <script>
+        let current2 = new Date();
+        // 현재 날짜
+        console.log(currnet2);
+
+        /* 100일 후 */
+
+        let d100Day = new date();
+        d100Day.setDate(current2.getDate() + 100);
+
+        console.log(current2);
+        console.log(d100Day);
+
+    </script>
+    
+</body>
+</html>

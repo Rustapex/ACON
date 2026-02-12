@@ -9,25 +9,50 @@
     <script>
         const book1 ={
             title : "당신은 언제 노래가 되지",
-            genre : poetry,
-            author : "허연"                
+            genre : "poetry",
+            author : "허연",
+            status : "2"
+                           
             };
         const book2 ={
-            title : "당신은 언제 노래가 되지",
-            genre : poetry,
-            author : "허연"                
+            title : "라부카를 위한 소나타",
+            genre : "novel",
+            author : "아단 미오",
+            status : "1"
+                            
             };
-        const book1 ={
-            title : "당신은 언제 노래가 되지",
-            genre : poetry,
-            author : "허연"                
+        const book3 ={
+            title : "i에게",
+            genre : "poetry",
+            author : "김소연",
+            status : "0"
+                           
             };
-        const book1 ={
-            title : "당신은 언제 노래가 되지",
-            genre : poetry,
-            author : "허연"                
+        const book4 ={
+            title : "심장보다 단단한 토마토 한 알",
+            genre : "poetry",
+            author : "고선경",
+            status : "0"
+                            
             };
-        let library = { book1, book2, book3, book4}
+        let library = { 
+            setStatus(book, value){
+                book.status = String(value);
+            },                
+            
+            getStatusText(book){
+                switch(book.status) {
+                    case "0" : return "reserved";
+                    case "1" : return "out";
+                    default : return "available";
+                }
+            }
+        };
+        library.setStatus(book2, 0);
+        console.log(book2.status);
+        console.log(`책 ${book2.title}은/는 현재 ${library.getStatusText(book2)} 입니다.`);
+
+
     </script>
     
 </body>
