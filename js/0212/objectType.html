@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 타입</title>
+  </head>
+  <body>
+    <!-- <script>
+        /* 환자 : 이름, 혈액형, 키, 몸무게 */
+        /* 의사 :  전공, 이름*/
+
+        let snackName = "맛동산";
+        /* 과자정보 - 여러 개의 값(속성)으로 이루어져 있다.
+        과자 이름, 제조사 ,무게, 가격, 유통기한, 제조일자 */
+
+        /* 절차지향, 객체지향 차이 알아야 */
+
+        let snack ={
+            name:"맛동산",
+            maker : "해태",
+            weight : 200,
+            price: 3500
+        };
+
+        /* 객체 속성 출력  */
+
+        document.write(snack.name); /* . 멤버 접근 연산자 */
+        // document.write(snack[name]); /* 잘못됌 */
+        document.write(snack["name"]);
+
+        let key = "price";
+        alert(snack[key]); /* key를 입력받을 수도 있 */
+
+        /* 객체 key, value 추가 */
+
+        snack.kal = 450;
+
+    </script> -->
+    <script>
+      /* 객체 문제 풀어보기 */
+      const snack = {
+        name: "감자칩",
+        price: 1500,
+        stock: 50,
+        flavors: ["original", "cheese"],
+        manufacturing: {
+          country: "Korea",
+          factory: "경기도 안양  공장",
+        },
+        promotions: {
+          discount: 10, // 10% 할인
+          offerValidUntil: "2025-01-31",
+        },
+      };
+
+      /* 스낵의 이름 */
+      console.log(snack["name"]);
+
+      /* 스낵의 맛 */
+      console.log(snack.flavors.join(" "));
+
+      /* 프로모션 할인율 */
+      console.log(`snack의 할인율은 : ${snack.promotions.discount} %입니다.`);
+    </script>
+    <script>
+      /* 고양이 : 눈, 코,입,다리,팔 (객체) */
+      /* 1대 1매핑 하려면 객체 ㄱ */
+    </script>
+
+    <script>
+      let book1 = {
+        bookName: "뇌",
+        bookPrice: 15000,
+        bookPublisher: "열린책들",
+        bookAuthor: "베르나르베르베르",
+      };
+      let book2 = {
+        bookName: "파의 목소리",
+        bookPrice: 20000,
+        bookPublisher: "민음사",
+        bookAuthor: "최문자",
+      };
+
+
+      //객체 속성 접근  :  .연산자
+      console.log(book.bookName);
+      console.log(book.bookPrice);
+      console.log(book.bookPublisher);
+      console.log(book.bookAuthor);
+
+      //객체 속성접근 : [] 대괄호 연산자
+      console.log(book["bookName"]);
+      console.log(book["bookPrice"]);
+      console.log(book["bookPublisher"]);
+      console.log(book["bookAuthor"]);
+
+      /* 객체 배열 */
+      let books=[book1, book2];
+      // book1 = books[0], book2 = books[1]
+
+      alert(books.book1.bookName);
+
+    </script>
+    <script> /* 객체 만들어 보기 */
+
+    /* 객체
+    속성(변수) + 기능(함수, 메서드) */
+    let turtle = {
+        name : "simChung",
+        species: "tuuurtle",
+        age: 4,
+        color : green,
+        weight: 800,
+        likesFood: shrimp,
+        
+        sayHello : function(){
+            alert(`hello!`);
+        },
+        EAT : (food)=>{
+            if(food === "shrimp"){
+                alert(`${food}를 좋아함`);
+            }
+            else{
+                alert(`${food}를 먹음`);
+            }
+            // alert(`${food} 엄청 잘 먹어요.`);
+        }
+    };
+    alert(turtle.name);
+    /* turtle의 sayHello 기능수행 */
+    turtle.sayHello();
+    /* 먹기 기능수행*/
+    turtle.EAT("고기"); 
+
+    </script>
+    <script>
+        let someone ={
+            name : "nobody",
+            weight : 70,
+            height: 180,
+            EAT : function(){
+                alert(`eating...`);
+                this.weight +=3;
+            },
+            exercise : function(){
+                this.weight -= 1;
+                this.height += 0.1;
+            },
+            info : function(){
+                console.log(`이름 : ${this.name} 몸무게 : ${weight} 키 : ${height}입니다.`)
+            }
+        };
+
+        conosle.log(`운동 전 몸무게는 ${someone.weight}이고, 키는 ${someone.height} 입니다.\n`);
+        someone.exercise(); someone.EAT();
+        conosle.log(`운동 후 몸무게는 ${someone.weight}이고, 키는 ${someone.height} 입니다.`);
+    </script>
+  </body>
+</html>
