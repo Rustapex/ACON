@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login-wrap{
+            width: 400px;
+            
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        .tab-menu{
+            display: flex;
+            border: 1px solid black;
+            background-color: rgb(231, 230, 230);
+        }
+        .tab-menu>div{
+            width: 50%;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 15px;
+        }
+        .tab-menu>div:hover{
+            color: red;
+            background-color: rgb(202, 201, 201);
+            border-bottom: 2px solid red;
+        }
+        .member , .no-member{
+            /* border: 1px solid red; */
+            display: none;
+            text-align: center;
+            margin: 30px;
+        }
+        .id{
+            width: 300px;
+            padding: 10px;      
+        }
+        .pwd{
+            width: 300px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .id-btn{
+            width: 320px;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: red;
+            color: white;
+        }
+        .id-btn:hover{
+            background-color: rgb(189, 5, 5);
+        }
+        .ul-section{
+            display: flex;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            
+        }
+        .ul-section li{
+            margin-left: 10px;
+            list-style: none;
+        }
+        .member.active{
+            display: block;
+        }
+        .no-member.active{
+            display: block;
+        }
+    </style>
+
+    <script>
+        function showMember() {
+            const member = document.querySelector(".member");
+            console.log(member);
+            const noMember = document.querySelector(".no-member");
+            console.log(noMember);
+            member.classList.add("active");
+            noMember.classList.remove("active");
+        }
+        function showNoMember() {
+            const member = document.querySelector(".member");
+            console.log(member);
+            const noMember = document.querySelector(".no-member");
+            console.log(noMember);
+            member.classList.remove("active");
+            noMember.classList.add("active");
+        }
+    </script>
+</head>
+<body>
+    <div class="login-wrap">
+        <div class="tab-menu">
+            <div onclick="showMember()">회원</div>
+            <div onclick="showNoMember()">비회원</div>
+        </div>
+
+        <div class="member">
+            <div>
+                <input type="text" placeholder="아이디" class="id">
+            </div>
+            <div>
+            <input type="password" placeholder="비밀번호" class="pwd">
+            </div>
+            <div>
+                <button class="id-btn">로그인</button>
+            </div>
+            <div class="div-section">
+                <ul class="ul-section">
+                    <li><a href="#">아이디 찾기</a></li>
+                    <li><a href="#">비밀번호 찾기</a></li>
+                    <li><a href="#">회원가입 찾기</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="no-member">
+            <div>
+                <input type="text" placeholder="이름" class="id">
+            </div>
+            <div>
+            <input type="text" placeholder="주문조회" class="pwd">
+            </div>
+            <div>
+                <button class="id-btn">주문조회</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

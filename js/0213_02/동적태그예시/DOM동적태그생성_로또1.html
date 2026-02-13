@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .ball{
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            margin: 10px;
+            display: inline-block;
+        }
+    </style>
+
+    <script>
+
+        function  createLotto(){
+            //alert("dfdfdfd");
+
+            /*
+              1. 로또번호 6개 만들기 
+              2. 로또공 6개 띄우기  
+            */
+
+            const lottoNumbers =  getLottoNumber();
+            console.log( lottoNumbers); // [8,16,23,41,15,30]
+
+
+            /*
+            부모영역선택하기 
+            반복 (6개)
+               1. 공을 생성한다 
+               2. 스타일을 추가한다. 
+               3. 로또번호를 표시한다.
+               4. 부모영역에 추가한다.
+            */ 
+
+            const result  = document.getElementById("result");
+            for( let i=0; i< 6 ; i++){
+                 const ball  =document.createElement("div");
+                 ball.classList.add("ball");
+                 // ball.innerHTML = 11 ;
+                 ball.innerHTML = lottoNumbers[i];
+                result.appendChild( ball);
+            } 
+        }
+
+ 
+
+        //로또번호 만들기
+        function getLottoNumber(){
+            const lotto  =[8,16,23,41,15,30];
+            return lotto;
+        }
+
+    </script>
+</head>
+<body>
+    
+
+    <h2> 로또공 6개 띄우기 </h2>
+
+    <div id="result">
+
+    </div>
+
+    <button  onclick="createLotto()">로또번호</button>
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function calcAmount(){
+            // alert("dkdfkkf");
+            //1. price 클래스 선택하여 금액가져오기
+            //2. 금액합계구하기
+            //3. 주문금액태그에 합계금액 보여주기
+            
+            const prices = document.querySelectorAll(".price");
+            console.log(prices);
+
+            let sum = 0 ; //주문금액의 합계
+            //1.반복
+            //배열의 요소꺼내기 (각 각의 div 태그 가져오기)
+            //요소의 내용가져오기 (금액 가져오기)
+            //가져온 금액 누적하기
+
+            //2. 주문금액선택해서 구한 금액을 넣어주기
+            for(let i = 0; i< prices.length; i++){
+                const price = prices[i];
+                console.log(price);
+                console.log(price.innerHTML); //100+200+300
+                const priceAmt = parseInt(price.innerHTML); //숫자 변환
+                console.log(priceAmt);
+
+                sum = sum +priceAmt; //sum += priceAmt; 동일
+            }
+            console.log(sum);
+            const totalAmount=document.getElementById("totalAmount");
+            console.log(totalAmount);
+            totalAmount.innerHTML=sum;
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <h2> querySelectorAll사용하여 주문금액 구하기</h2>
+
+    <div class="price">100</div>
+    <div class="price">150</div>
+    <div class="price">200</div>
+    <div class="price">100</div>
+    
+    주문금액 :  <span id="totalAmount">  </span>
+
+    <div>
+        <button  onclick="calcAmount()">주문금액</button>
+    </div>
+
+
+
+</body>
+
+</html>

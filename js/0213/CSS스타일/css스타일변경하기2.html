@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style1{
+            width: 100px;
+            height: 50px;
+            background-color: red;            
+        }
+
+        .style2{
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+        }
+    </style>
+
+    <script>
+        // 클래스추가 :add,  remove 
+        function style1(){
+            //alert("dkf"); 
+          const item1=  document.querySelector(".item1");
+          item1.classList.add("style1");
+        }
+
+        function style2(){
+            //alert("dkf");
+             const item2=  document.querySelector(".item2");
+             item2.classList.add("style2");
+        }
+
+        function style3(){
+            //alert("dkfkf");
+            const item1= document.querySelector(".item1");
+            item1.classList.remove("style1");
+        }
+
+        function style4(){
+             const item2= document.querySelector(".item2");
+             item2.classList.remove("style2");
+        }
+    </script>
+</head>
+<body>
+    <div class="item1"> item1</div>
+    <div class="item2"> item2</div>
+
+    <button onclick="style1()"> 스타일1</button>
+    <button onclick="style2()"> 스타일2</button>
+
+    <button onclick="style3()"> 스타일1 취소</button>
+    <button onclick="style4()"> 스타일2 취소</button>    
+</body>
+</html>

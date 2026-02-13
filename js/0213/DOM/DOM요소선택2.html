@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script>
+    function change() {
+      let item = document.getElementsByClassName("item")[0];
+      console.log(item);
+      item.style.backgroundColor = "red";
+    }
+
+    function unChange() {
+      let item = document.getElementsByClassName("item")[0];
+      console.log(item);
+      item.style.backgroundColor = "";
+      // 또는 item.style.backgroundColor = "transparent";
+    }
+  </script>
+</head>
+<body>
+  <h1>class이름으로 요소, 태그 선택하기</h1>
+  <p>class이름 item인 요소 선택해서 스타일 변경하기</p>
+  <p>주의사항: 선택된 요소가 한 개여도 배열로 반환된다.</p>
+
+  <div class="item">요소</div>
+  <button onclick="change()">스타일 적용</button>
+  <button onclick="unChange()">스타일 취소</button>
+</body>
+</html>

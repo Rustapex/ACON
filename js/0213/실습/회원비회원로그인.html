@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login-wrap{
+            width: 400px;
+            /* height: 500px; */
+            border: 1px black solid;
+            margin: 0 auto;
+        }
+        .tab-menu{
+            display: flex;
+        }
+        .tab-menu>div{
+            border: 1px solid black;
+            width: 50%;
+            text-align: center;
+        }
+
+        .member, .no-member{
+            display: none;
+        }
+        .member{
+            border: 1px solid black;
+            height: 200px;
+        }
+        .no-member{
+            border: 1px solid black;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function showMember(){
+            // alert("안녕");
+            const member = document.querySelector(".member");
+            const noMember = document.querySelector(".no-member");
+            console.log(member);
+
+            //회원보이기
+            //비회원보이기
+            member.style.display = "block";
+            noMember.style.display = "none";
+        }
+
+        function showNoMember(){
+            // alert("안녕");
+            const member = document.querySelector(".member");
+            const noMember = document.querySelector(".no-member");
+            console.log(member);
+
+            //회원보이기
+            //비회원보이기
+            member.style.display = "none";
+            noMember.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <!-- 로그인 영역 -->
+    <div class="login-wrap">
+        <!-- 탭메뉴 -->
+         <div class="tab-menu">
+            <div onclick="showMember()">회원</div>
+            <div onclick="showNoMember()">비회원</div>
+         </div>
+        <!-- 회원로그인 -->
+         <div class="member" style="display: block;">
+            <div>회원화면 ^^</div>
+            <div>
+                <input type="text" placeholder="로그인"> 
+            </div>
+
+            <div>
+                <input type="password" placeholder="비밀번호"> 
+            </div>
+         </div>
+        <!-- 비회원로그인 -->
+         <div class="no-member">
+            비회원화면^^
+         </div>
+    </div>
+</body>
+</html>

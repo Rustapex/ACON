@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function changeImage(e){
+            alert("안녕");
+            console.log(e);
+            console.log(e.target);
+            e.target.src="https://cdn.crowdpic.net/detail-thumb/thumb_d_FD63BB0CF56041BC08C14A944F65BEA2.png";
+        }
+    </script>
+</head>
+<body>
+    <h2>이벤트객체를 사용하여 이미지변경하기</h2>
+    <p>이벤트객체: 발생한 이벤트정보를 가진 객체</p>
+    <img src="https://sitem.ssgcdn.com/50/89/85/item/1000172858950_i1_750.jpg" alt="이미지" onclick="changeImage(event)">
+</body>
+</html>

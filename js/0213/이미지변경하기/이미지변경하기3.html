@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function change() {
+        const area = document.querySelector(".area");
+
+        area.innerHTML = "";
+        area.style.width = "500px";
+        area.style.height = "250px";
+        area.style.backgroundImage =
+          "url(https://sitem.ssgcdn.com/50/89/85/item/1000172858950_i1_750.jpg)";
+        area.style.backgroundPosition = "center";
+        area.style.backgroundSize = "cover";
+      }
+    </script>
+
+    <style>
+      .box {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        background-image: url(../시험준비/ser.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="area">올때</div>
+    <button onclick="change()" class="box">클릭해봐 !</button>
+
+    <div class="hi">올때</div>
+    <button class="box">메로나</button>
+  </body>
+</html>

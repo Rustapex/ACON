@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <script>
+    function change(){
+      // alert("안녕");
+      const items = document.querySelectorAll(".item");
+      //배열 => 반복으로 처리하겠다.
+
+      //반복 미사용
+      /*
+      const item1 = items[0];
+      const item2 = item2[1];
+      item1.style.backgroundColor="blue";
+      item2.style.backgroundColor="red";
+      */
+
+     //for문
+     /*
+     for( let i = 0; i<items.length; i++){
+      let div = items[i]
+      console.log(div);
+      div.style.backgroundColor="blue";
+      div.style.border = "1px soild black"
+     }
+      */
+
+      //forEach문
+      /*
+     items.forEach( function(item){
+      console.log("item", item);
+      item.style.backgroundColor = "blue";
+     })
+      */
+
+      //forEach()=>{}
+      items.forEach(item => item.style.backgroundColor = "blue");
+    }
+
+    function unChange(){
+      // alert("안녕");
+    }
+  </script>
+</head>
+<body>
+  <h2>querySelectorAll 요소 선택하기</h2>
+  <p>주의사항 : 모두선택하기이므로 선택대상이 한 개여도 배열로 반환하기</p>
+  <div class="item">item1</div>
+  <div class="item">item2</div>
+  <button onclick="change()">스타일 적용</button>
+  <button onclick="unChange()">스타일 취소</button>
+  <script>
+    function 명언얻기(){ //한개,두개,세개
+
+      // let a,b; => 배열에 담아서 한 개로 처리 
+      //배열
+      //return["아자아자"];
+      //return[a,b];
+      //return a,b //불가능 ,함수는 반드시 반환값이 한개여야 한다. 
+      //(여러개를 반환하고 싶을 때는 배열, 객체 사용해야 함)
+      return["아자아자"];
+    }
+    
+    // let result = 명언얻기()[0];
+    // alert(result);
+  </script>
+</body>
+</html>

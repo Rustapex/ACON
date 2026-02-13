@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let person = {
+        name: "홍길동",
+        age: 25,
+        gender: "male",
+        hobbies: ["독서", "프로그래밍"],
+        skills: ["JavaScript", "Java"],
+
+        introduce: function () {
+          alert(
+            `저는 ${this.age}살 ${this.name}이고 취미는 ${this.hobbies.join(
+              ", "
+            )}, 제가 주로 다루는 언어는 ${this.skills.join(", ")}입니다.`
+          );
+        },
+
+        afterAge: function (year) {
+          if (year < 2025) {
+            alert("2025년 이후를 입력해주세요.");
+          } else {
+            this.age = this.age + (year - 2025);
+            alert(`${year}년에 제 나이는 ${this.age}에요`);
+          }
+        },
+
+        addHobbies: function (hobbie) {
+          if (this.hobbies.includes(hobbie)) {
+            alert("이미 가지고 있는 취미에요");
+          } else {
+            this.hobbies.push(hobbie);
+            alert(`요즘 ${hobbie}이(가) 재밌더라구요`);
+          }
+        },
+
+        removeHobbies: function (hobbie) {
+          if (this.hobbies.includes(hobbie)) {
+            const index = this.hobbies.indexOf(hobbie);
+            if (index != -1) {
+              this.hobbies.splice(index, 1);
+            }
+          } else {
+            alert(`즐기지 않는 ${hobbie}에요`);
+          }
+        },
+      };
+
+      // person.addHobbies("배드민턴");
+      // person.removeHobbies("독서");
+      person.afterAge(2026);
+
+      console.log(person);
+    </script>
+  </body>
+</html>

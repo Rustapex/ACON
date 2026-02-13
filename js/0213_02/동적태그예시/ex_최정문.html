@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .playList{
+        width: 1000px;
+
+        background-color: bisque;
+        
+    }
+    table td{
+        border: 1px solid black;
+    }
+
+    .playList_table img {
+        width: 50px;
+        height: 50px;
+    }
+</style>    
+<script>
+window.onload = function(){
+    const playlist = [
+        {
+            title: "Cry Baby",
+            artist: "OFFICIAL HIGE DANDISM",
+            note: "애니메이션 [도쿄 리벤저스]",
+            albumCover: "https://i.namu.wiki/i/t49g0WwEkHIZzqDB0Mk8AZubGQmz9D7hJV-ovY6QmKGqPm-nDLmao4xFJjQ8ruNhRy25mQYqp4hE2mC_oprrvPSNnqM_htA62nulkNOZszNuRvVL2VY7XJmzvGU0x7UN4V49S42hheAhvkY7alWRrg.webp"
+        },
+        {
+            title: "Pretender",
+            artist: "OFFICIAL HIGE DANDISM",
+            albumCover: "https://i.namu.wiki/i/t49g0WwEkHIZzqDB0Mk8AZubGQmz9D7hJV-ovY6QmKGqPm-nDLmao4xFJjQ8ruNhRy25mQYqp4hE2mC_oprrvPSNnqM_htA62nulkNOZszNuRvVL2VY7XJmzvGU0x7UN4V49S42hheAhvkY7alWRrg.webp"
+        },
+        {
+            title: "Lilac",
+            artist: "Mrs. GREEN APPLE",
+            albumCover: "https://i.namu.wiki/i/t49g0WwEkHIZzqDB0Mk8AZubGQmz9D7hJV-ovY6QmKGqPm-nDLmao4xFJjQ8ruNhRy25mQYqp4hE2mC_oprrvPSNnqM_htA62nulkNOZszNuRvVL2VY7XJmzvGU0x7UN4V49S42hheAhvkY7alWRrg.webp"
+        },
+        {
+            title: "Inferno",
+            artist: "Mrs. GREEN APPLE",
+            albumCover: "https://i.namu.wiki/i/t49g0WwEkHIZzqDB0Mk8AZubGQmz9D7hJV-ovY6QmKGqPm-nDLmao4xFJjQ8ruNhRy25mQYqp4hE2mC_oprrvPSNnqM_htA62nulkNOZszNuRvVL2VY7XJmzvGU0x7UN4V49S42hheAhvkY7alWRrg.webp",
+            isNowPlaying: true
+        },
+        {
+            title: "青と夏 / Ao To Natsu",
+            artist: "Mrs. GREEN APPLE",
+            albumCover: "https://i.namu.wiki/i/t49g0WwEkHIZzqDB0Mk8AZubGQmz9D7hJV-ovY6QmKGqPm-nDLmao4xFJjQ8ruNhRy25mQYqp4hE2mC_oprrvPSNnqM_htA62nulkNOZszNuRvVL2VY7XJmzvGU0x7UN4V49S42hheAhvkY7alWRrg.webp"
+        },
+        {
+            title: "Ghost In A Flower",
+            artist: "Yorushika",
+            albumCover: "https://i.namu.wiki/i/t49g0WwEkHIZzqDB0Mk8AZubGQmz9D7hJV-ovY6QmKGqPm-nDLmao4xFJjQ8ruNhRy25mQYqp4hE2mC_oprrvPSNnqM_htA62nulkNOZszNuRvVL2VY7XJmzvGU0x7UN4V49S42hheAhvkY7alWRrg.webp"
+        },
+        {
+            title: "LOSER",
+            artist: "Kenshi Yonezu", 
+            albumCover: "https://i.namu.wiki/i/t49g0WwEkHIZzqDB0Mk8AZubGQmz9D7hJV-ovY6QmKGqPm-nDLmao4xFJjQ8ruNhRy25mQYqp4hE2mC_oprrvPSNnqM_htA62nulkNOZszNuRvVL2VY7XJmzvGU0x7UN4V49S42hheAhvkY7alWRrg.webp"
+        }
+    ];
+    
+    let table=document.getElementsByClassName("playList_table")[0];
+    table.style.border="1px solid black";
+    table.style.borderCollapse="collapse";
+    playlist.forEach((element ,index)=> {
+        console.log(element,index);
+        let play_list_tr=document.createElement("tr");
+            play_list_tr.innerHTML=`
+            <td><img src="${element.albumCover}" alt=""/></td>
+            <td>${element.title}</td>
+            <td>${element.artist}</td>
+            <td><button onClick="delete_playList(this)">삭제</button></td>
+            <td><label onClick="like_playList(this)">♡</label></td>
+        `;
+        Array.from(play_list_tr.children).forEach(td => {
+            td.style.border = "1px solid black";
+            td.style.padding = "5px";
+        
+        });
+
+        table.appendChild(play_list_tr);
+    });
+
+}
+function delete_playList(button) {
+  const tr = button.parentElement.parentElement;
+  tr.remove();
+}
+
+function like_playList(label) {
+  const like = label.innerText;
+  if(like=="♡"){
+    label.innerText="♥";
+  }else{
+    label.innerText="♡";
+  }
+  console.log(like);
+}
+
+
+</script>
+</head>
+<body>
+    <div class="playList">
+        <table class="playList_table">
+            <tr>
+                <td>albumCover</td>
+                <td>title</td>
+                <td>artist</td>
+                <td>리스트제거</td>
+                <td>좋아요</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+

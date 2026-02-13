@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    @font-face {
+      font-family: 'Pretendard-Regular';
+      src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+      font-style: normal;
+    }
+
+    * {
+      font-family: 'Pretendard-Regular', Arial, sans-serif;
+    }
+
+    #wrap {
+      width: 500px;
+      height: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .style {
+      background-color: black;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ul {
+      text-align: center;
+      list-style: none;
+    }
+
+    li {
+      text-align: center;
+    }
+
+    input {
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    // 리스트 추가 함수
+    function addList() {
+      const todoInput = document.getElementById("todoInput").value;
+      if (todoInput === "") {
+        alert("내용을 입력해주세요");
+      } else {
+        // 리스트 생성
+        const list = document.createElement("li");
+
+        // 입력내용 리스트에 담기
+        list.textContent = todoInput;
+
+        // 삭제 버튼 생성
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "삭제";
+        deleteBtn.onclick = function () {
+          list.remove(); // 이 li 요소 삭제
+        };
+
+        list.appendChild(deleteBtn);
+
+        // 부모요소 생성
+        const todoWrap = document.getElementById("todoWrap");
+
+        // 부모에 추가
+        todoWrap.appendChild(list);
+      }
+    };
+
+    // 다크모드 함수
+    function darkMode() {
+      
+      const wrap = document.getElementById("wrap");
+      const body = document.getElementById("body");
+      const btn = document.querySelector(".btn")
+      if (btn.innerHTML === "다크모드") {
+        body.classList.add("style")
+        btn.innerHTML = "일반모드"
+      } else {
+        body.classList.remove("style")
+        btn.innerHTML = "다크모드"
+      }
+
+    };
+
+  </script>
+</head>
+
+<body id="body">
+  <div id="wrap">
+    <h1>Todo 리스트</h1>
+    <input type="text" id="todoInput">
+    <button onclick="addList()">입력하기</button>
+    <button onclick="darkMode()" class="btn">다크모드</button>
+    <ul id="todoWrap">
+
+    </ul>
+  </div>
+</body>
+
+</html>

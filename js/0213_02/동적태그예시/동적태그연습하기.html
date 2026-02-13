@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ball{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 10px;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        function showBall(){
+            //alert("안녕하세요");
+            const result= document.getElementById("result");
+            console.log(result);
+            //5개
+            const ball1=document.createElement("div");
+            ball1.classList.add("ball");
+            result.appendChild(ball1);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="showBall()">공 나와라</button>
+    <div id = "result">결과</div>
+</body>
+</html>

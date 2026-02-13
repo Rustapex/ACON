@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돼지저금통통</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .mid-align { 
+            text-align: center;
+        }
+
+        #coin {
+            display: inline-block;
+            margin: 0 auto;
+            background-color: rgb(253, 167, 164);
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .money {
+            width: 50px;
+            height: 20px;
+            margin: 10px;
+            font-weight: bold;
+            line-height: 20px;
+            display: inline-block;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .coin-save {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            text-align: center;
+            background-color: rgb(179, 179, 179);
+        }
+
+        .bill-1000 {
+            background-color: rgb(132, 214, 255);
+        }
+
+        .bill-5000 {
+            background-color: rgb(248, 216, 134);
+        }
+
+        .bill-10000 {
+            background-color: rgb(82, 245, 207);
+        }
+
+        .bill-50000 {
+            background-color: rgb(255, 202, 67);
+        }
+    </style>
+    <script>
+        let sum = 0;
+
+        function money() {
+            const moneys = [100, 500, 1000, 5000, 10000, 50000];
+            return moneys[Math.floor(Math.random() * moneys.length)];
+        }
+
+        function createMoneyElement(amount) {
+            const element = document.createElement("div");
+            element.classList.add("money");
+
+            // 금액에 따라 클래스 추가
+            if (amount < 1000) {
+                element.classList.add("coin-save");
+            } else if (amount === 1000) {
+                element.classList.add("bill-1000");
+            } else if (amount === 5000) {
+                element.classList.add("bill-5000");
+            } else if (amount === 10000) {
+                element.classList.add("bill-10000");
+            } else {
+                element.classList.add("bill-50000");
+            }
+
+            element.innerHTML = amount;
+            return element;
+        }
+
+        function save() {
+            const bank = document.getElementById("bank");
+            const totalMoney = document.getElementById("total");
+            const amount = money();
+
+            const moneyElement = createMoneyElement(amount);
+            bank.appendChild(moneyElement);
+
+            sum += amount;
+            totalMoney.innerHTML = `현재까지 총 <strong>${sum}원</strong>을 저금하였습니다.`;
+
+            if (sum > 300000) {
+                if (confirm("저금통이 꽤 묵직하네요.. \n이제 돼지의 배를 갈라볼까요?")) {
+                    alert(`좋습니다! 방금 저축한 것까지 합해서 총 ${sum}원을 저축하셨어요!`);
+                } else {
+                    alert("야망이 크시군요! 저금통을 더 큰 것으로 바꿔드릴게요!");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>돼지저금통</h2>
+    <div id="bank"></div>
+    <div class="mid-align">
+        <button onclick="save()" id="coin">저금하기</button>
+        <p id="total"></p>
+    </div>
+</body>
+</html>

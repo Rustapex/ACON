@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .b{
+            width: 100px;
+            height: 50px;
+            background-color: green;
+        }
+    </style>
+    <!-- 경계선------------------------------------------------------------------------------- -->
+    <script>
+        function styleChange(){
+            // alert("안녕");
+            const item1=document.querySelector(".a");
+            console.log(item1);
+            item1.classList.replace("a", "b");   
+        }
+    </script>
+</head>
+<body>
+    <div class="a">item1</div>
+
+    <p>JavaScript로 클래스를 추가, 삭제, 토글</p>
+
+    <button onclick="styleChange()">스타일변경하기</button>
+</body>
+</html>

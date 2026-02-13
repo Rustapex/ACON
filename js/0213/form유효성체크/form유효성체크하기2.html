@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+     function  validLogin(){
+       //alert("ok");
+
+       const frm  =  document.forms[0];
+       const userId  = frm.userId;
+       const userPw  = frm.userPw;
+
+
+       console.log( userId.value);
+
+
+       if( userId.value ===""){
+           alert( "아이디 입력하세요");
+           userId.focus();
+           
+       }else if( userPw.value ===""){
+          alert("비번 입력하세요");
+          userPw.focus();
+       }else{
+
+        //모든 경우가 정상적인 경우
+
+         alert("회원등록");
+       }
+
+     }
+  </script>
+</head>
+<body>
+  <!-- 서버로 요청시(로그인)  사용자 정보를 전달할 수 있다   action, method는 추후에 설명-->
+  <form  name="frm"  action=""  method="get">
+    <input type="text" name="userId">
+    <input type="text" name="userPw">
+    <button  type="button"  onclick="validLogin()">로그인</button>
+  </form>
+</body>
+</html>

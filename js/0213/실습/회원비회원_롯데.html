@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title> 로그인</title>
+  <style>
+  
+    .login-container {
+      width: 400px;
+      margin: 100px auto;    
+      border: 1px solid black; 
+      
+    }
+
+    /* */
+    .tab-menu {
+      display: flex;
+      border-bottom: 2px solid #e0e0e0;
+      border: 1px solid black;
+    }
+
+
+    /* tab메뉴 버튼 */
+    .tab-menu button {
+      width: 50%;
+      padding: 15px 0; 
+    }
+
+
+    /*.tab-menu button에  active 클래스가 있으면  보더 색깔 !!*/
+    .tab-menu button.active {
+      border-bottom: 3px solid #c70000;
+      color: #c70000;
+    }
+
+
+
+    .form-box {
+      padding: 30px;
+      display: none;
+      border: 1px solid black;
+    }
+
+
+    .form-box.active {
+      display: block;
+    }
+
+
+    .form-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;      
+      box-sizing: border-box;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #c70000;
+      color: white; 
+      cursor: pointer;
+    }
+
+    .form-box button:hover {
+      background-color: #a00000;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+ 
+  </style>
+</head>
+<body>
+  <div class="login-container">
+
+    <!--탭메뉴-->
+    <div class="tab-menu">
+      <button id="memberTab" class="active"  onclick="memberTabClick()">회원 로그인</button>
+      <button id="guestTab" onclick="guestTabClick()">비회원 주문조회</button>
+    </div>
+
+    <!--회원-->
+    <div id="memberForm" class="form-box active">
+      <input type="text" placeholder="아이디">
+      <input type="password" placeholder="비밀번호">
+      <button>로그인</button>
+
+      <div class="links">
+        <a href="#">아이디 찾기</a> |
+        <a href="#">비밀번호 찾기</a> |
+        <a href="#">회원가입</a>
+      </div>
+    </div>
+
+
+    <!--비회원-->
+    <div id="guestForm" class="form-box">
+      <input type="text" placeholder="이름">
+      <input type="text" placeholder="주문번호">
+      <button>주문조회</button>
+    </div>
+  </div>
+
+  <script>
+
+
+    //탭메뉴
+    const memberTab = document.getElementById('memberTab');
+    const guestTab = document.getElementById('guestTab');
+
+    //회원, 비회원 화면
+    const memberForm = document.getElementById('memberForm');
+    const guestForm = document.getElementById('guestForm');
+
+    function memberTabClick() {
+      memberTab.classList.add('active');
+      guestTab.classList.remove('active');
+
+      memberForm.classList.add('active');
+      guestForm.classList.remove('active');
+    };
+
+
+
+    function  guestTabClick() {
+    
+      guestTab.classList.add('active');
+      memberTab.classList.remove('active');     
+
+      guestForm.classList.add('active');
+      memberForm.classList.remove('active');
+    };
+  </script>
+</body>
+</html>

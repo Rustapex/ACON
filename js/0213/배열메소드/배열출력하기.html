@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        const snacks = [
+    "오레오 밀카 초콜릿", "이클립스", "이클립스", "트윅스-고지연", "허쉬 초콜릿-봉지",
+    "아이셔&양갱", "컵라면 & 양갱", "아이셔&양갱", "빅파이-나해수", "오리온 다이제 과자",
+    "천하장사 소세지", "아이셔&양갱", "오레오 밀카 초콜릿", "오레오-김건희", "초코바-단백질크런치",
+    "홈런볼-김민정", "호호감자 & 양갱", "초코바-단백질크런치", "컵라면 & 양갱",
+    "화이트하임-김재민", "허쉬 초콜릿-봉지"
+  ];
+
+     //직접반복
+     for( let i=0 ; i< snacks.length ; i++){   //i=>21번 반복제어  , 배열의 첨자(index)
+            document.write( snacks[i] +  i+ "<br>");
+     }
+     //배열  -배열이제공하는 기능(배열매서드 ) 
+     //forEach 
+     //매서드 =>함수
+    // snacks.forEach( 함수 );  //배열의 요소만큼 반복해 기능 호출 
+                         //반복하면서 해야할 코드 => 함수로 전달 받는다 . 함수로 제공해야한다 (콜백함수 )
+    function 출력하기(){
+        console.log("hi");
+    }
+    snacks.forEach( 출력하기 );
+    function 출력하기2(  item,   index ){   //배열요소, 배열의 index
+        document.write(item  +  index +"<br>");
+    }
+    document.write("<h2>간식배열 forEach로 출력하기</h2>")
+    snacks.forEach( 출력하기2 );
+
+      document.write("<h2>간식배열 forEach로 출력하기   콜백함수-익명함수</h2>")
+      snacks.forEach( function( item, index){
+          document.write(item + index +"<br>");
+      } );
+      document.write("<h2>간식배열 forEach로 출력하기   콜백함수-화살표함수</h2>")
+      snacks.forEach( (item, index) => document.write( item +index +"<br>"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style1{
+            width: 300px;
+            height: 250px;
+            background-color: red;   
+            border-radius: 40px;   
+            background-image: url(https://sitem.ssgcdn.com/50/89/85/item/1000172858950_i1_750.jpg);      
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            color: white;
+        }
+        .style2{
+            width: 300px;
+            height: 280px;
+            border: 2px solid blue;
+            border-radius: 40px;   
+            background-image: url(https://png.pngtree.com/png-clipart/20220317/ourlarge/pngtree-goodbye-blue-dialog-png-image_4494133.png);      
+            background-position: center;
+            background-size: cover;
+            text-align: center;   
+            color: blue;   
+        }
+    </style>
+
+    <script>
+        // 클래스추가 :add,  remove 
+        function style1(){
+            //alert("dkf"); 
+          const item1=  document.querySelector(".item1");
+          item1.classList.add("style1");
+        }
+
+        function style2(){
+            //alert("dkf");
+             const item2=  document.querySelector(".item2");
+             item2.classList.add("style2");
+        }
+
+        function style3(){
+            //alert("dkfkf");
+            const item1= document.querySelector(".item1");
+            item1.classList.remove("style1");
+        }
+
+        function style4(){
+             const item2= document.querySelector(".item2");
+             item2.classList.remove("style2");
+        }
+    </script>
+</head>
+<body>
+    <div class="item1">안녕하세요</div>
+    <div class="item2">안녕</div>
+
+    <button onclick="style1()">축하합니다.</button>
+    <button onclick="style2()">곤니찌와</button>
+
+    <button onclick="style3()">생일축하합니다</button>
+    <button onclick="style4()">굿바이</button>
+</body>
+</html>

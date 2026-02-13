@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addDiv(){
+            // alert("hi");
+            //1.태그를 생성한다(태그를 생성하는 기능이 제공된다.)
+            //2.부모를 선택한다.
+            //3.부모의 자식으로 추가한다.
+
+            //1번
+            const div = document.createElement("div");
+            //내용, 스타일속성 
+            div.innerHTML="동적으로 생성된 태그";
+            div.style.backgroundColor="blue";
+            div.style.width = "100px";
+
+            //이벤트를 추가 
+            div.addEventListener("click", function(){alert("hi");});
+            //2번
+            const result = document.getElementById("result");
+            console.log(result);
+
+            //3번
+            result.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+    <div id = "result">
+
+    </div>
+    <button onclick="addDiv()">
+        클릭
+    </button>
+</body>
+</html>
