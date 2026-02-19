@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .addGoods {
+        width: 1100px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .addGoods input {
+        width: 400px;
+        margin-right: 5px;
+        width: auto;
+      }
+      .goodsList input {
+        width: 400px;
+      }
+      /* 보기 좋게(선택) */
+      .divItem {
+        display: flex;
+        justify-content: space-between;
+        margin: 6px 0;
+        padding: 4px 6px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>상품추가</h2>
+    <div class="addGoods">
+      <input type="text" id="name" placeholder="상품명" />
+      <input type="number" id="price" placeholder="가격" />
+      <button onclick="addGoodsAndPrice()">추가</button>
+    </div>
+    <div class="goodsList">
+      <h2>상품목록</h2>
+    </div>
+
+    <script>
+      function addGoodsAndPrice() {
+        const name = document.getElementById("name");
+        const content = name.value.trim();
+
+        const price = document.getElementById("price");
+        const priceContent = price.value.trim();
+
+        if (content === "" || priceContent == "") {
+          return;
+        }
+
+        const divItem = document.createElement("div");
+        divItem.classList.add("divItem");
+        divItem.innerHTML = `
+            <div class="item"> 상품명 : ${content} / 가격 : ${priceContent} 입니다.</div>
+            <div class="btn" onclick="deleteItem(this)">X</div>`;
+
+        document.querySelector(".goodsList").appendChild(divItem);
+
+        content.value = "";
+        priceContent.value = "";
+        name.focus();
+      }
+      function deleteItem(btnEl) {
+        const divItem = btnEl.closest(".divItem");
+        if (divItem) divItem.remove();
+      }
+    </script>
+  </body>
+</html>

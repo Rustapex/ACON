@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 300px;
+        border: 1px solid black;
+      }
+      .input {
+        border: 1px solid black;
+        padding: 5px;
+      }
+      .result {
+        border: 1px solid black;
+        padding: 10px;
+      }
+      .item {
+        width: 90%;
+      }
+      .btn {
+        border: 1px solid black;
+        padding: 0 8px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      /* 보기 좋게(선택) */
+      .divItem {
+        display: flex;
+        justify-content: space-between;
+        margin: 6px 0;
+        padding: 4px 6px;
+        border: 1px solid #ddd;
+      }
+    </style>
+
+    <script>
+      function addItem() {
+        const input = document.getElementById("content");
+        const content = input.value.trim();
+        if (content === "") return;
+
+        const divItem = document.createElement("div");
+        divItem.classList.add("divItem");
+
+        // ✅ 삭제 버튼에 함수 연결: onclick="deleteItem(this)"
+        divItem.innerHTML = `
+          <div class="item">${content}</div>
+          <div class="btn" onclick="deleteItem(this)">X</div>
+        `;
+
+        document.querySelector(".result").appendChild(divItem);
+        /* class가 result인 요소를 찾아서 자식으로 divITem을 넣는다 */
+
+        input.value = "";
+        input.focus();
+      }
+
+      // ✅ 함수로 접근 → closest로 divItem 찾기 → remove로 삭제
+      function deleteItem(btnEl) {
+        const divItem = btnEl.closest(".divItem");
+        if (divItem) divItem.remove();
+      }
+    </script>
+    <!-- <script>
+      function addItem() {
+        const input = document.getElementById("content");
+        const content = input.value.trim();
+        if (content === "") return;
+
+        const divItem = document.createElement("div");
+        divItem.classList.add("divItem");
+        divItem.innerHTML = `
+      <div class="item">${content}</div>
+      <div class="btn" onclick="this.closest('.divItem').remove()">X</div>
+    `;
+
+        document.querySelector(".result").appendChild(divItem);
+        input.value = "";
+        input.focus();
+      }
+    </script> --> <!-- 이거는 this를 이용한 삭제 -->
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="input">
+        <input type="text" id="content" />
+        <button onclick="addItem()">추가</button>
+      </div>
+      <div class="result"></div>
+    </div>
+  </body>
+</html>

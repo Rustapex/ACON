@@ -20,6 +20,9 @@
 
             //이벤트를 추가 
             div.addEventListener("click", function(){alert("hi");});
+            /* addEventListener : 동적 객체(div)에서 click 이벤트 발생시 function()호출
+            이렇게 함수 호출 하는 이유는 원래 HTML에 없는 요소라서 onclick도 할 수 없기에
+            div 객체가 DOM에 만들어진 순간에 js 이벤트 붙임  */
             //2번
             const result = document.getElementById("result");
             console.log(result);

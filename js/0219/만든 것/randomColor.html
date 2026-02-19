@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /* 랜덤 색상 가져오기 */
+      function getRandomColor() {
+        const colors = [
+          "red",
+          "blue",
+          "green",
+          "yellow",
+          "purple",
+          "orange",
+          "pink",
+          "brown",
+          "cyan",
+          "magenta",
+          "lime",
+          "teal",
+          "navy",
+          "gold",
+          "coral",
+          "salmon",
+          "beige",
+          "khaki",
+          "olive",
+          "maroon",
+          "turquoise",
+          "lavender",
+          "violet",
+        ];
+        let result = Math.floor(Math.random() * colors.length); /* 0~20 */
+        
+
+        return color[result]; /* color 배열에서 랜덤으로 수 뽑아서 index로 접근 */
+      }
+      let randomColor = getRandomColor();
+      
+      function getRandomColor2(){ /* RGB */
+        const r = Math.floor(Math.random() * 256); /* 0 ~ 255.999... / 0~255  */
+        const g = Math.floor(Math.random() * 256); /* 0 ~ 255.999... / 0~255  */
+        const b = Math.floor(Math.random() * 256); /* 0 ~ 255.999... / 0~255  */
+
+        const rgbColor = `rgb(${r},${g},${b})`; /* rgb */
+
+        return rgbColor;
+        
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

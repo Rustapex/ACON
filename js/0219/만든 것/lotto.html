@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .lotto-ball {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px; /* ✅ 글자 세로 가운데 */
+        border: 1px solid #000;
+        display: inline-block;
+        margin: 4px;
+        background-color: aqua;
+      }
+      /* 문제 : 로또공 6개 띄우기
+        1. 로또번호 만들기(6)
+        2. 로또공 6개 만들기
+            2-1 반복 6번
+                - div 태그 생성
+                - style 주기(style 만들고 추가)
+                - 로또 번호 넣기
+                - 부모 영역에 추가하기 */
+    </style>
+    <script>
+      function getLottoNumbers() {
+        const lottos = getLottoNumbers4();
+        return lottos;
+      }
+
+      function createLotte() {
+        const lottos = getLottoNumbers();
+        const result = document.getElementById("result");
+
+        result.innerHTML = ""; // 초기화
+
+        for (let i = 0; i < lottos.length; i++) {
+          let ball = document.createElement("div");
+          ball.textContent = lottos[i];
+          ball.classList.add("lotto-ball");
+          /* 랜덤 색상 추가 */
+          ball.style.backgroundColor = getRandomColor2();
+          
+          /* setTimeout(callback(함수를 넘겨줘야 함), ms )*/
+          /* setTimeout(function(){} , 1000) : 1초후 함수호출 */
+          setTimeout(function () {
+            result.appendChild(ball);
+          }, 1000 * (i+1));
+        }
+      }
+      function getRandomColor2() {
+        /* RGB */
+        const r = Math.floor(Math.random() * 256); /* 0 ~ 255.999... / 0~255  */
+        const g = Math.floor(Math.random() * 256); /* 0 ~ 255.999... / 0~255  */
+        const b = Math.floor(Math.random() * 256); /* 0 ~ 255.999... / 0~255  */
+
+        const rgbColor = `rgb(${r},${g},${b})`; /* rgb */
+
+        return rgbColor;
+      }
+      function getLottoNumbers4() {
+        const lottoSet = new Set();
+
+        while (lottoSet.size < 6) {
+          const random = Math.floor(Math.random() * 45) + 1; // 1~45
+          lottoSet.add(random); // 중복이면 자동 무시
+        }
+
+        // return [...lottoSet]; // Set → Array
+        return Array.from(lottoSet);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="createLotte()">로또 생성</button>
+    <div id="result"></div>
+  </body>
+</html>

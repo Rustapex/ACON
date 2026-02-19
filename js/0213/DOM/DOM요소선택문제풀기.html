@@ -8,13 +8,13 @@
 
     <script>
         function calcAmount(){
-            // alert("dkdfkkf");
-            //1. price 클래스 선택하여 금액가져오기
+
+            //1. price 클래스 모두 선택하여 금액가져오기
             //2. 금액합계구하기
             //3. 주문금액태그에 합계금액 보여주기
             
             const prices = document.querySelectorAll(".price");
-            console.log(prices);
+            // console.log(prices);
 
             let sum = 0 ; //주문금액의 합계
             //1.반복
@@ -24,9 +24,9 @@
 
             //2. 주문금액선택해서 구한 금액을 넣어주기
             for(let i = 0; i< prices.length; i++){
-                const price = prices[i];
-                console.log(price);
-                console.log(price.innerHTML); //100+200+300
+                const price = prices[i]; /* price 클래스를 가진 nodeList(=배열 비슷 ) */
+                // console.log(price);
+                // console.log(price.innerHTML); //100+200+300
                 const priceAmt = parseInt(price.innerHTML); //숫자 변환
                 console.log(priceAmt);
 

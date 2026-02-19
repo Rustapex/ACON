@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hightlingt {
+        background-color: yellow;
+        color: white;
+        padding: 5px;
+        margin: 5px;
+
+        /* span 태그라면 가로, 세로 크기 설정 불가  
+            display : inline => 크기 지정 x
+            => 필요하면 inline-block; 이러면 크기 변경 가능
+            */
+        
+      }
+      .style1{
+            border : 1px solid black;
+            padding: 10px;
+            margin-left: 30px;
+        }
+    </style>
+    <script>
+      // alert("not P Tag");
+
+      function addPTag() {
+        // alert("p Tag");
+        /* 
+            1. dynamic tag create(css, innerHTML)
+            2. parent element select
+            3. 부모의 영역의 자식으로 추가하기(append)*/
+
+        const pTag = document.createElement("p");
+
+        pTag.innerHTML = "new P Tag";
+        pTag.style.fontSize = "30px"; /* 자식에 클래스로 inline style 삽입 */
+        pTag.style.display.width = "200px";
+        pTag.style.border = "1px solid red";
+
+        /* parent select */
+        const result = document.getElementById("result");
+        // console.log(result);
+
+        /* append */
+        result.appendChild(pTag);
+      }
+      function addSpanTag() {
+        alert("span 태그 생성입니다");
+        /* span 태그는 크기를 변경해도 바뀌지 않음 */
+        const spanTag = document.createElement("span");
+        spanTag.textContent = "span 추가";
+        spanTag.classList.add("Hightlingt");
+
+        /* parent element select */
+        const result2 = document.getElementById("result2");
+        console.log(result2);
+
+        /* append */
+        result2.appendChild(spanTag);
+      }
+      function addATag() {
+        // alert("a 태그 생성입니다");
+
+        const aTag = document.createElement("a");
+        aTag.href = "https://www.google.com";
+        aTag.target = "_blank";
+        aTag.textContent= "새창 google";
+        aTag.classList.add("style1");
+
+        const result3 = document.getElementById("result3");
+        console.log(result3);
+
+        result3.appendChild(aTag);
+
+      }
+      function imgTag(){
+        const iTag = document.createElement("img");
+        iTag.src= "../0213/TEST/images/img01.png";
+        iTag.style.width = "300px";
+
+        const result4 = document.getElementById("result4");
+        result4.appendChild(iTag);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="addPTag()">p 태그 생성</button>
+    <div id="result"></div>
+
+    <button onclick="addSpanTag()">span 태그 생성</button>
+    <div id="result2"></div>
+
+    <button onclick="addATag()">a 태그 생성</button>
+    <div id="result3"></div>
+
+    <button onclick="imgTag()">img 태그 생성</button>
+    <div id="result4"></div>
+  </body>
+</html>

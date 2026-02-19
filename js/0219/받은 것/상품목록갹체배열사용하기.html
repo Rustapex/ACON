@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style: none;
+        }
+        .product-list{
+            display: flex;            
+        }
+        .product-list > li{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+         .product-list > li img{
+            width: 200px;
+            height: 200px;
+         }
+    </style>
+
+
+    <script>
+        function addProduct(){
+            //서버로부터 데이터 받아오기   
+            //서버가 json배열을 보내면 자바스크립트객체로 변환해 준다
+
+            
+            //자바스크립트객체배열
+
+            const productList  = [
+                {
+                    img:"https://asset.m-gs.kr/prod/65189468/1/250",
+                    title: "돌김자반",
+                    price:15900
+                },
+                {
+                    img:"https://asset.m-gs.kr/prod/60515801/1/250",
+                    title: "허브차",
+                    price:15000
+                }                
+            ];
+
+
+            //배열반복면서 li태그 생성하기 
+            //부모 얻어오기
+            const  productWrap  =document.querySelector(".product-list");            
+            productList.forEach( function( item){
+                 const  li =document.createElement("li");
+                 li.innerHTML=`  
+                           <img src="${item.img}">
+                           <p> ${item.title}</p>
+                           <p> ${item.price}</p>`;
+                
+                productWrap.appendChild(li);
+            }); 
+          
+        }
+
+    </script>
+</head>
+<body>
+
+    <button onclick="addProduct()">더보기</button>
+
+    <ul class="product-list">
+        <!--
+        <li>
+            <img src="https://asset.m-gs.kr/prod/65189468/1/250">
+            <p>돌김자반</p>
+            <p>15900</p>
+        </li>
+
+        <li>
+            <img src="https://asset.m-gs.kr/prod/60515801/1/250">
+            <p>허브차</p>
+            <p>15000</p>
+        </li>
+
+        -->
+    </ul>
+    
+</body>
+</html>

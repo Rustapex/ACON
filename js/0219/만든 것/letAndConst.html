@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num;
+        num +=1;
+        num+=1;
+        /* alert(num) 초기화 안해서 error 발생 */
+        
+        let num2 = 0; /* 누적시 초기화 신경 */
+        num2 +=2;
+        alert(num2); 
+
+        const PI = 3.14; /* 초기화 후 불변 / 대문자규칙 / 의미화상수 */
+        /* PI = 12; error 발 */
+
+        /* 배열 & 객체 */
+        /* let 보다 const 많이 사용 - >const 해도 내용 변경 가 */
+        const food = ["cow","pig","sheep","goat" ];
+
+        foods[4] = "orange";
+        foods.push("shrimp");
+        alert(foods); /* foods.toStinrg() 이 생략됨 ,(컴마로 구분) */
+        /* alert(foods.join(""));  구분자 join 안에 있음 */
+
+        // foods=[]; foods 새로운 배열을 저장할 수 없다
+
+        const snack = {
+            name : "MatDongSan",
+            price : 3800,
+            maker : "HaeTae"
+        };
+        snack.price=(4200);
+        console.log(snack);
+        /* const로 객체 선언 : 객체의 속성 변경 할 수 있다
+        but 새로운 객체 재할당 할수 없음 */
+
+    </script>
+    
+</body>
+</html>

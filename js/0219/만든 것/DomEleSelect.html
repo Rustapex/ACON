@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom 요소 부모 자식 형제 선택하기</title>
+
+    <script>
+      /* movie(부모)를 기준으로 자식요소 찾기 */
+      function getMovie1() {
+        const movie = document.getElementById("movie");
+        const movie1 = movie.firstElementChild();
+
+      }
+      function getMovie2() {
+        const movie = document.getElementById("movie");
+        const first = movie.firstElementChild;
+        const second = first.nextElementSibling;
+        const movie2 = second.innerHTML;
+      }
+      function getMovie3() {
+        const movie = document.getElementById("movie");
+        const movie3 = movie.lastElementChild();
+
+      }
+      function getParent(){
+        const speed = document.getElementById("speed");
+        
+        /* speed 영화 태그를 기준으로 부모찾기 */
+        const movie = speed.parentElement;
+        console.log(movie);
+      }
+    </script>
+  </head>
+  <body>
+    <h2>div 태그의 자식요소 선택</h2>
+    <div id="movie">
+      <p>avator</p>
+      <p id="speed">speed</p>
+      <p>matrix</p>
+    </div>
+
+    <button onclick="getMovie1()">첫 번째 영화</button>
+    <button onclick="getMovie2()">두 번째 영화</button>
+    <button onclick="getMovie3()">세 번째 영화</button>
+  </body>
+</html>
