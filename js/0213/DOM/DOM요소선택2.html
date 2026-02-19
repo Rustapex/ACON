@@ -7,7 +7,11 @@
   <script>
     function change() {
       let item = document.getElementsByClassName("item")[0];
-      console.log(item);
+      /* 문저 전체에서 class="item"인 요소들을 전부 찾아서 변환
+      [0] 찾은 것들 중에 첫번째 요소를 가져옴(차피 item 하나뿐임) */
+      
+      // console.log(item); 확인용
+      
       item.style.backgroundColor = "red";
     }
 
@@ -27,5 +31,6 @@
   <div class="item">요소</div>
   <button onclick="change()">스타일 적용</button>
   <button onclick="unChange()">스타일 취소</button>
+  <!-- inline event handler 이렇게 부 -->
 </body>
 </html>

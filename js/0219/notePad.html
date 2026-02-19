@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .divItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ddd;
+        padding: 6px 8px;
+        margin-top: 6px;
+      }
+      .memoContent {
+        flex: 1;
+        text-align: left;
+      }
+      .deleteBtn {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      function addMemo() {
+        // 1) 입력값 가져오기
+        const contentEl = document.getElementById("content");
+        const content = contentEl.value.trim();
+
+        // 빈 값이면 추가 안 함(선택사항)
+        if (content === "") return;
+
+        // 2) 메모 한 줄(컨테이너) 만들기
+        const divItem = document.createElement("div");
+        divItem.classList.add("divItem");
+
+        // 3) 메모 내용 div
+        const memoCot = document.createElement("div");
+        memoCot.classList.add("memoContent");
+        memoCot.textContent = content; // ✅ textContent 추천 (안전)
+
+        // 4) 삭제 버튼 div
+        const deleteBtn = document.createElement("div");
+        deleteBtn.classList.add("deleteBtn");
+        deleteBtn.textContent = "X";
+
+        // 5) 삭제 기능 연결
+        deleteBtn.style.cursor = "pointer";
+        deleteBtn.onclick = () => divItem.remove();
+
+        // 6) divItem 안에 내용 + 삭제버튼 넣기
+        divItem.appendChild(memoCot);
+        divItem.appendChild(deleteBtn);
+
+        // 7) 결과 영역에 추가
+        const result = document.querySelector(".result");
+        result.appendChild(divItem);
+
+        // 8) 입력창 비우기(선택사항)
+        contentEl.value = "";
+        contentEl.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 메모장 입력 -->
+    <div class="memo">
+      <input type="text" id="content" />
+      <button onclick="addMemo()">추가</button>
+    </div>
+
+    <!-- 메모장 결과 -->
+    <div class="result"></div>
+  </body>
+</html>

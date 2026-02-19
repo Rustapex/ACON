@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 900px;
+        /* border:1px solid black;*/
+        margin: 0 auto;
+        font-size: 12px;
+      }
+
+      table {
+        width: 900px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        width: 200px;
+        padding: 5px;
+      }
+
+      table caption {
+        font-weight: bold;
+        font-size: 20px;
+        padding: 30px;
+      }
+
+      .total_wrap {
+        border: 1px solid black;
+      }
+
+      #order {
+        border: 1px solid black;
+        height: 50px;
+        line-height: 50px;
+        text-align: right;
+        font-weight: bold;
+
+        padding: 5px;
+      }
+
+      #total-price {
+        color: red;
+      }
+    </style>
+
+    <script>
+      /* 수량변경 시 금액 갱신 */
+      function calPrice(obj) {
+        // 1) 수량 가져오기 (빈값/문자 대비)
+        const qty = parseInt(obj.value, 10) || 0;
+
+        // 2) 같은 행(tr) 찾기
+        const tr = obj.closest("tr");
+
+        // 3) 단가(td 3번째) 가져오기  (0:체크, 1:제품명, 2:단가)
+        const price = parseInt(tr.children[2].textContent, 10) || 0;
+
+        // 4) 금액 계산 후 해당 행의 금액(.amt) 갱신
+        const amt = qty * price;
+        const amtTd = tr.querySelector(".amt");
+        amtTd.textContent = amt;
+      }
+
+        
+
+      function totalPrice() {
+        //  전체 합계도 같이 갱신
+        const amts = document.querySelectorAll(".amt");
+
+        let sum=0;
+        for(let i=0; i<amts.length; i++){
+          const item = amts[i];
+          const amount = Number(item.textContent);
+          sum += amount;
+        }
+
+        document.getElementById("total-price").textContent = sum;        
+      }
+      
+
+      //체크되어 있는 항목 삭제하기
+      //금액갱신하기
+      function itemDelete() {
+        const checkboxs = document.querySelectorAll(".cb");
+        console.log(checkboxs);
+
+        for(let i=0; i<checkboxs.length; i++){
+          const item = checkboxs[i];
+          
+          if(item.checked == true){
+            item.closest("tr").remove();            
+          }
+        }
+        totalPrice();
+      }
+    </script>
+  </head>
+
+  <body onload="totalPrice()">
+    <div class="wrap">
+      <table>
+        <caption>
+          Cart List
+        </caption>
+
+        <thead>
+          <tr>
+            <th>선택</th>
+            <th>제품명</th>
+            <th>단가</th>
+            <th>수량</th>
+            <th>금액</th>
+          </tr>
+        </thead>
+
+        <tbody id="list">
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>아메리카노</td>
+            <td>4500</td>
+            <td><input type="number" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">4500</td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>카페라떼</td>
+            <td>5000</td>
+            <td><input type="number" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">5000</td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>바닐라라떼</td>
+            <td>5500</td>
+            <td><input type="number" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">5500</td>
+          </tr>
+          <!-- onkeyup : 숫자를 눌렀다가 땠을 때 event -->
+        </tbody>
+      </table>
+
+      <div class="total_wrap">
+        <p>
+          <button onclick="itemDelete()">삭제</button>
+        </p>
+        <p id="order">결제 금액 <span id="total-price"> 0</span> 원</p>
+      </div>
+    </div>
+  </body>
+</html>

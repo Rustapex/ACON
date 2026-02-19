@@ -15,6 +15,7 @@
             wrap.style.height="100px";
             wrap.style.backgroundColor="green";
             wrap.innerHTML="<p>새로운 내용으로 바꾼다 </p>"
+            /* dom에 wrap 객체 생성후 인라인 스타일 부여 */
         }
         function unChange(){
             // alert("안녕");
@@ -24,6 +25,8 @@
             wrap.style.height="";
             wrap.style.backgroundColor="";
             wrap.innerHTML="취소되었다."
+            /* dom에 wrap 객체 생성 후 인라인 스타일 제거(스타일 값 비우기)
+            원상복구가 아닌 다른 상태로 변경 */
         }
     </script>
 </head>

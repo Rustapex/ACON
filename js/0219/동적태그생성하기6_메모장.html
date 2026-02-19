@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .meno{
+            width: 300px;
+            border: 1px solid black;
+            padding: 10px;
+
+            text-align: center;
+        }
+
+        .result{
+             width: 300px;
+             border: 1px solid black;
+             padding: 10px;
+        }
+
+
+        .divItem{
+            display: flex;
+        }
+
+        .memoContent{
+            width: 90%;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        function addMemo(){
+            //alert("dfdf");
+
+            //태그생성
+            //div - (메모내용+삭제) 두 개를 감싸는 영역
+            //div- 메모내용
+            //div- 삭제 
+
+            //사용자가 입력한 내용 가져오기
+            const content  = document.getElementById("content").value;
+            console.log(content);
+
+            const divItem = document.createElement("div");
+            divItem.classList.add("divItem");
+            //divItem.innerHTML="dfdf";
+
+            //item 안쪽에 들어갈 두 개의  요소(태그)만들기
+            const memoContet  =  document.createElement("div");
+            const deleteBtn  = document.createElement("div");
+            memoContet.innerHTML=content;
+            memoContet.classList.add("memoContent");
+            deleteBtn.innerHTML="x";
+
+            divItem.appendChild( memoContet);
+            divItem.appendChild( deleteBtn);
+
+
+           const result  = document.querySelector(".result");
+
+           result.appendChild(divItem);
+
+
+
+        }
+    </script>
+</head>
+<body>
+    
+    <!--메모장 입력 하기-->
+    <div class="meno">
+        <input type="text" id="content"> <button  onclick="addMemo()">추가</button>
+    </div>
+
+
+    <!--메모장 결과 나오기 -->
+    <div class="result"> </div>
+</body>
+</html>

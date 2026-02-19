@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .item{
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid black;
+            padding: 20px;
+            margin: 0 auto;
+        }
+    </style>
+    
+</head>
+<body>
+    
+
+    <div class="item">
+         <div class="treasure">금100돈</div>
+         <button onclick="getGold(this)">클릭</button>
+    </div>
+
+
+
+     <div class="item">
+         <div class="treasure">다이아몬드 10캐럿</div>
+          <button onclick="getGold(this)">클릭</button>
+    </div>
+
+
+    <script>
+        function getGold(btn){
+            const div = btn.closest(".item");
+            const treasureDiv = div.querySelector(".treasure");
+            const treasure = treasureDiv.textContent;
+            console.log(`클릭 시 treasure 안에 있는 항목은 ${treasure}입니다.`);
+            alert(`보물은 ${treasure}입니다.`);
+        }
+    </script>
+</body>
+
+</html>
