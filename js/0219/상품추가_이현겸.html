@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 450px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 0 auto;
+        }
+        .input{
+            /* border: 1px solid black; */
+            padding: 5px;
+            text-align: center;
+            display: flex;
+        }
+        .input input{
+            height: 30px;
+        }
+        .result{
+            /* border: 1px solid black; */
+            padding: 10px;
+        }
+        .divItem{
+            display: flex;
+        }
+        .item{
+            width: 90%;
+        }
+        .btn{
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function deleteItem(obj){
+            console.log(obj);
+
+            const divItem = obj.closest(".divItem");
+            divItem.remove();
+        }
+
+        function addItem(){
+            const goods = document.getElementById("goods").value;
+            const price = document.getElementById("price").value;
+
+            const divItem = document.createElement("div");
+            divItem.innerHTML=
+            `<div class='item'>상품명: ${goods}, 가격: ${price}원</div> 
+            <div class='btn' onclick="deleteItem(this)">x</div>`; // <div></div> <div> x </div>
+            divItem.classList.add("divItem");
+
+            // 부모
+            const result = document.querySelector(".result");
+
+            // 부모에 추가
+            result.appendChild(divItem);
+
+            const inputTag = document.getElementById("goods");
+            inputTag.value = "";
+            inputTag.focus();
+
+            const priceTag = document.getElementById("price");
+            priceTag.value = "";
+        }
+        
+    </script>
+</head>
+<body>
+    <!-- 메모장 영역 전체 -->
+    <div class="wrap">
+        <h2>상품 추가</h2>
+        <!-- 메모 입력 -->
+        <div class="input">
+            <input type="text" id="goods" placeholder="상품명">
+            <input type="number" id="price" placeholder="상품 가격">
+            <button onclick="addItem()">추가</button>
+        </div>
+
+        <!-- 메모 출력 -->
+         <h3>상품 목록</h3>
+        <div class="result"></div>
+    </div>
+</body>
+</html>

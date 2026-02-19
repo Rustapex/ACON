@@ -5,12 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    .wrap {
+      border: 1px solid coral;
+      height: 100px;
+    }
+    button {
+      margin-bottom: 30px;
+    }
+    .gallery {
+      border: 2px solid black;
+    }
+  </style>
   <body>
     <!-- textGallery -->
     <div class="wrap">
       <div class="gallery">*****</div>
     </div>
     <button onclick="next()">다음</button>
+
+    <div class="wrap">
+      <div class="gallery" id="gallery2">*****</div>
+    </div>
+    <button onclick="init()">시작</button>
+    <button onclick="stopGallery()">중지</button>
 
     <script>
       let message = [
@@ -23,20 +41,53 @@
         "객체가 별거냐 ^^",
         "별거 아닌게 모여 별거가 됩니다 ^^",
       ];
-      let index=0;
+      let index = 0;
+      let index2 =0;
+      let timerId = null;
       function next() {
         const item = message[index];
         /* console.log(로 확인) */
-
 
         const gallery = document.querySelector(".gallery");
         /* console로 확인 */
         gallery.innerHTML = item;
         index++;
 
-        if(index >= message.length){
-            index=0;
+        if (index >= message.length) {
+          index = 0;
         }
+
+        gallery.animate(
+          [
+            { transform: "translateY(100%)" }, // 아래에서 시작
+            { transform: "translateY(0)" }, // 원래위치로 끝
+          ],
+
+          {
+            duration: 900,
+          },
+        );
+      }
+      function next2() {
+        const item = message[index2];
+        const gallery = document.querySelector("#gallery2"); // 두 번째(2번)
+        gallery.innerHTML = item;
+        index2++;
+        if (index2 >= message.length) index2 = 0;
+
+        gallery.animate(
+          [{ transform: "translateY(100%)" }, { transform: "translateY(0)" }],
+          { duration: 900 },
+        );
+      }
+      function init() {
+        if (timerId !== null) return;
+        timerId = setInterval(next2, 3000);
+      }
+
+      function stopGallery() {
+        clearInterval(timerId);
+        timerId = null;
       }
     </script>
   </body>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품추가</title>
+    <style>
+        .wrap{
+            width: 500px;
+            height: 300px;
+            /* border: 1px solid black; */
+            margin: 0 auto;
+        }
+        .user{
+            /* border: 1px solid black; */
+        }
+        .user input{
+            border: 1px solid lightgray;
+            outline: none;
+            width: 200px;
+            height: 30px;
+            margin-top: 10px;
+        }
+        .user button{
+            height: 30px;
+        }
+        .list{
+            /* border: 1px solid black; */
+            margin: 5px;
+        }
+        .result{
+            /* border: 1px solid orange; */
+            height: 100px;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function add(){
+            // alert("ehdekd");
+            
+            //1.입력태그 가져오기
+            const nameInput = document.querySelector(".goods");
+            const priceInput = document.querySelector(".prices");
+
+
+            //2.입력된 값 가져오기
+            const name= nameInput.value ;
+            const price= priceInput.value ;
+
+             
+            //3.새로운 div아이템 생성
+            const divItem = document.createElement("div");
+            divItem.classList.add("divItem");
+
+
+            //4. 한 문장으로 정리
+            divItem.innerHTML=`상품명은 ${name} | 가격은 : ${price}원`;
+
+
+            //5.부모요소(result)에 넣기
+            const result = document.querySelector(".result");
+            result.appendChild(divItem);
+
+
+            //6. 입력값 초기화, 포커스 이동
+            nameInput.value="";
+            priceInput.value="";
+            nameInput.focus();
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div>상품추가</div>
+        <div class="user">
+            <input type="text" placeholder="상품명" class="goods">
+            <input type="text" placeholder="가격" class="prices">
+            <button onclick="add()">추가</button>
+        </div>
+
+        <div class="list">
+            <div>상품목록</div>
+            <div class="result"></div>
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
