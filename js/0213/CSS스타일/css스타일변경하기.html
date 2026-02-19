@@ -5,32 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .a{
-            width: 100px;
-            height: 100px;
+        .a{ /* a이면 크기가 100* 100 배경색 빨강 */
+            width: 300px;
+            height: 300px;
             background-color: red;
         }
-        .b{
-            width: 100px;
-            height: 50px;
+        .b{ /* b이면 크기가 100*50 배경색 초록색 */
+            width: 400px;
+            height: 400px;
             background-color: green;
+        }
+        .img1{            
+            background-image: url(../../0213/TEST/images/img01.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .img2{
+            background-image: url(../../0213/TEST/images/img02.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
     </style>
     <!-- 경계선------------------------------------------------------------------------------- -->
     <script>
         function styleChange(){
             // alert("안녕");
-            const item1=document.querySelector(".a");
-            console.log(item1);
-            item1.classList.replace("a", "b");   
+            const item1=document.querySelector(".a"); /* .a 클래스 찾아서 item1에 할당 */
+            // console.log(item1); 잘 들어갔는지 확인
+            item1.classList.replace("a", "b");   /* a를  b로 대체 */
+        }
+        function imageChange(){
+            const img1 = document.querySelector(".img1");
+            console.log(img1);
+            img1.classList.replace("img1", "img2");
         }
     </script>
+
+    <!-- querySelector : CSS 선택자 방식으로 요소 찾기
+        onclick(이벤트) : 사용자의 행동(클릭)하면 함수 실행
+        classList : 클래스 조작 도구(추가/삭제/토글/교체)
+        .replace 교체 -->
+        
 </head>
 <body>
-    <div class="a">item1</div>
+    <div class="a img1">item1</div>
 
     <p>JavaScript로 클래스를 추가, 삭제, 토글</p>
 
     <button onclick="styleChange()">스타일변경하기</button>
+    <button onclick="imageChange()">이미지변경하기</button>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div{
+        div{ /* 원래 모든 내용 안보이게 */
             display: none;
         }
         
@@ -20,11 +20,20 @@
             item.classList.toggle("on"); /*classList => 개발자가 준 클래스를 목록형태로 제공함*/
             
         }
+        function toggle2(){
+            const item = document.querySelector(".a");
+            item.classList.toggle("on");
+        }
     </script>
+    <!-- div.on : div이면서 on클래스를 가진 요소 
+     getElementById : id로 요소 찾기(클래스 대신 id로 찾을 때에)
+     classList.toggle : 클래스가 있으면 제거, 없으면 추가(add, remove 더 쉬운 버전) -->
+
 </head>
 <body>
     <div id="item">내용 보이기</div>
     <button onclick="toggle()">토글</button>
-    <div class="a b c"></div>
+    <div class="a b c">내용 보이기 두번째</div>
+    <button onclick="toggle2()">토글2</button>
 </body>
 </html>

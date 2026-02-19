@@ -20,38 +20,57 @@
 
     <script>
         // 클래스추가 :add,  remove 
-        function style1(){
+        function addStyle1(){
             //alert("dkf"); 
           const item1=  document.querySelector(".item1");
           item1.classList.add("style1");
         }
 
-        function style2(){
+        function addStyle2(){
             //alert("dkf");
              const item2=  document.querySelector(".item2");
              item2.classList.add("style2");
         }
 
-        function style3(){
+        function removeStyle1(){
             //alert("dkfkf");
             const item1= document.querySelector(".item1");
             item1.classList.remove("style1");
         }
 
-        function style4(){
+        function removeStyle2(){
              const item2= document.querySelector(".item2");
              item2.classList.remove("style2");
         }
+        
+        function addStyle1andRemoveStyle2(){
+            const item3 = document.querySelector(".item3");
+            item3.classList.add("style1");
+            item3.classList.remove("style2");
+        }
+        function addStyle2andRemoveStyle1(){
+            const item3= document.querySelector(".item3");
+            item3.classList.remove("style1");
+            item3.classList.add("style2");
+        }
     </script>
+    <!-- querySelector : CSS 선택자 방식으로 요소 찾기
+        onclick(이벤트) : 사용자의 행동(클릭)하면 함수 실행
+        classList : 클래스 조작 도구(추가/삭제/토글/교체)
+        .add 추가(중복을 쌓이지 않음) remove(삭제, 이미 없어도 에러 x) -->
 </head>
 <body>
     <div class="item1"> item1</div>
     <div class="item2"> item2</div>
+    <div class="item3">item3</div>
 
-    <button onclick="style1()"> 스타일1</button>
-    <button onclick="style2()"> 스타일2</button>
+    <button onclick="addStyle1()"> 스타일1</button>
+    <button onclick="addStyle2()"> 스타일2</button>
 
-    <button onclick="style3()"> 스타일1 취소</button>
-    <button onclick="style4()"> 스타일2 취소</button>    
+    <button onclick="addStyle1andRemoveStyle2()">1추가 2제거</button>
+    <button onclick="addStyle2andRemoveStyle1()">2추가 1제거</button>
+
+    <button onclick="removeStyle1()"> 스타일1 취소</button>
+    <button onclick="removeStyle2()"> 스타일2 취소</button>    
 </body>
 </html>

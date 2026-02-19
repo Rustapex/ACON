@@ -15,6 +15,9 @@
             const div = document.createElement("div");
             //내용, 스타일속성 
             div.innerHTML="동적으로 생성된 태그";
+            /* innerHTML은 요소 내부를 HTML로 해석해서 통째로 설정한다.
+                개발자가 넣는 고정 문자열은 괜찮지만,
+                사용자 입력을 그대로 넣으면 HTML/스크립트가 실행될 수 있는 보안(XSS) 위험이 있어서 조심해야 한다. */
             div.style.backgroundColor="blue";
             div.style.width = "100px";
 
@@ -24,15 +27,50 @@
 
             //3번
             result.appendChild(div);
+            /* 스타일은 div에 이미 들어있다.
+            하지만 DOM 트리에 들어오기 전까지는 렌더링이 안 된다.
+            appendChild는 그 요소를 DOM 트리에 넣어서 브라우저가 
+            스타일 계산→레이아웃→그리기를 하게 만든다. */
         }
+        function removeDiv(){
+            const result = document.getElementById("result");
+            const last = result.lastElementChild;
+
+            if(!last){
+                alert("제거할 항목이 없습니다.");
+                return;
+            }
+            result.removeChild(last);
+        }
+        function changeDiv(){
+            const result = document.getElementById("result");
+            const last = result.lastElementChild;
+
+            if(!last){
+                alert("변경할 항목이 없습니다.");
+                return;
+            }
+            last.innerHTML= "변경된 태그";
+            last.style.backgroundColor= "purple";
+            last.style.width = "150px";
+        }
+        
     </script>
+    <!-- createElement : 메모리(화면 밖)에 새 div DOM 요소를 만든다.
+     그 요소를 const div에 담는다
+     div.style ... 로 그 요소에 css 속성을 설정
+     getElementById("result")로 부모요소를 찾아(자식 가장 마지막에 추가) 
+     const result에 담는다 -->
 </head>
 <body>
     <div id = "result">
 
     </div>
+    <div id="result2"></div>
     <button onclick="addDiv()">
         클릭
     </button>
+    <button onclick="removeDiv()">제거</button>
+    <button onclick="changeDiv()">변경</button>
 </body>
 </html>
