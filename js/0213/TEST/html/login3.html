@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>index</title>
   <style>
     header{
       height: 100px;
-      position: relative;
       background-color: rgb(245,248,248);
+      position: relative;
     }
     .title{
-      position: absolute;
+      position:absolute;
       left: 10px;
       top: 20px;
     }
     .search{
-      display: flex;
       position: absolute;
-      right: 10px;
-      bottom: 20px;
+      display: flex;
       width: 200px;
       height: 50px;
+      right: 10px;
+      bottom: 20px;
     }
     .search input{
       width: 150px;
       border: none;
-      outline :none;
+      outline: none;
+    }
+    .search_img{
+      width: 50px;
+      height: 50px;
+      background-image: url(../images/검색.png);
+      background-position: center;
+      background-size: cover;
     }
     /* nav */
     nav{
@@ -35,8 +42,8 @@
       background-color: rgb(232,243,243);
     }
     nav a{
-      text-decoration: none;
       color: black;
+      text-decoration: none;
       padding: 5px;
     }
     /* section */
@@ -44,10 +51,10 @@
       height: 600px;
     }
     .log_wrap{
-      margin: 0 auto;
-      padding: 20px;
       width: 400px;
+      padding: 20px;
       border:  0.5px solid rgb(234,222,222);
+      margin: 0 auto;
     }
     .log_img{
       margin: 0 auto;
@@ -73,7 +80,7 @@
       margin-top: 10px;
     }
     
-    /* footer */
+    /*footer  */
     footer{
       height: 60px;
       background-color: rgb(233,239,239);
@@ -85,11 +92,12 @@
       text-align: left;
       margin-top: 20px;
     }
+
   </style>
 </head>
 <body>
   <header>
-    <div class="title">
+    <div class="tilte">
       <img src="../images/logo.png">
     </div>
     <div class="search">
@@ -119,9 +127,9 @@
       <img src="../images/footer_acorn.png">
     </div>
     <div class="item">(주)에이콘이츠 에이콘아카데미(홍대)</div>
-    <div class="item">COPYRIGHT HIBLAB</div>
+    <div class="item">COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED</div>
   </footer>
-  
+
   <script>
     function check(){
       let frm = document.frm;
@@ -130,19 +138,24 @@
       if((id.value=="")&&(pw.value=="")){
         alert("아이디와 비밀번호를 입력하세요");
         id.focus();
+        return;
       }
-      else if(id.value==""){
+      if(id.value==""){
         alert("아이디를 입력하세요");
         id.focus();
+        return;
       }
-      else if(pw.value==""){
+      if(pw.value==""){
         alert("비밀번호를 입력하세요");
         pw.focus();
+        return;
       }
       else{
         alert("로그인 성공입니다");
       }
+
     }
   </script>
+  
 </body>
 </html>
