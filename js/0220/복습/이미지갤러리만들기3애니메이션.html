@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery-wrap {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: relative;
+              overflow: hidden;
+        }
+
+        .title{
+            position: absolute;
+            top:20px;
+            left: 120px;
+            
+        }
+        .gallery {
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgb(218, 17, 17);
+
+          
+
+            background-image: url(media/Penguins.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+
+        .prev {
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+
+
+        }
+
+
+        .next {
+
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+        }
+
+      
+    </style>
+
+    <script>
+        let imgNames = ["media/Penguins.png",
+            "media/Lighthouse.png",
+            "media/Chrysanthemum.png",
+            "media/Desert.png",
+            "media/Hydrangeas.png",
+            "media/Jellyfish.png",
+            "media/Koala.png",
+            "media/Tulips.png"
+        ];
+
+        const titles = ["펭귄", "집", "국화", "사막", "수국", "해파리", "코알라", "튤립"];        
+
+
+        let index = 0;
+        function next() {
+            // alert("djdjf");
+            index++;  // index = index+1;
+
+
+            if( index  >= imgNames.length){
+                index=0;
+            }
+
+            const gallery = document.querySelector(".gallery");
+            gallery.style.backgroundImage = "url(" + imgNames[index] + ")";
+            gallery.style.backgroundPosition = "center"
+            gallery.style.backgroundSize = "cover";
+
+            const title  =document.querySelector(".title");
+            title.textContent=titles[index];
+
+
+
+            
+            gallery.animate( 
+                [
+                    { transform: 'translateX(100%)' },   // 아래에서 시작  
+                    { transform: 'translateX(0)' }       // 원래위치로 
+                ], 
+                
+                {
+                    duration: 1000
+                
+                }
+           );
+
+
+        }
+
+        function prev() {
+            // alert("djdjf");
+            index--;  // index = index+1;
+
+            if( index < 0){
+                index = imgNames.length-1;   
+            }
+            const gallery = document.querySelector(".gallery");
+            gallery.style.backgroundImage = "url(" + imgNames[index] + ")";
+            gallery.style.backgroundPosition = "center"
+            gallery.style.backgroundSize = "cover";          
+
+            const title  =document.querySelector(".title");
+            title.textContent=titles[index];   
+            
+            
+
+              gallery.animate( 
+                [
+                    { transform: 'translateX(-100%)' },   // 아래에서 시작  
+                    { transform: 'translateX(0)' }       // 원래위치로  끝
+                ], 
+                
+                {
+                    duration: 1000
+                
+                }
+           );
+
+        } 
+
+
+
+    </script>
+</head>
+
+<body>
+
+
+
+    <!--이미지 갤러리-->
+    <div class="gallery-wrap">
+        <!--이미지-->
+        <div class="gallery"></div>
+        <!-- 이미지 설명-->
+         <div class="title"> 펭귄</div>
+        <!--갤러리 버튼-->
+        <div class="prev"  onclick="prev()">
+            << </div>
+                <div class="next" onclick="next()"> >> </div>
+        </div>
+</body>
+
+</html>

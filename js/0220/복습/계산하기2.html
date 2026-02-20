@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // input -> value 속성 
+        
+        function calc(){
+          const qty=  document.getElementById("qty");
+          const price=  document.getElementById("price");
+          const amt=  document.getElementById("amt");   
+          
+          let qtyValue  =  parseInt( qty.value);  //dd =>  NaN 발생
+          let priceValue  = parseInt( price.value);
+
+          //유효성 
+          if( isNaN(qtyValue) || isNaN(priceValue) ){
+              console.log( "숫자가 아님");
+              qtyValue=0;
+              priceValue=0;
+              //alert("숫자 아니다")
+              //return;  // 아래 코드를 수행하지 않고 함수를 호출한 쪽으로 돌아감
+          }
+
+
+         let amount  = qtyValue *priceValue;
+
+         //alert( amount);
+         amt.value  = amount;
+
+
+        }
+
+    </script>
+</head>
+<body>
+    
+    수량<input type="text" id="qty"  onkeyup="calc()" > 
+    * 단가<input type="text"  id="price" onkeyup="calc()"> 
+     =<input type="text" id="amt">
+
+   
+
+
+
+</body>
+</html>

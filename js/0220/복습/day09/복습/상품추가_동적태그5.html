@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>상품 추가</title>
+  <style>
+    .wrap {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      width: 45%;
+    }
+
+    .product-list {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    .product-item {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-item button {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function addCart() {
+
+
+      const nameInput = document.getElementById("productName");
+      const priceInput = document.getElementById("productPrice");
+
+      const name = nameInput.value.trim();
+      const price = priceInput.value.trim();
+
+    
+      /* 부모 지정*/
+      const productList = document.getElementById("productList");
+
+
+      // 상품 항목 div 생성
+      const item = document.createElement("div");
+      item.className = "product-item";
+
+
+      // 상품 정보 span
+      const infoSpan = document.createElement("span");
+      infoSpan.textContent = `상품명: ${name} | 가격: ${parseInt(price).toLocaleString()}원`;
+
+
+      // 삭제 버튼 생성
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "삭제";
+      delBtn.addEventListener("click", function () {
+        const item =  this.closest(".product-item");
+        item.remove();
+         
+      });
+
+      
+      // 자식 요소 추가
+      item.appendChild(infoSpan);
+      item.appendChild(delBtn);
+
+      // 상품 목록(부모영역) 에 추가
+      productList.appendChild(item);
+
+      // 입력값 초기화
+      nameInput.value = "";
+      priceInput.value = "";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <h2>상품 추가</h2>
+    <form id="productForm">
+      <input type="text" id="productName" placeholder="상품명" />
+      <input type="text" id="productPrice" placeholder="가격" />
+      <button type="button" onclick="addCart()">추가</button>
+    </form>
+
+    <div class="product-list" id="productList">
+      <h3>상품 목록</h3>
+    </div>
+  </div>
+</body>
+</html>

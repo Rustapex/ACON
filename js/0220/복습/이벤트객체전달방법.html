@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function handler( e){
+      console.log( e);
+    }
+
+
+  </script>
+
+</head>
+<body>
+
+   <h3> event객체 전달방식이 다르다 </h3>
+   <a   href="#"  onclick="handler(event)">클릭</a>
+   <a   href="#"  id="aa">클릭2</a>
+  <script>
+  //브라우저가 이벤트 객체 생성
+  //브라우저가 리스너 호출 시 자동 전달
+   
+
+  let aTAG= document.getElementById("aa");
+  aTAG.addEventListener("click", function (e) {   // 자동으로 이벤트객체가 전달된다 
+      console.log(e);
+  });
+
+
+
+
+</script>
+
+
+</body>
+</html>

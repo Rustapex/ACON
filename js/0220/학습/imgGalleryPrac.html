@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* 전체 기본 여백/폰트(선택) */
+      body {
+        margin: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      /* ===== 입력 영역 ===== */
+      .singerName {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      #singer {
+        width: 200px;
+        padding: 10px 12px;
+        border: 1px solid #bbb;
+        border-radius: 10px;
+        outline: none;
+        font-size: 14px;
+      }
+
+      #singer:focus {
+        border-color: #333;
+      }
+
+      /* "입력" 버튼 (singerName 안의 버튼만) */
+      .singerName button {
+        padding: 10px 14px;
+        border: 1px solid #333;
+        border-radius: 10px;
+        background: #333;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .singerName button:hover {
+        background: #000;
+      }
+
+      /* ===== 갤러리 박스 ===== */
+      .gallery-wrap {
+        border: 1px solid #222;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden; /* 이미지, 버튼이 테두리 밖으로 삐져나오지 않게 */
+      }
+
+      /* 이미지 영역 */
+      .gallery {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /* ===== 제목(앨범 이름) ===== */
+      .title {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%); /* 가운데 정렬 완성 */
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 5;
+        user-select: none;
+      }
+
+      /* ===== 좌/우 버튼 ===== */
+      .gallery-btn {
+        width: 34px;
+        height: 34px;
+        border: none;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        font-size: 14px;
+        z-index: 6;
+        user-select: none;
+      }
+
+      /* 버튼 위치: 박스 안쪽으로 넣어서 깔끔하게 */
+      .left {
+        left: 10px;
+      }
+      .right {
+        right: 10px;
+      }
+
+      .gallery-btn:hover {
+        background: rgba(0, 0, 0, 0.75);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="singerName">
+      <input
+        type="text"
+        id="singer"
+        placeholder="mrch 또는 cheeze 입력"
+        autocomplete="off"
+      />
+      <button onclick="getName()">입력</button>
+    </div>
+
+    <!-- gallery  -->
+    <div class="gallery-wrap">
+      <!-- gallery title  -->
+      <div class="title"></div>
+      <!-- gallery img -->
+      <div class="gallery"></div>
+      <!-- gallery btn -->
+      <div class="gallery-btn left" onclick="prev()">왼</div>
+      <div class="gallery-btn right" onclick="next()">오</div>
+    </div>
+
+    <script>
+      const Singer = {
+        mrch: ["let's march!", "아직은 낭만", "나의 세상 너의 세상"],
+        cheeze: ["recipe!", "CHEEZE 1.5집 Plain", "It just happened"],
+      };
+      const album = {
+        mrch: ["media/mrchFir.jfif", "media/mrchsec.jfif", "media/mrchthr.jpg"],
+        cheeze: [
+          "media/firstAlbum.jfif",
+          "media/secAlbum.jfif",
+          "media/thrAlbum.jfif",
+        ],
+      };
+      //   let currentSinger = document.getElementById("singer");
+      let currentSinger = "mrch";
+      let index = 0;
+      function render() {
+        const gallery = document.querySelector(".gallery");
+        const titleE1 = document.querySelector(".title");
+
+        gallery.style.backgroundImage = `url(${album[currentSinger][index]})`;
+        gallery.style.backgroundPosition = "center";
+        gallery.style.backgroundSize = "cover";
+        titleE1.textContent = Singer[currentSinger][index];
+      }
+      function next() {
+        index++;
+        if (index >= album[currentSinger].length) {
+          index = 0;
+        }
+        render();
+      }
+      function prev() {
+        index--;
+        if (index < 0) {
+          index = album[currentSinger].length - 1;
+        }
+        render();
+      }
+      function getName() {
+        const input = document.getElementById("singer");
+        const value = input.value.trim().toLowerCase();
+
+        // 유효한 키인지 확인 (mrch/cheeze만 허용)
+        if (!album[value]) {
+          alert("mrch 또는 cheeze만 입력하세요!");
+          return;
+        }
+
+        currentSinger = value; // 선택된 가수로 변경
+        index = 0; // 첫 앨범부터 보이게 초기화
+        render(); // 화면 갱신
+      }
+
+      render();
+    </script>
+  </body>
+</html>

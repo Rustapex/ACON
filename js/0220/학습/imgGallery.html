@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .gallery-wrap {
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .title{
+        position: absolute;
+        left: 50%;
+      }
+      .gallery {
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+
+        background-image: url(media/Penguins.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .gallery-btn {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        position: absolute;
+        top: 50%;
+        /* transform : translateY(-50%); 
+            수직방향 가운데 위치하려면 y축으로 이동 */
+      }
+      .left {
+        left: -20px;
+      }
+      .right {
+        right: -20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- gallery  -->
+    <div class="gallery-wrap">
+      <!-- gallery title  -->
+       <div class="title">펭귄</div>
+      <!-- gallery img -->
+      <div class="gallery"></div>
+      <!-- gallery btn -->
+      <div class="gallery-btn left" onclick="prev()">왼</div>
+      <div class="gallery-btn right" onclick="next()">오</div>
+    </div>
+
+    <script>
+      let imgNames = [
+        "media/Penguins.png",
+        "media/Lighthouse.png",
+        "media/Chrysanthemum.png",
+        "media/Desert.png",
+        "media/Hydrangeas.png",
+        "media/Jellyfish.png",
+        "media/Koala.png",
+        "media/Tulips.png",
+      ];
+      const titles = [
+        "펭귄",
+        "집",
+        "국화",
+        "사막",
+        "수국",
+        "해파리",
+        "코알라",
+        "튤립",
+      ];
+      let index = 0;
+      function next() {
+        /* img gallery selector */
+        const gallery = document.querySelector(".gallery");
+
+        gallery.style.backgroundImage = `url(${imgNames[index]})`;
+        gallery.style.backgroundPosition = "center";
+        gallery.style.backgroundSize = "cover";
+
+        /* image title selector */
+        const titleE1 = document.querySelector(".title");
+        titleE1.textContent = titles[index];
+
+        index++;
+        if (index >= imgNames.length) {
+          index = 0;
+        }
+      }
+      function prev() {
+        index--;
+        if (index < 0) {
+          index = imgNames.length - 1;
+        }
+        const gallery = document.querySelector(".gallery");
+        gallery.style.backgroundImage = `url(${imgNames[index]})`;
+        gallery.style.backgroundPosition = "center";
+        gallery.style.backgroundSize = "cover";
+      }
+    </script>
+  </body>
+</html>

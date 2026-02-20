@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        border: 1px solid black;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        margin-bottom: 10px;
+      }
+      .outer-box {
+        border: 1px solid black;
+        width: 500px;
+        height: 400px;
+        display: flex; /* flex-direction : row; 기본값 => 주축 수평방향 */
+        justify-content: center; /* 주축 가운데 */
+        align-items: center; /* 교차축 가운데 */
+        margin-bottom: 10px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+      .item2 {
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+      }
+      /* body{
+            display: flex;
+            justify-content: center;  body에 높이를 정해줘야 
+            align-items: center;
+            height: 100vh;
+        } */
+      .Body {
+        /* 아무것도 없는 상태에서 body라고 생각 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .outer-box3 {
+        width: 500px;
+        height: 400px;
+        border: 1px solid black;
+        position: relative;
+      }
+      .item3 {
+        width: 100px;
+        height: 200px;
+        border: 1px solid black;
+        position: absolute; /* absolute 해야 중앙 정렬 가능 */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">요소 정 가운데</div> <!-- 클래스(박스) 안 중앙정렬 -->
+    <div class="outer-box">
+      <div class="box"></div> <!-- 박스 안 박스 중앙 정렬 -->
+    </div>
+    <div class="Body">
+      <div class="item2"></div> <!-- body로 중앙정렬(body 안에 div 하나만 있다고 가정) -->
+    </div>
+
+    <div class="outer-box3">
+      <div class="item3"></div> <!-- 부모를 기준으로 중앙 정렬 -->
+    </div>
+  </body>
+</html>

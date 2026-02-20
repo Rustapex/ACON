@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>상품 추가</title>
+    <style>
+        .wrap {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+
+ 
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            width: 42%;
+        }
+ 
+
+        .product-list {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .product-item {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+
+
+    <script>
+
+        function addCart() {
+
+            const nameInput = document.getElementById("productName");
+            const priceInput = document.getElementById("productPrice");
+
+            const name = nameInput.value.trim(); 
+            const price = priceInput.value.trim(); 
+ 
+ 
+
+ 
+            //부모 얻어오기
+            const productList = document.getElementById("productList");
+ 
+            // 상품 정보 div 생성
+            const item = document.createElement("div");
+            item.className = "product-item";
+            item.textContent = `상품명: ${name} | 가격: ${parseInt(price).toLocaleString()}원`;
+
+            
+            // 상품 목록에 추가
+            productList.appendChild(item);
+
+
+            // 입력창 초기화
+            nameInput.value = "";
+            priceInput.value = "";
+            nameInput.focus();
+
+        }
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <h2>상품 추가</h2>
+        <form id="productForm">
+            <input type="text" id="productName" placeholder="상품명" />
+            <input type="text" id="productPrice" placeholder="가격" />
+            <button type="button" onclick="addCart()">추가</button>
+        </form>
+
+        <div class="product-list" id="productList">
+            <h3> 상품 목록</h3>
+            <!-- 여기에 상품이 추가 -->
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

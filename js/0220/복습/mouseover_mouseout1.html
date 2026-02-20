@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+        }
+    </style>
+
+    <script>
+        function a(obj){
+
+            console.log("over" );
+
+            obj.style.backgroundColor="orange";
+            obj.textContent="마우스 올락감!!";
+        }
+
+        function b(obj){
+            console.log( "out");
+            obj.style.backgroundColor="red";
+            obj.textContent="마우스  올려봐 !!!";            
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="item"  onmouseover="a(this)"   onmouseout="b(this)"></div>
+
+</body>
+</html>

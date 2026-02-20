@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .outer-box{
+            width: 500px;
+            height: 400px;
+            border: 1px solid black;  
+
+            position: relative;
+            
+        }
+
+        .item{
+          width: 100px;  
+          height:150px;
+          border: 1px solid black;
+
+
+          position: absolute;
+
+          /*left  ,right , top, bottom  =>기본 position에서는 적용이 안됨   */ 
+          top:50%;
+          left: 50%;
+
+          transform: translate( -50% , -50%);
+
+
+
+        }
+    </style>
+</head>
+<body>
+        
+    <div class="outer-box">
+        <div class="item"></div>
+    </div>
+    
+</body>
+</html>

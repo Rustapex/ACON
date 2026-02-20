@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 처리하기</title>
+    <style>
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 클릭 => 이벤트 / 이벤트리스너 => onclick / 이벤트핸들러 => clickhandler 함수 -->
+    <button onclick="alert('hi');">클릭하면 alert 호출</button>
+    <button onclick="clickHandler()">함수로 클릭감지</button>
+    
+    <button id="btn1">js에서 클릭감지</button>
+    
+    <button id="btn2">클릭감지</button>
+
+    <h2>이벤트 객체</h2>
+
+    <p>이벤트 발생하면 이벤트에 관련된 정보가 객체형태로 만들어진다</p>
+    <p>이벤트 객체는 이베트 핸들러함수에게 자동으로 전달된다</p>
+
+    <input type="text" placeholder="검색어" id="search">
+
+    <h3>event 객체 전달방식이 다르다</h3>
+    <a href="#" onclick="handler(evnet)">클릭</a> <!--  이부분 script 추가 필요함 놓쳤음 -->
+    <a href="#" id="aa">클릭2</a>
+    
+    
+    <script>
+        function clickHandler(){
+            alert("function으로 클릭감지");
+            return;
+        }
+    </script>
+    <script>
+        /* 이벤트 속성 사용해 이벤트 처리하기 */
+
+        /* 이벤트 처리대상 선택 */
+        const btn1 = document.getElementById("btn1");
+        btn1.onclick = function(){
+            alert("hi"); /* 2번 초기화 시 앞에 내용 덮어씀 */
+        };
+        btn1.onclick = function(){ 
+            alert("hi hi"); /* 최종 마지막 내용으로 등록됨 */
+        };
+    </script>
+    <script>
+        const btn2 = document.getElementById("btn2");
+        btn.addEventListener("click", function(){ alert("hi");});
+        btn.addEventListener("click", function(){ alert("bye");});
+
+    </script>
+    <script> /* 이벤트 객체 */
+        /* keyup -> 이벤트
+        onkeyup -> 이벤트리스너
+        function aaa(){} -> 이벤트 핸들러 함수 */
+        const search = document.getElementById("search");
+        search.addEventListener("keyup", function(e){ /* 전달되는 이벤트 객체를 받아서 사용할 수 있다. */
+            if(e.key =="Enter"){
+                alert("검색중...");
+            }
+        })
+    </script>
+</body>
+</html>

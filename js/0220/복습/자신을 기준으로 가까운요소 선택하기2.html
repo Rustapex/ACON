@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       
+       .item{
+          display: flex;
+          border: 1px solid black;
+       }
+    </style>
+
+    <script>
+        function getContent( e ){  //매개변수        
+            const btn  =e.target;  //이벤트를 발생시킨 대상 (버튼)
+            const item  =btn.closest(".item");
+
+            const content  = item.querySelector(".aa");
+            alert( content.value);
+
+
+
+        }
+    </script>
+</head>
+<body>
+    
+    <h2>특정요소를 기준으로 가까운 요소태그 찾기</h2>
+
+
+    <p></p>
+
+    <div class="item">
+        <div> <input type="text" class="aa"></div>
+        <div> <button onclick="getContent(event)"> 클릭</button></div>
+    </div>
+
+
+    <div class="item">
+        <div> <input type="text" class="aa"></div>
+        <div> <button  onclick="getContent(event)"> 클릭</button></div>
+    </div>   
+    
+    
+  
+</body>
+</html>

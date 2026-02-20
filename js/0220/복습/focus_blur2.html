@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+
+    <script>
+        window.addEventListener("load" , function(){
+           // alert("dkdfkf");
+           const search  = document.getElementById("search");
+
+           search.addEventListener("focus" ,function(){
+             console.log("focus !!!");
+             search.style.width="300px";
+           });
+
+
+           search.addEventListener("blur" , function(){
+            console.log("blur ^^^^");
+            search.style.width="";
+           });
+
+        });
+        
+
+    </script>
+     
+</head>
+<body>
+
+    <h2> focus, blur 이벤트 처리 </h2>
+    <p> focus :  해당 요소에 포커스가 왔을 때 발생</p>
+    <p> blur  :  포커스가 왔다가 포커스를 잃을때 발생</p>
+    <input type="text" placeholder="검색..."  id="search" >
+    
+</body>
+</html>

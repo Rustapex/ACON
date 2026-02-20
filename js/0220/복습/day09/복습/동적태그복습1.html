@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function addItem(){             
+            //사용자 입력내용 가져오기
+            const item  = document.getElementById("item").value;
+            // 부모영역 얻어오기
+            const itemList  = document.getElementById("item-list");
+            // li태그 생성 
+            const li = document.createElement("li");
+           // li.innerHTML=item;
+             li.innerHTML=`<span>${item}</span> <button onclick="a(this)">삭제</button>`;
+            //부모의 자식으로 추가
+            itemList.appendChild(li); 
+
+        }
+
+        function a( obj){
+            //alert("삭제된다");
+            const li = obj.closest("li");
+            li.remove();
+
+        }
+
+ 
+    </script>
+
+</head>
+<body>
+    
+    <input type="text"  id="item">
+    <button onclick="addItem()"> 추가</button>
+    <ul id="item-list">
+        <!-- li 태그 추가-->
+    </ul>
+
+
+</body>
+</html>

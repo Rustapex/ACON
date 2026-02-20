@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .gallery > div {
+        display: none;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <div class="wrap">
+      <div class="gallery">
+        <div>곧 프론트 프로젝트 곧 시작 합니다!!</div>
+        <div>팀 끼리 재미있게 해 줘요 ^ "</div>
+        <div>2월28일 부터 4일간 휴일이당 !! ^^</div>
+        <div>for , if, 1차원배열, 함수 연습 연습</div>
+        <div>함수가 별거냐 ^^</div>
+        <div>배열이 별거냐 ^^</div>
+        <div>객체가 별거냐 ^^</div>
+        <div>별거 아닌게 모여 별거가 됩니다 ^^</div>
+      </div>
+    </div>
+    <button onclick="nextMessage()">다음</button>
+
+    <script>
+      const message = document.querySelectorAll(".gallery > div");
+
+      function init() {
+        const rnd = Math.floor(Math.random() * message.length);
+        let resultTxt = message[rnd];
+        message[rnd].style.display = "block";
+      }
+      index = 0;
+      function nextMessage() {
+        const item = message[index];
+        /* console.log(로 확인) */
+
+        const gallery = document.querySelector(".gallery");
+        /* console로 확인 */
+        index++;
+        if (index < (message.length-1)) {
+          index =0;
+        } 
+        gallery.textContent = item;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .outer-box{
+            border: 1px solid black;
+            width: 500px;
+            height: 400px;
+
+            display: flex;
+            /*flex-direction: row;    =>   주축: 가로, 교차축: 세로*/
+            justify-content: center;   /* (가로가운데 ) 주축 가운데*/
+            align-items: center;      /*  (세로 가운데 )교차축 가운데  */
+
+
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="outer-box">
+        <div class="box"></div>
+    </div>
+
+</body>
+</html>

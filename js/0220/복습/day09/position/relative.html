@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        li:nth-child(1){
+            background-color: red;
+        }
+
+        
+        li:nth-child(2){
+            background-color: green;
+            position: relative;
+            /* left, top, bottom, right */
+            left:20px;
+            
+        }
+
+        li:nth-child(3){
+            background-color: yellow;
+        }
+        
+        li:nth-child(4){
+            background-color: blue;
+        } 
+   </style>
+</head>
+<body>
+    
+    <!-- relative  자신의 위치를 지킨다  그 위치에서 left, top, bottom, right   사용 -->
+    <!-- position:absolute의 부모로 사용되는 영역에 주로 사용됨 -->
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>
