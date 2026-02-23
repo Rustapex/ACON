@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>element.style 예시</title>
+  <style>
+    /*   이 스타일은 style 태그 내부에 작성됨 */
+    #box {
+      color: blue;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!--   인라인 스타일 -->
+  <div id="box" style="background-color: yellow;">
+      이 요소는 인라인 스타일 + CSS 스타일을 모두 갖고 있어요!
+  </div>
+
+  <script>
+    const box = document.getElementById("box");
+
+    //  ✅ 인라인 스타일 (style="...")만 가져올 수 있음
+    console.log("box.style.backgroundColor:", box.style.backgroundColor); // ✅ "yellow"
+    
+    //  아래는 CSS에서 지정했지만 style에는 없으므로 안 나옴
+    console.log("box.style.color:", box.style.color); //   가져오지 못함  
+    console.log("box.style.fontSize:", box.style.fontSize); // 가져오지 못함   
+  </script>
+</body>
+</html>

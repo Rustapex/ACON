@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>element.style vs getComputedStyle</title>
+  <style>
+    /* 이 스타일은 <style> 태그 내부에 작성됨 (외부 CSS와 동일한 취급) */
+    #box {
+      color: blue;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>element.style vs getComputedStyle 전체 예시</h2>
+
+  <!-- 인라인 스타일 적용 -->
+  <div id="box" style="background-color: yellow;">
+      이 요소는 인라인 스타일 + CSS 스타일을 모두 갖고 있어요!
+  </div>
+
+  <script>
+    const box = document.getElementById("box");
+
+    // ✅ element.style: 인라인 스타일만 확인 가능
+    console.log("인라인 스타일");
+    console.log("color:", box.style.color);                 //   "" (CSS에만 있음)
+    console.log("fontSize:", box.style.fontSize);           //   "" (CSS에만 있음)
+    console.log("backgroundColor:", box.style.backgroundColor); // ✅ "yellow" (인라인에 있음)
+
+
+    
+    // ✅ getComputedStyle: 최종 적용된 모든 스타일 확인 가능
+    const computed = getComputedStyle(box);
+    console.log("   getComputedStyle() ");
+    console.log("color:", computed.color);                  // ✅ "rgb(0, 0, 255)"
+    console.log("fontSize:", computed.fontSize);            // ✅ "20px"
+    console.log("backgroundColor:", computed.backgroundColor); // ✅ "rgb(255, 255, 0)"
+  </script>
+</body>
+</html>

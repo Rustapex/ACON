@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button  id="btn"> 새창열리기</button>
+    <button  id="btn-close"> 창 닫기 </button>
+
+    <script>
+        const btn  = document.getElementById("btn");
+        let newWindow ;
+        btn.addEventListener("click" , function(){
+           newWindow = window.open("https://www.naver.com" , "newWin" , "left=0, top=0 , width=300, height=300");
+        });
+
+
+
+        const btnClose  = document.getElementById("btn-close");
+        btnClose.addEventListener("click", function(){
+            //새 창 => 닫기 
+            newWindow.close();
+
+        });
+
+    </script>
+</body>
+</html>

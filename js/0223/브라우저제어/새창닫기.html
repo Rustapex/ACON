@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button id="btnOpen" > 새창열기</button>
+    <button id="btnClose"> 새창닫기</button>
+
+
+    <script>
+
+        const  btnOpen  = document.getElementById("btnOpen");
+        const btnClose = document.getElementById("btnClose");
+       // btnOpen.addEventListener("click"  , function(){  alert("open"); });
+        //btnClose.addEventListener("click" , function(){  alert("close");});
+
+         let newWin=null;
+         btnOpen.addEventListener("click"  , function(){ 
+            // alert("open");
+            newWin=window.open("https://www.naver.com" ,"" ,"left=0, top=200 , width=400 , height=300");
+         });
+         btnClose.addEventListener("click" , function(){
+            //  alert("close");
+
+         if( newWin!== null   )  {
+            newWin.close();
+         }
+           
+
+        });
+
+
+
+    </script>
+
+
+
+
+
+
+    
+</body>
+</html>

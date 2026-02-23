@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wheel Page</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow: hidden; /* 기본 스크롤 제거  해야 함 */
+  }
+
+  .container {
+    transition: transform 0.8s ease;
+  }
+
+  section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+  }
+
+  section:nth-child(1) { background: #ff6b6b; }
+  section:nth-child(2) { background: #4ecdc4; }
+  section:nth-child(3) { background: #1a535c; }
+  section:nth-child(4) { background: #ff9f1c; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <section>PAGE 1</section>
+  <section>PAGE 2</section>
+  <section>PAGE 3</section>
+  <section>PAGE 4</section>
+</div>
+
+<script>
+  const container = document.querySelector('.container');
+  const totalPage = 4;
+  let page = 0;
+  let isAnimating = false;
+
+  window.addEventListener('wheel', function(e) {
+
+    if (isAnimating) return;
+
+    if (e.deltaY > 0) {
+      // 아래로
+      if (page < totalPage - 1) {
+        page++;
+      }
+    } else {
+      // 위로
+      if (page > 0) {
+        page--;
+      }
+    }
+
+    isAnimating = true;
+
+    container.style.transform = `translateY(-${page * 100}vh)`;
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 800); // transition 시간과 동일
+  });
+</script>
+
+</body>
+</html>
